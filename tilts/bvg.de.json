@@ -1,0 +1,1347 @@
+bvg = `{
+	"meta": {
+		"_id": "49f253da-4bb2-45ff-8245-32e7c89d3542",
+		"name": "Berliner Verkehrsbetriebe",
+		"created": "2021-06-08T18:00:00+02:00",
+		"modified": "2021-06-08T18:00:00+02:00",
+		"version": 1,
+		"language": "de",
+		"status": "active",
+		"url": "https://www.bvg.de/de/Serviceseiten/Datenschutzhinweise",
+		"_hash": "79c4fdd3ca518830c422cec48f8b9fa064b01a71d330eb05a0c93d38b4aff1e5"
+	},
+	"controller": {
+		"name": "Berliner Verkehrsbetriebe AöR",
+		"address": "Holzmarktstraße 15-17, 10179 Berlin",
+		"country": "DE",
+		"representative":{
+			"name": "Eva Kreienkamp (Vorsitzende), Dr. Rolf Erfurt und Dirk Schulte"
+		}
+	},
+	"dataProtectionOfficer": {
+		"email": "datenschutz@bvg.de",
+		"country": "DE",
+		"address": "Holzmarktstraße 15-17, 10179 Berlin"
+	},
+	"dataDisclosed": [
+		{
+			"_id": "380760cf-2702-4a0c-b529-d36c479b0221",
+			"category": "IP-Adresse; Zeitpunkt der Anfrage; Gerätedaten, wie Betriebssystem, Browserversion, Bildschirmauflösung; Einstellungen, die Sie bei der Nutzung unserer Website vornehmen",
+			"purposes": [
+				{
+					"purpose": "Website-Funktionalität",
+					"description": "funktionale Cookies, die für eine reibungslose Nutzung der Webseite erforderlich sind."
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO):"
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO): Sicherstellung der der reibungslosen Nutzung und wesentlicher Grundfunktionen der Webseite."
+				}
+			],
+			"recipients": [],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [
+						"Es handelt sich hierbei um Session-Cookies"
+					],
+          			"legalBasisConditional" : [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": ""
+			}
+		},
+		{
+			"_id": "c4b49913-5e39-4b73-bf7f-4056dac66ff0",
+			"category": "Grund der Konkaktaufnahme; E-Mail-Adresse; Name",
+			"purposes": [
+				{
+					"purpose": "Kundenservice",
+					"description": "um den Grund der Kontaktaufnahme zu ermitteln und Ihnen entsprechend zu helfen"
+				},
+				{
+					"purpose": "Dienstoptimierung",
+					"description": "um zu gewährleisten, dass unsere Dienste ordnungsgemäß funktionieren und um unsere Bearbeitungsprozesse zu verbessern und zu beschleunigen, z.B. durch optimierte Zuordnungsfunktionalitäten"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-b",
+					"description": "die Rechtsgrundlage für die Bearbeitung von Anfragen unserer Kunden, mit denen wir Verträge haben."
+				},
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": ""
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "...haben wir ein berechtigtes Interesse daran, einen reibungslosen Kundenservice zu gewährleisten."
+				}
+			],
+			"recipients": [],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [
+						"Wenn der Grund für die Datenverarbeitung wegfällt, werden alle von Ihnen eingegebenen personenbezogenen Daten gelöscht",
+						"Daten, die für die Vertragsbearbeitung benötigt werden [...] bleiben hiervon unberührt.",
+						"Daten, die [...] gesetzlichen Aufbewahrungsfristen (z.B. steuerliche Gründe) unterliegen, bleiben hiervon unberührt."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": true,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "02e8fa6e-323b-4a6e-88e6-04fd34cdbce6",
+			"category": "Vorname; Nachname; Anschrift (beim Online-Verfahren: auch E-Mail-Adresse); Informationen zu Ihren fachlichen Kompetenzen sowie Nachweise entsprechender Angaben; Geburtsdatum; Gehaltsvorstellung; das Vorliegen eines gültigen Aufenthaltstitels; weitere Daten, die Sie uns mit Ihrer Bewerbung übermitteln; Durch den Chatbot hochgeladene Dokumente",
+			"purposes": [
+				{
+					"purpose": "Bewerberauswahl",
+					"description": "Zur Durchführung des Bewerbungsverfahrens"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "BDSG-26-1",
+					"description": "Rechtsgrundlage für die Verarbeitung ist § 26 Abs. 1 S. 1 Bundesdatenschutzgesetz („BDSG“) in Verbindung mit § 18 Berliner Datenschutzgesetz (BlnDSG)."
+				},
+				{
+					"reference": "BLNDSG-18",
+					"description": "Rechtsgrundlage für die Verarbeitung ist § 26 Abs. 1 S. 1 Bundesdatenschutzgesetz („BDSG“) in Verbindung mit § 18 Berliner Datenschutzgesetz (BlnDSG)."
+				},
+				{
+					"reference": "AUFENTHG-4-3",
+					"description": " Rechtsgrundlage für diese Abfrage ist die Verpflichtung der BVG, Personen nur dann zu beschäftigen, wenn diese eine gültige Arbeitserlaubnis haben"
+				}
+				
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"category": "diejenigen Personen innerhalb der BVG, die mit der Durchführung der Bewerbungsverfahren befasst sind"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Die personenbezogenen Daten, die die BVG in Bezug auf Bewerber verarbeitet, werden sechs Monate nach Abschluss des Bewerbungsverfahrens gelöscht",
+							"ttl": "P6M"
+						}
+					],
+					"purposeConditional": [
+						"Die personenbezogenen Daten, die die BVG in Bezug auf Bewerber verarbeitet, werden sechs Monate nach Abschluss des Bewerbungsverfahrens gelöscht, soweit diese Daten nicht legitimer Weise für andere Zwecke benötigt werden",
+						"Gesetzliche Aufbewahrungspflichten bleiben unberührt."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": true,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "2b575be1-8e45-4135-890a-72f1d3d4dd81",
+			"category": "Name; Konktaktdaten; Qualifikationen; weitere Daten, die Sie uns mit Ihrer Bewerbung übermitteln",
+			"purposes": [
+				{
+					"purpose": "Bewerberauswahl",
+					"description": "zum Zweck der Bewerberauswahl für ein Beschäftigungsverhältnis"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "BDSG-26-1",
+					"description": "Die Datenverarbeitung beruht auf § 26 Abs. 1 BDSG, § 18 BlnDSG."
+				},
+				{
+					"reference": "BLNDSG-18",
+					"description": "Die Datenverarbeitung beruht auf § 26 Abs. 1 BDSG, § 18 BlnDSG. Freiwillige Angaben im Rahmen Ihrer Bewerbung verarbeiten wir auf Grundlage von § 26 BDSG, § 18 BlnDSG in Verbindung mit Art. 6 Abs. 1 S. 1 lit. a DSGVO."
+				},
+				{
+					"reference": "BDSG-26",
+					"description": "Freiwillige Angaben im Rahmen Ihrer Bewerbung verarbeiten wir auf Grundlage von § 26 BDSG, § 18 BlnDSG in Verbindung mit Art. 6 Abs. 1 S. 1 lit. a DSGVO."
+				},
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Freiwillige Angaben im Rahmen Ihrer Bewerbung verarbeiten wir auf Grundlage von § 26 BDSG, § 18 BlnDSG in Verbindung mit Art. 6 Abs. 1 S. 1 lit. a DSGVO."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"category": "Für Bewerbungsprozess zuständige interne Mitarbeiter"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Sofern ein Beschäftigungsverhältnis zustande kommt, werden die Daten, die für die Durchführung des Beschäftigungsverhältnisses erforderlich sind, weiterverarbeitet. Alle anderen Daten werden nach Beendigung des Bewerbungsverfahrens innerhalb von drei Monaten gelöscht",
+							"ttl": "P3M"
+						}
+					],
+					"purposeConditional": [
+						"Sofern ein Beschäftigungsverhältnis zustande kommt, werden die Daten, die für die Durchführung des Beschäftigungsverhältnisses erforderlich sind, weiterverarbeitet",
+						"Gesetzliche Aufbewahrungspflichten bleiben unberührt"
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": true,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "cf83f6c7-a46d-450b-a809-49b5aae5ce05",
+			"category": "Vorname; Name; Geburtsdatum; Geschecht; IP-Adresse; Uhrzeit und Datum des Zugriffs; Browseraktivitäten und -einstellungen; Anmelde-ID-Daten",
+			"purposes": [
+				{
+					"purpose": "Bewerberauswahl",
+					"description": "Bei bestimmten Stellen ist ein Online-Test vorgesehen"
+				},
+				{
+					"purpose": "Sicherheit",
+					"description": "...werden aus Sicherheitsgründen zur Authentifizierung und Eingabesteuerung benötigt;"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "BDSG-26",
+					"description": "Rechtsgrundlage hierfür ist § 26 BDSG iVm § 18 BlnDSG."
+				},
+				{
+					"reference": "BLNDSG-18",
+					"description": "Rechtsgrundlage hierfür ist § 26 BDSG iVm § 18 BlnDSG."
+				},
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Rechtsgrundlage hierfür ist Art. 6 Abs. 1 f) DSGVO"
+				},
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Rechtsgrundlage für die Datenverarbeitung im Zusammenhang mit dem Onlinetest, einschließlich der Auswertung des Onlinetests, ist Ihre Einwilligung gem. Art. 6 Abs. 1 lit. a) DSGVO."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"name": "Aon Assessment GmbH",
+					"address": "Großer Burstah 18-32, 20457 Hamburg",
+					"country": "DE",
+					"representative": {
+						"email": "info.germany@cut-e.com"
+					},
+					"category": "IT-Dienstleister Datenerhebung und Testauswertung"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [],
+          			"legalBasisConditional" : [],
+         			"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "288382a4-068a-49a2-bd30-f5791eed014e",
+			"category": "E-Mail-Adresse; Name; Jobinteressen; IP-Adresse; Datum der Anmeldung; Bestätigung der Anmeldung",
+			"purposes": [
+				{
+					"purpose": "Newsletter",
+					"description": "Mit Ihrer E-Mail-Adresse und Ihrem Namen sowie der Angabe Ihrer Jobinteressen können Sie sich für unseren „Jobalert“-Newsletter anmelden"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Die Rechtsgrundlage dieser Verarbeitung ist Ihre Einwilligung gem. Art. 6 Abs. 1 S. 1 lit. a DSGVO."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Ihre E-Mail-Adresse speichern wir so lange, wie Sie unseren Jobalert abonnieren.Wird Ihr Newsletter-Abonnement nicht innerhalb von 2 Wochen nach Anforderung der Bestätigungsmail bestätigt, werden Ihre bereitgestellten personenbezogenen Daten nicht verarbeitet, sondern automatisch gelöscht",
+							"ttl": "P2W"
+						}
+					],
+					"purposeConditional": [
+						"speichern wir so lange, wie Sie unseren Jobalert abonnieren.",
+						"Wird Ihr Newsletter-Abonnement nicht innerhalb von 2 Wochen nach Anforderung der Bestätigungsmail bestätigt, werden Ihre bereitgestellten personenbezogenen Daten nicht verarbeitet, sondern automatisch gelöscht",
+						"Nach Abmeldung werden Ihre Anmeldedaten gelöscht."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "ce0f891e-340d-4065-9639-ff03bb651a39",
+			"category": "Name; E-Mail-Adresse; Passwort; angegebene freiwillige Daten",
+			"purposes": [
+				{
+					"purpose": "Website-Funktionalität",
+					"description": "Die Verarbeitung Ihrer personenbezogenen Daten erfolgt ausschließlich für die Nutzung des Portals"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Rechtsgrundlage für die Datenverarbeitung sind Art. 6 Abs. 1 S. 1 lit. a, b DSGVO."
+				},
+				{
+					"reference": "DSGVO-6-1-b",
+					"description": "Rechtsgrundlage für die Datenverarbeitung sind Art. 6 Abs. 1 S. 1 lit. a, b DSGVO."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"category": "Andere Teilnehmer des Portals"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Falls Ihre diesbezügliche Bestätigung nicht innerhalb von 1 Tag erfolgt, werden die von Ihnen angegebenen personenbezogenen Daten automatisch aus unserer Datenbank gelöscht.",
+							"ttl": "P1D"
+						}
+					],
+					"purposeConditional": [
+						"Weiterhin speichern wir die von Ihnen angegebenen freiwilligen Daten für die Zeit Ihrer Nutzung des Portals, soweit Sie diese nicht zuvor löschen",
+						"Falls Ihre diesbezügliche Bestätigung nicht innerhalb von 1 Tag erfolgt, werden die von Ihnen angegebenen personenbezogenen Daten automatisch aus unserer Datenbank gelöscht."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "a55585e2-be98-4b69-b1f2-37e32ca477d3",
+			"category": "Vollständiger Name; Adresse; Geburtsdatum; Geschlecht; Kontodaten; Zahlungsweise; ...der vollständige Name, Geburtsdatum, Geschlecht und Adresse der gesetzlichen Vertretung oder des Vormunds/Betreuers; Foto; Berechtigungsnachweis; freiwillige Daten; Personaldokument als Altersnachweis",
+			"purposes": [
+				{
+					"purpose": "Abonnementvertrag",
+					"description": "im Zusammenhang mit dem mit Ihnen bestehenden Abonnementvertrag."
+				},
+				{
+					"purpose": "Kontaktaufnahme",
+					"description": "Die Angabe Ihrer Telefonnummer und Ihrer E-Mail-Adresse ist freiwillig und dient uns im Bedarfsfall der erleichterten Kontaktaufnahme mit Ihnen."
+				},
+				{
+					"purpose": "Betriebsablauf",
+					"description": "wenn dies für den Betriebsablauf erforderlich ist"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-b",
+					"description": "Rechtsgrundlage für die Verarbeitung der benannten Daten ist Art. 6 Abs.1 S. 1 lit. b DSGVO. [...]Darüber hinaus verarbeiten wir pseudonymisiert ID-Nummern der Chipkarte, um deren Echtheit zu verifizieren, sowie personenbezogene Daten unserer Kunden, wenn dies für den Betriebsablauf erforderlich ist. [...] Rechtsgrundlagen hierfür sind Art. 6 Abs. 1 S. 1 lit. b und f DSGVO."
+				},
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Die Angabe Ihrer Telefonnummer und Ihrer E-Mail-Adresse ist freiwillig [...]. Rechtsgrundlage hierfür ist Ihre Einwilligung gem. Art. 6 Abs. 1 lit. a DSGVO"
+				},
+				{
+					"reference": "DSGVO-6-1-b",
+					"description": "Darüber hinaus verarbeiten wir pseudonymisiert ID-Nummern der Chipkarte, um deren Echtheit zu verifizieren, sowie personenbezogene Daten unserer Kunden, wenn dies für den Betriebsablauf erforderlich ist. [...] Rechtsgrundlagen hierfür sind Art. 6 Abs. 1 S. 1 lit. b und f DSGVO."
+				},
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Darüber hinaus verarbeiten wir pseudonymisiert ID-Nummern der Chipkarte, um deren Echtheit zu verifizieren, sowie personenbezogene Daten unserer Kunden, wenn dies für den Betriebsablauf erforderlich ist. [...] Rechtsgrundlagen hierfür sind Art. 6 Abs. 1 S. 1 lit. b und f DSGVO. [...] Darüber hinaus übermitteln wir in bestimmten Fällen personenbezogene Daten vor Abschluss sowie vor wesentlichen Änderungen eines Abonnementvertrages an Auskunfteien, um die Bonität des Abonnenten zu überprüfen. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 S. 1 lit. f DSGVO."
+				},
+				{
+					"reference": "DSGVO-28",
+					"description": "Die Weitergabe in den vorgenannten Fällen beruht auf Art. 28 DSGVO, jeweils in Verbindung mit einem Vertrag über die Auftragsverarbeitung."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Unser berechtigtes Interesse besteht in der Vermeidung von Zahlungsausfällen."
+				}
+			],
+			"recipients": [
+				{
+					"category": "Vertriebsdienstleister für den Fahrscheinverkauf"
+				},
+				{
+					"category": "Dienstleister für den Druck von Fahrscheinen/Chipkarten sowie für die Echtheitsprüfung der VBB-fahrCard"
+				},
+				{
+					"category": "Inkassounternehmen für die Durchsetzung von Forderungen"
+				},
+				{
+					"category": "IT-Dienstleister zu Zwecken der Datenhaltung und Wartung"
+				},
+				{
+					"category": "Bank"
+				},
+				{
+					"name": "Sal.A iT-Services GmbH",
+					"address": "Albertstr. 12, 10827 Berlin",
+					"country": "DE",
+					"representative": {
+						"email": "info@sal-a.de"
+					},
+					"category": "IT-Dienstleister"
+				},
+				{
+					"category": "Inkassounternehmen"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Eingereichte Nachweise im Zusammenhang mit dem Abschluss eines Abonnements werden 10 Tage nach Versendung des Fahrausweises gelöscht",
+							"ttl": "P10D"
+						},
+						{
+							"description": "Wird der Berechtigungsnachweis nur für eine Prüfung [...], jedoch nicht für eine Neuausstellung eines Fahrausweises benötigt, wird der Berechtigungsnachweis spätestens zwei Monate nach der Prüfung gelöscht.",
+							"ttl": "P2M"
+						},
+						{
+							"description": "Nach spätestens zwei Monaten ab Versendung der VBB-fahrCard wird die gespeicherte Bilddatei gelöscht",
+							"ttl": "P2M"
+						}
+					],
+					"purposeConditional": [
+						"Eingereichte Nachweise im Zusammenhang mit dem Abschluss eines Abonnements werden 10 Tage nach Versendung des Fahrausweises gelöscht. Wird der Berechtigungsnachweis nur für eine Prüfung [...], jedoch nicht für eine Neuausstellung eines Fahrausweises benötigt, wird der Berechtigungsnachweis spätestens zwei Monate nach der Prüfung gelöscht.",
+						"Ihre personenbezogenen Daten speichern wir so lange, wie sie für die jeweiligen Zwecke, für die sie verarbeitet wurden, benötigt werden",
+						"Wenn eine gesetzliche Aufbewahrungspflicht (z.B. aus steuerlichen Gründen) besteht, werden wir hierfür erforderliche personenbezogene Daten für die Dauer dieser Aufbewahrungsfrist verarbeiten."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Die Nichtbereitstellung personenbezogener Daten kann in diesen Fällen zur Folge haben, dass Sie mit uns keinen Abonnementvertrag eingehen können."
+			}
+		},
+		{
+			"_id": "995c53cd-1246-4c28-96a5-df303dd5f236",
+			"category": "Foto; Name; Adresse; Firmenzugehörigkeit; Kontodaten; Zahlungsinformationen",
+			"purposes": [
+				{
+					"purpose": "Firmenticket-Vertrag",
+					"description": "Wir verarbeiten wir Ihre personenbezogenen Daten im Zusammenhang mit dem mit Ihnen bestehenden Firmenticket-Vertrag"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-b",
+					"description": "Wir verarbeiten wir Ihre personenbezogenen Daten im Zusammenhang mit dem mit Ihnen bestehenden Firmenticket-Vertrag (Foto, Name, Adresse, Firmenzugehörigkeit, Kontodaten, Zahlungsinformationen). Rechtsgrundlage hierfür ist Art. 6 Abs. 1 S. 1 lit. b DSGVO."
+				},
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Darüber hinaus übermitteln wir in bestimmten Fällen personenbezogene Daten vor Abschluss sowie vor wesentlichen Änderungen eines Abonnementvertrages an Auskunfteien, um die Bonität des Abonnenten zu überprüfen. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 S. 1 lit. f DSGVO."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Unser berechtigtes Interesse besteht in der Vermeidung von Zahlungsausfällen."
+				}
+			],
+			"recipients": [
+				{
+					"category": "Vertriebsdienstleister für den Fahrscheinverkauf"
+				},
+				{
+					"category": "Dienstleister für den Druck von Fahrscheinen/Chipkarten sowie für die Echtheitsprüfung der VBB-fahrCard"
+				},
+				{
+					"category": "Inkassounternehmen für die Durchsetzung von Forderungen"
+				},
+				{
+					"category": "IT-Dienstleister zu Zwecken der Datenhaltung und Wartung"
+				},
+				{
+					"category": "Bank"
+				},
+				{
+					"name": "Sal.A iT-Services GmbH",
+					"address": "Albertstr. 12, 10827 Berlin",
+					"country": "DE",
+					"representative": {
+						"email": "info@sal-a.de"
+					},
+					"category": "IT-Dienstleister"
+				},
+				{
+					"category": "Inkassounternehmen"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Spätestens zwei Monate nach Versendung der VBB-fahrCard wird die gespeicherte Bilddatei gelöscht.",
+							"ttl": "P2M"
+						}
+					],
+					"purposeConditional": [
+						"so lange, wie sie für die jeweiligen Zwecke, für die sie verarbeitet wurden, benötigt werden",
+						"Wenn eine gesetzliche Aufbewahrungspflicht (z.B. aus steuerlichen Gründen) besteht, werden wir hierfür erforderliche personenbezogene Daten für die Dauer dieser Aufbewahrungsfrist verarbeiten."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Die Nichtbereitstellung personenbezogener Daten kann in diesen Fällen zur Folge haben, dass wir Ihnen den beantragten Firmenticket-Fahrausweis nicht zur Verfügung stellen und wir Ihnen gegenüber keine Leistungen erbringen können."
+			}
+		},
+		{
+			"_id": "ca9e6507-edbe-4370-a29d-da691f742818",
+			"category": "Maximale Nutzungsdauer der fahrCard; Kartennummer; Kundenvertragspartner; Name; Vorname",
+			"purposes": [
+				{
+					"purpose": "Fahrausweiskontrolle",
+					"description": "Bei Fahrausweiskontrollen wird die Gültigkeit der jeweiligen Fahrausweise überprüft."
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "BLNBETRDATVO-4",
+					"description": "Die insoweit erforderliche Datenverarbeitung basiert auf § 4 der „Verordnung über die Verarbeitung personenbezogener Daten bei den Berliner Stadtreinigungsbetrieben, den Berliner Verkehrsbetrieben und bei den Berliner Wasserbetrieben“ (BlnBetrDatVO)."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"category": "Kontrollpersonal"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [],
+          			"legalBasisConditional" : [],
+          			"aggregationFunction": "max"
+				}
+				
+
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": "Bei Fahrausweiskontrollen kann die Verweigerung zur Herausgabe von Daten zur Folge haben, dass die Identifizierung von Personen und die Herausgabe erforderlicher Daten mit polizeilicher Unterstützung erfolgen muss."
+			}
+		},
+		{
+			"_id": "0407e23e-cc5a-4865-b0c5-68edd488b764",
+			"category": "Maximale Nutzungsdauer der fahrCard; Kartennummer; Kundenvertragspartner; Name; Vorname; Geschlecht; Anschrift; E-Mail-Adresse; Bankverbindung; Name und Anschrift gesetzlicher Vertreterinnen und Vertreter; Zeit, Ort und sonstige für die Rechtsverfolgung erhebliche Umstände des Vorfalls einschließlich Forderungen.",
+			"purposes": [
+				{
+					"purpose": "Fahrausweiskontrollen",
+					"description": "Kann die Gültigkeit nicht festgestellt werden, ist das erhöhte Beförderungsentgelt verwirkt. In diesem Fall dürfen folgende Daten von Ihnen erhoben werden"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "BLNBETRDATVO-4",
+					"description": "Die insoweit erforderliche Datenverarbeitung basiert auf § 4 der „Verordnung über die Verarbeitung personenbezogener Daten bei den Berliner Stadtreinigungsbetrieben, den Berliner Verkehrsbetrieben und bei den Berliner Wasserbetrieben“ (BlnBetrDatVO)."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"category": "Kontrollpersonal"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Die Daten werden zwei Jahre nach dem letzten einschlägigen Vorfall, frühestens aber mit der Abwicklung des Vorgangs – in Ihrem Fall des Zahlungseingangs – gelöscht bzw. gesperrt.",
+							"ttl": "P2Y"
+						}
+					],
+					"purposeConditional": [
+						"Die Daten werden zwei Jahre nach dem letzten einschlägigen Vorfall, frühestens aber mit der Abwicklung des Vorgangs – in Ihrem Fall des Zahlungseingangs – gelöscht bzw. gesperrt."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": "Bei Fahrausweiskontrollen kann die Verweigerung zur Herausgabe von Daten zur Folge haben, dass die Identifizierung von Personen und die Herausgabe erforderlicher Daten mit polizeilicher Unterstützung erfolgen muss."
+			}
+		},
+		{
+			"_id": "8ed4cc50-098c-484d-9ee8-6d7670524590",
+			"category": "Vorname; Nachname; Kontaktdaten; Adresse; E-Mail-Adresse; Telefonnummer; Organisationseinheit; Dienstausweis-Nummer; Zeitstempel der Anmeldung sowie Ihre Lösung",
+			"purposes": [
+				{
+					"purpose": "Gewinnspiel",
+					"description": "Teilnahme an Gewinnspielen"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-b",
+					"description": "Rechtsgrundlage ist Art. 6 Abs. 1 S. 1 lit. b DSGVO."
+				},
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Allerdings behalten wir uns vor, vom Gewinner den Vor- und Nachnamen sowie Wohnort und Gewinn zu veröffentlichen. Dies ist Voraussetzung für die Teilnahme am Gewinnspiel. Die Rechtsgrundlage ist Art. 6 Abs. 1 S. 1 lit. f DSGVO."
+				},
+				{
+					"reference": "DSGVO-6-1-c",
+					"description": "Ausnahmen gibt es nur, wenn es sich bei dem Gewinner um einen Beschäftigten der BVG handelt. Dann müssen die folgenden personenbezogenen Daten aus steuerlichen Gründen weiterverarbeitet werden: Name, Vorname, Wert des Gewinns. Diese Daten speichern wir nur so lange, wie es aufgrund der einschlägigen Steuergesetze erforderlich ist. Die Rechtsgrundlage dafür ist Art. 6 Abs. 1 S. 1 lit. c DSGVO in Verbindung mit den einschlägigen Steuervorschriften."
+				},
+				{
+					"reference": "DSGVO-28",
+					"description": "Die Weitergabe von personenbezogenen Daten an unsere Dienstleister für die Durchführung von Gewinnspielen beruht auf Art. 28 DSGVO,"
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Das berechtigte Interesse der BVG besteht darin, transparent zu machen, dass das Gewinnspiel stattgefunden hat und ein Gewinner ermittelt wurde."
+				}
+			],
+			"recipients": [
+				{
+					"category": "Dienstleister für die Durchführung von Gewinnspielen"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [
+						"bewahren wir die personenbezogenen Daten nur so lange auf bzw. speichern sie, bis das Gewinnspiel beendet und der/die Gewinnerin ermittelt ist. Im Anschluss werden die Postkarten vernichtet (geschreddert) bzw. die E-Mails gelöscht",
+						"Ausnahmen gibt es nur, wenn es sich bei dem Gewinner um einen Beschäftigten der BVG handelt. Dann müssen die folgenden personenbezogenen Daten aus steuerlichen Gründen weiterverarbeitet werden: Name, Vorname, Wert des Gewinns. Diese Daten speichern wir nur so lange, wie es aufgrund der einschlägigen Steuergesetze erforderlich ist."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Ohne die jeweils erforderliche Datenbereitstellung können Sie jedoch an dem Gewinnspiel nicht teilnehmen."
+			}
+		},
+		{
+			"_id": "f891862e-36b9-4fb1-852a-e434dd13ff90",
+			"category": "Name; Konktaktdaten; Adresse; E-Mail-Adresse;",
+			"purposes": [
+				{
+					"purpose": "Marktforschung",
+					"description": "Über unsere Website führen wir hin und wieder Marktforschungen durch"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSVGO-6-1-a",
+					"description": "Die Datenverarbeitung erfolgt ausschließlich für die Durchführung und Auswertung der Marktforschung [...] Rechtsgrundlage ist Art. 6 Abs. 1 S. 1 lit. a DSGVO."
+				},
+				{
+					"reference": "DSVGO-28",
+					"description": "Die Weitergabe von personenbezogenen Daten an diese Dienstleister für die Durchführung von Marktforschungen beruht auf Art. 28 DSGVO,"
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"name": "Rogator AG",
+					"address": "Emmericher Str. 17, 90411 Nürnberg",
+					"country": "DE",
+					"category": "Marktforschung"
+				},
+				{
+					"category": "Marktforschung"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [
+						"Grundsätzlich werden die personenbezogenen Daten nur so lange gespeichert, wie sie für die Marktforschung, also die Sammlung der Daten, und die Auswertung notwendig sind. Danach werden die Daten gelöscht."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": ""
+			}
+		},
+		{
+			"_id": "e908e0cf-5a93-4f99-8a59-76db8f24e076",
+			"category": "IP-Adresse; Zeitpunkt und Dauer des Besuchs; Gerätedaten wie Betriebssystem, Browserversion, Bildschirmauflösung; Besuchte Websiten; Zustimmungsinformationen",
+			"purposes": [
+				{
+					"purpose": "Cookie-Verwaltung",
+					"description": "Wir nutzen den Cookie Consent Manager „Consent Management Provider“ (im Folgenden „Consent Manager“) der Firma consentmanager AB, Schweden, um Einwilligungen für die Datenverarbeitung bzw. den Einsatz von Cookies oder vergleichbaren Funktionen abzufragen."
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Berechtigtes Interesse (Art. 6 Abs. 1 S. 1 lit. f) DSGVO): Sicherstellung, dass nicht-funktionale Cookies nur bei erteilter Einwilligung gesetzt werden."
+				},
+				{
+					"reference": "DSGVO-28",
+					"description": "Der Consent Manager wird im Rahmen einer Auftragsverarbeitung gem. Art. 28 DSGVO eingesetzt, sodass consentmanager AB Ihre Daten nur weisungsgebunden in unserem Auftrag verwenden darf."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Berechtigtes Interesse (Art. 6 Abs. 1 S. 1 lit. f) DSGVO): Sicherstellung, dass nicht-funktionale Cookies nur bei erteilter Einwilligung gesetzt werden."
+				}
+			],
+			"recipients": [
+				{
+					"name": "consentmanager AB",
+					"address": "Håltegelvägen 1b, 72348 Västerås",
+					"country": "SE",
+					"category": "Cookie-Verwaltung"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Der Consent Manager verwendet Cookies. Die Lebensdauer der Cookies beträgt max. 1 Jahr.",
+							"ttl": "P1Y"
+						}
+					],
+					"purposeConditional": [
+						"Wenn sich an den jeweiligen Cookies oder sonstigen Anwendungen, in die Sie eingewilligt haben, Änderungen ergeben, die auch Änderungen in der Verarbeitung Ihrer Daten nach sich ziehen können, oder spätestens ein Jahr nach der letzten Verarbeitung Ihrer Nutzereinstellungen erfolgt eine erneute Abfrage der Einwilligung"
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "min"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": "Funktionale Dienste ermöglichen Ihnen eine reibungslose Nutzung unserer Webseite und sind zur Nutzung unserer Webseite zwingend erforderlich"
+			}
+		},
+		{
+			"_id": "6b6af4aa-5499-45c8-a283-5239a3f6d73c",
+			"category": "IP address; Gerätedaten, wie Betriebssystem, Browserversion, Bildschirmauflösung; Informationen über den Traffic von und zu unserer Webseite",
+			"purposes": [
+				{
+					"purpose": "improve the website",
+					"description": "Cloudflare betreibt ein Content-Verteilungsnetzwerk (Content Delivery Network, CDN), das es uns ermöglicht, unser Webangebot mit bestmöglicher Performance bereitzustellen."
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-28",
+					"description": "Cloudflare wird im Rahmen einer Auftragsverarbeitung gem. Art. 28 DSGVO eingesetzt, sodass Cloudflare Ihre Daten nur weisungsgebunden in unserem Auftrag verwenden darf."
+				},
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO): Sicherstellung der bestmöglichen Performance der Webseite."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO): Sicherstellung der bestmöglichen Performance der Webseite."
+				}
+			],
+			"recipients": [
+				{
+					"name": "Cloudflare",
+					"address": "101 Townsend St, San Francisco",
+					"country": "US",
+					"category": "Dienstleister"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [
+						"Alle Daten werden so lange gespeichert, wie sie zur Erfüllung des genannten Zwecks erforderlich sind und danach gelöscht, soweit keine Rechtspflichten zur Aufbewahrung bestehen.",
+						"Alle Daten werden so lange gespeichert, wie sie zur Erfüllung des genannten Zwecks erforderlich sind und danach gelöscht, soweit keine Rechtspflichten zur Aufbewahrung bestehen."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": "Beim Besuch unserer Webseite werden durch Cloudflare Daten des Nutzers verarbeitet"
+			}
+		},
+		{
+			"_id": "05e1ba0b-e1ff-41d0-a6d9-2c8d4b821f6f",
+			"category": "IP-Adresse; operating system, Gerätedaten wie Betriebssystem, Browserversion, Bildschirmauflösung",
+			"purposes": [
+				{
+					"purpose": "service",
+					"description": "Beim Besuch unserer Webseite werden durch den Google Tag Manager Daten des Nutzers verarbeitet. [...] Schnelles und einfaches Ausspielen von Website-Tags."
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO): Schnelles und einfaches Ausspielen von Website-Tags."
+				},
+				{
+					"reference": "DSGVO-28",
+					"description": "Der Google Tag Manager wird im Rahmen einer Auftragsverarbeitung gem. Art. 28 DSGVO eingesetzt, sodass Google Ihre Daten nur weisungsgebunden in unserem Auftrag verwenden darf."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO): Schnelles und einfaches Ausspielen von Website-Tags."
+				}
+			],
+			"recipients": [
+				{
+					"name": "Google Ireland Limited",
+					"address": "Gordon House, Barrow Street",
+					"country": "IE",
+					"category": "Dienstleister Tag-Management"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Ihre personenbezogenen Daten werden durch Google nach 9 Monaten anonymisiert, ...",
+							"ttl": "P9M"
+						}
+					],
+					"purposeConditional": [
+						"Ihre personenbezogenen Daten werden durch Google nach 9 Monaten anonymisiert, soweit keine Rechtspflichten zur Aufbewahrung bestehen."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": "Beim Besuch unserer Webseite werden durch den Google Tag Manager Daten des Nutzers verarbeitet"
+			}
+		},
+		{
+			"_id": "1e68f0e2-ce98-418f-bad6-986e89ec87d7",
+			"category": "IP-Adresse; Datum und Uhrzeit; Seitenaufrufe inkl. Titel und URL; Referrer-URL; aufgerufene und heruntergeladene Dateien; Klicks auf Elemente oder Links zu anderen Seiten; für den Seitenaufbau benötigte Zeit; Geräteinformationen (Spracheinstellungen, Bildschirmauflösung, Browsertyp/-version); Zeitpunkt des Absendens; Information, auf welcher Seite Sie das Formular ausgefüllt haben",
+			"purposes": [
+				{
+					"purpose": "Landing pages und Kontaktformulare",
+					"description": "Wir verwenden Instapage von Instapage Inc., um Webseiten für bestimmte Produkte, Produkteigenschaften, oder Marketingaktionen bereitzustellen. Die Landingpages enthalten u.U. Kontaktformulare"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Berechtigtes Interesse (Art. 6 Abs. 1 S. 1 lit. f DSGVO): Die Nutzung von Instapage erfolgt im Interesse einer flexiblen und ansprechenden Darstellung einzelner Aspekte unseres Online-Angebotes."
+				},
+				{
+					"reference": "DSGVO-28",
+					"description": "Instapage wird im Rahmen einer Auftragsverarbeitung gem. Art. 28 DSGVO eingesetzt, sodass Instapage Ihre Daten nur weisungsgebunden in unserem Auftrag verwenden darf."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Berechtigtes Interesse (Art. 6 Abs. 1 S. 1 lit. f DSGVO): Die Nutzung von Instapage erfolgt im Interesse einer flexiblen und ansprechenden Darstellung einzelner Aspekte unseres Online-Angebotes."
+				}
+			],
+			"recipients": [
+				{
+					"name": "Instapage Inc.",
+					"address": "303 Second Street, Suite 901 South Tower, San Francisco, CA 94107",
+					"country": "US",
+					"category": "Auftragsverarbeiter"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Instapage verwendet Cookies. Die Lebensdauer der Cookies beträgt max. 1 Jahr.",
+							"ttl": "P1Y"
+						}
+					],
+					"purposeConditional": [
+						"Alle Daten werden so lange gespeichert, wie sie zur Erfüllung des genannten Zwecks erforderlich sind und danach gelöscht, soweit keine Rechtspflichten zur Aufbewahrung bestehen."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": "Wenn Sie eine unsere Landingpages besuchen, werden die folgende Daten von Instapage verarbeitet:"
+			}
+		},
+		{
+			"_id": "3652596d-e938-4f84-9687-9eb1d65ad8e1",
+			"category": "email address; IP-Adresse; UserID; ConversationID; vom Nutzer eingegebene Daten",
+			"purposes": [
+				{
+					"purpose": "contact",
+					"description": "Bei Ihrer Kontaktaufnahme mit uns per Chatbot wird Ihre Konversation mit dem Chatbot ausgewertet, um den Grund Ihrer Kontaktaufnahme zu ermitteln und Ihnen entsprechend zu helfen oder antworten zu können"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-b",
+					"description": "Rechtsgrundlage für die Datenverarbeitung, Zweck der Datenverarbeitung (1) Erfüllung eines Vertrags (Art. 6 Abs. 1 S. 1 lit. b DSGVO): Bearbeitung von Anfragen unserer Kunden, mit denen wir Verträge haben."
+				},
+				{
+					"reference": "DSGVO-6-1-f",
+					"description": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO): Berechtigtes Interesse daran, einen reibungslosen Kundenservice zu gewährleisten und daran, dass unsere Dienste ordnungsgemäß funktionieren und um unsere Bearbeitungsprozesse zu verbessern und zu beschleunigen, z.B. durch optimierte Zuordnungsfunktionalitäten."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": true,
+					"reasoning": "Berechtigtes Interesse (Art. 6 Abs. 1 S.1 lit. f DSGVO): Berechtigtes Interesse daran, einen reibungslosen Kundenservice zu gewährleisten und daran, dass unsere Dienste ordnungsgemäß funktionieren und um unsere Bearbeitungsprozesse zu verbessern und zu beschleunigen, z.B. durch optimierte Zuordnungsfunktionalitäten."
+				}
+			],
+			"recipients": [
+				{
+					"name": "Solvemate GmbH",
+					"address": "Tempelhofer Ufer 1, 10961 Berlin",
+					"country": "DE",
+					"category": "Chatbot-Dienstleister"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [],
+					"purposeConditional": [
+						"Der Chatbot verwendet Cookies (Local Storage). Die Lebensdauer ist unbegrenzt.",
+						"Wenn die Rechtsgrundlage für die Datenverarbeitung wegfällt, werden alle von Ihnen eingegebenen personenbezogenen Daten gelöscht. Daten, die für die Vertragsbearbeitung benötigt werden oder gesetzlichen Aufbewahrungsfristen (z.B. steuerliche Gründe) unterliegen, bleiben hiervon unberührt."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": true,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "575fc128-30f9-4a64-a054-e90ae1bafbce",
+			"category": "eindeutige Kennung; von Microsoft Corporation erhobene Daten",
+			"purposes": [
+				{
+					"purpose": "Auslastungsinfo",
+					"description": "Die Auslastungsinfo gibt eine Orientierung über die durchschnittliche Auslastung der BVG-Verkehrsmittel."
+				},
+				{
+					"purpose": "Darstellung Auslastungsinfo",
+					"description": "Die Auslastungsinfo wird Ihnen als farbliche Grafik-Tabelle auf einer Seite von Microsoft Power BI bereitgestellt."
+				}
+			],
+			"legalBases": [],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"name": "Microsoft Corporation",
+					"address": "One Microsoft Way",
+					"country": "Redmond, WA 98052-6399",
+					"category": "US"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Der Cookie ai_user wird nach einem Jahr gelöscht",
+							"ttl": "P1Y"
+						}
+					],
+					"purposeConditional": [
+						"Microsoft Power BI verwendet Session Cookies, die mit dem Schließen des Browsers automatisch gelöscht werden."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": true,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		},
+		{
+			"_id": "333a05db-8106-4c1b-b89a-a9477e273301",
+			"category": "IP-Adresse, Online-Kennzeichnungen (einschließlich Cookie-Kennungen); Gerätekennungen; Technische Eigenschaften von Nutzern (z.B. Browsertyp und -version, Gerätetyp, Betriebssystem); Messung des Nutzungsverhaltens (z.B. Aufrufe einzelner Seiten / Inhalte, Aufrufe von Inhalten verschiedener Bereiche, Sitzungsdauer / Verweildauer, Absprungrate); Nutzung einzelner Funktionalitäten der Webseite (z.B. Fahrplanauskunft, Suchanfragen, Downloads); eCommerce-Aktivität (z.B. gekaufte Produkte, Umsätze)",
+			"purposes": [
+				{
+					"purpose": "personalise your ads",
+					"description": "Mit Hilfe von Google Analytics analysieren wir Ihr Nutzerverhalten, um basierend auf den Ergebnissen Entscheidungen bezüglich der Produkt- und Marketingoptimierung zu treffen."
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Einwilligung (Art. 6 Abs. 1 S. 1 lit. a DSGVO): Die Speicherung von Google-Analytics-Cookies und die damit verbundene Datenverarbeitung erfolgt nur, wenn Sie uns Ihre freiwillige und widerrufbare Einwilligung erteilt haben."
+				},
+				{
+					"reference": "DSGVO-28",
+					"description": "Google Analytics wird im Rahmen einer Auftragsverarbeitung gem. Art. 28 DSGVO eingesetzt."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"name": "Google LLC",
+					"address": "1600 Amphitheatre Parkway, Mountain View, California 94043",
+					"country": "US",
+					"category": "Analyse-Daten-Dienstleister"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Ihre personenbezogenen Daten werden durch Google 14 Monate nach Ihrer letzten Aktivität anonymisiert, soweit keine Rechtspflichten zur Aufbewahrung bestehen.",
+							"ttl": "P14M"
+						},
+						{
+							"description": "Google Analytics verwendet Cookies. Die Lebensdauer der Cookies beträgt max. 2 Jahre. Wir werden jedoch nach Ablauf eines Jahres erneut um Ihre Einwilligung bitten und die Analyse nach Ablauf dieses Zeitraums nur noch vornehmen, wenn Sie erneut einwilligen.",
+							"ttl": "P2Y"
+						}
+					],
+					"purposeConditional": [
+						"Ihre personenbezogenen Daten werden durch Google 14 Monate nach Ihrer letzten Aktivität anonymisiert, soweit keine Rechtspflichten zur Aufbewahrung bestehen."
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": ""
+			}
+		},
+		{
+			"_id": "04517949-df39-430b-a41b-84bbf4418df4",
+			"category": "IP-Adressen; Online-Kennzeichnungen (einschließlich Cookie-Kennungen); Gerätekennungen; Technische Eigenschaften von Nutzern (z.B. Browsertyp und -version, Gerätetyp, Betriebssystem); Messung des Nutzungsverhaltens (z.B. Aufrufe einzelner Seiten / Inhalte, Aufrufe von Inhalten verschiedener Bereiche, Sitzungsdauer / Verweildauer, Absprungrate; Nutzung einzelner Funktionalitäten der Webseite (z.B. Fahrplanauskunft, Suchanfragen, Downloads); eCommerce-Aktivität (z.B. gekaufte Produkte, Umsätze)",
+			"purposes": [
+				{
+					"purpose": "A/B-Tests",
+					"description": "Wir verwenden Google Optimize, um sogenannte A/B-Tests zum Validieren neuer Designs und Texte durchzuführen"
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-28",
+					"description": "Google Optimize wird im Rahmen einer Auftragsverarbeitung gem. Art. 28 DSGVO eingesetzt."
+				},
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Einwilligung (Art. 6 Abs. 1 S. 1 lit. a DSGVO): Die Speicherung von Google-Optimize-Cookies und die damit verbundene Datenverarbeitung erfolgt nur, wenn Sie uns Ihre freiwillige und widerrufbare Einwilligung erteilt haben."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"name": "Google LLC",
+					"address": "1600 Amphitheatre Parkway, Mountain View, California 94043",
+					"country": "US",
+					"category": "Analyse-Daten-Dienstleister"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "Google Optimize verwendet Cookies. Die Lebensdauer der Cookies beträgt max. 2 Jahre. ",
+							"ttl": "P2Y"
+						},
+						{
+							"description": "Ihre personenbezogenen Daten werden durch Google 14 Monate nach Ihrer letzten Aktivität anonymisiert, soweit keine Rechtspflichten zur Aufbewahrung bestehen",
+							"ttl": "P14m"
+						}
+					],
+					"purposeConditional": [
+						"Ihre personenbezogenen Daten werden durch Google 14 Monate nach Ihrer letzten Aktivität anonymisiert, soweit keine Rechtspflichten zur Aufbewahrung bestehen"
+					],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": ""
+			}
+		},
+		{
+			"_id": "6f2fd44d-bf1d-4b97-bd53-fc74ceb1adc0",
+			"category": "IP-Adresse; Browser-Daten; Einstellungen; Browsertyp; Betriebssystem; Informationen zu der zuvor aufgerufenen Website; den von Ihnen aufgerufenen Seiten; Standort; Mobilfunkanbieter; genutztes Endgerät; Suchbegriffe; Cookie-Informationen",
+			"purposes": [
+				{
+					"purpose": "Marketing",
+					"description": "Wir verwenden für unsere Imagevideos einen YouTube-Kanal der Google Ireland Limited. Unsere bei YouTube eingestellten Videos binden wir via Frame auf unserer Webseite ein, um Ihnen einen reibungslosen Zugang ohne Webseitenwechsel gewähren zu können."
+				}
+			],
+			"legalBases": [
+				{
+					"reference": "DSGVO-6-1-a",
+					"description": "Einwilligung (Art. 6 Abs. 1 S.1 lit. a DSGVO): Die Speicherung der o.g. Daten und die in Ihrem Browser gesetzten Cookies und die damit verbundene Datenverarbeitung erfolgt nur, wenn Sie darin vor Ansehen unserer Videos freiwillig und widerrufbare Einwilligung erteilt haben."
+				}
+			],
+			"legitimateInterests":[
+				{
+					"exists": false
+				}
+			],
+			"recipients": [
+				{
+					"name": "Google Ireland Limited",
+					"address": "Gordon House, Barrow Street, Dublin 4",
+					"country": "IE",
+					"category": "Videoplattform-Dienstleister"
+				},
+				{
+					"name": "Google LLC",
+					"address": "1600 Amphitheatre Parkway, Mountain View, CA 94043",
+					"country": "US",
+					"category": "Videoplattform-Dienstleister"
+				}
+			],
+			"storage": [
+				{
+					"temporal": [
+						{
+							"description": "YouTube verwendet Cookies. Die Lebensdauer der Cookies beträgt max. 2 Jahre.",
+							"ttl": "P2Y"
+						}
+					],
+					"purposeConditional": [],
+					"legalBasisConditional": [],
+					"aggregationFunction": "max"
+				}
+			],
+			"nonDisclosure": {
+				"legalRequirement": false,
+				"contractualRegulation": false,
+				"obligationToProvide": false,
+				"consequences": "Falls Sie die jeweils erforderlichen Daten nicht bereitstellen, kann die entsprechende Dienstleistung jedoch nicht erbracht werden."
+			}
+		}
+	],
+	"thirdCountryTransfers": [
+		{
+			"country": "US",
+			"adequacyDecision": {
+				"available": false
+			},
+			"appropriateGuarantees": {
+				"available": true,
+				"description": "...Sofern für das Empfängerland kein Angemessenheitsbeschluss der EU Kommission besteht, ist die Übertragung Ihrer Daten in einen Drittstaat dadurch geschützt, dass mit dem Empfänger EU-Standardvertragsklauseln [...] abgeschlossen wurden oder verbindliche interne Datenschutzrichtlinien vorliegen. Andernfalls erfolgt eine Übermittlung nur, wenn eine Ausnahme nach Art. 49 DSGVO erfüllt ist."
+			},
+			"presenceOfEnforcableRightsAndEffectiveRemedies": {
+				"available": false,
+				"description": "Beachten Sie bitte, dass in anderen Staaten verarbeitete Daten ggf. ausländischen Gesetzen unterliegen und den dortigen Regierungen, Gerichten sowie Strafverfolgungs- und Aufsichtsbehörden zugänglich sind."
+			},
+			"standardDataProtectionClause": {
+				"available": true,
+				"description": "Sofern für das Empfängerland kein Angemessenheitsbeschluss der EU Kommission besteht, ist die Übertragung Ihrer Daten in einen Drittstaat dadurch geschützt, dass mit dem Empfänger EU-Standardvertragsklauseln (https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en) abgeschlossen wurden..."
+			}
+		}
+	],
+	"accessAndDataPortability": {
+		"available": true,
+		"description": "Es ist möglich Auskunft über personenbezogene Daten zu erhalten und/oder Kopien dieser Daten zu verlangen. Diese können zu anderen Diensten mitgenommen werden.",
+		"email": "datenschutz@bvg.de"
+	},
+	"sources": [
+		{
+			"_id": "5ba17650-cf06-4ab0-b77c-245423cd15a5",
+			"dataCategory": "Bonität",
+			"sources": [
+				{
+					"description": "Darüber hinaus übermitteln wir in bestimmten Fällen personenbezogene Daten vor Abschluss sowie vor wesentlichen Änderungen eines Abonnementvertrages an Auskunfteien, um die Bonität des Abonnenten zu überprüfen",
+					"url": "",
+					"publiclyAvailable": false
+				}
+			]
+		},
+		{
+			"_id": "a0a66d60-25c2-4e0c-a04a-9edb01bf7dac",
+			"dataCategory": "Analyse-Daten",
+			"sources": [
+				{
+					"description": "Wir nutzen außerdem die Funktion „demografische Merkmale“ von Google Analytics. Dadurch können Berichte erstellt werden, die Aussagen zu Alter, Geschlecht und Interessen unserer Seitenbesucher enthalten. Diese Daten stammen aus Google-Werbediensten sowie aus Besucherdaten von Drittanbietern. Die uns zur Verfügung gestellten Daten können von uns keiner bestimmten Person zugeordnet werden",
+					"url": "",
+					"publiclyAvailable": false
+				}
+			]
+		}
+	],
+	"rightToInformation": {
+		"available": true,
+		"description": "Es gibt die Möglichkeit Auskunft über Ihre bei uns verarbeiteten personenbezogenen Daten zu erhalten und/oder Kopien dieser Daten zu verlangen.",
+		"email": "datenschutz@bvg.de"
+	},
+	"rightToRectificationOrDeletion": {
+		"available": true,
+		"description": "Es gibt die Möglichkeit die Berichtigung, Löschung oder Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.",
+		"email": "datenschutz@bvg.de"
+	},
+	"rightToDataPortability": {
+		"available": true,
+		"description": "Es ist mögliche personenbezogene Daten, die Sie uns bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu verlangen und diese Daten einem anderen Verantwortlichen ohne Behinderung durch uns zu übermitteln.",
+		"email": "datenschutz@bvg.de"
+	},
+	"rightToWithdrawConsent": {
+		"available": true,
+		"description": "Es ist möglich die Einwilligung zu verweigern oder sie jederzeit zu widerrufen.",
+		"email": "datenschutz@bvg.de"
+	},
+	"rightToComplain": {
+		"available": true,
+		"description": "Es gibt die Möglichkeit rechtliche Maßnahmen zu ergreifen oder die Datenschutzaufsichtsbehörde anzurufen.",
+		"email": "mailbox@datenschutz-berlin.de",
+		"supervisoryAuthority": {
+			"name": "Berliner Beauftragte für Datenschutz und Informationsfreiheit",
+			"email": "mailbox@datenschutz-berlin.de",
+			"phone": "+49 030 13889 0",
+			"country": "DE",
+			"address": "Friedrichstraße 219, 10969 Berlin"
+		}
+	},
+	"automatedDecisionMaking": {
+		"inUse": false
+	},
+	"changesOfPurpose": [
+		{
+			"description": "Wir passen den Datenschutzhinweis an veränderte Funktionalitäten oder geänderte Rechtslagen an"
+		}
+	]
+}`

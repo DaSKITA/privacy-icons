@@ -1,0 +1,347 @@
+ /*Privacy Dashboard*/
+.privDash{
+    --bs-gutter-x: 0px !important;
+    border-radius: 0.3rem !important;
+    height: 120% !important;
+    position: relative !important;
+}
+
+.borderRad{
+    border-radius: 0.3rem 0px 0px 0px !important;
+}
+
+.borderbox{
+    box-sizing: content-box;
+    width: 100%;
+    height: 100px;
+}
+
+.paddingleft{
+    padding-left: 7px;
+}
+.paddingbottom{
+    padding-bottom: 10px;
+    padding-top: 0px;
+}
+ 
+ /* The Modal (background) */
+ .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 80%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 0px;
+    border: 1px solid #888;
+    width: 80% !important; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+
+/* Search bar (add on does not work) */
+#search-addon {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 35px;
+    height: 26px;
+    padding: 0px;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: rgb(53, 40, 40);
+}
+
+/* Navigation bar */
+.navbar-light{
+    background-color: whitesmoke !important;
+}
+
+.nav-item{
+    background-color: white;
+}
+
+.btn-control{
+    background: #3650fe !important;
+    color: white !important;
+}
+
+.btn-outline-primary:active,
+.btn-outline-primary:focus, 
+.btn-outline-primary:hover, 
+.btn-outline-primary.active {
+    background: #3650fe !important;
+    color: white !important;
+    border-left-color: transparent; /* hide left border */
+    border-right-color:transparent;
+}
+.btn-outline-primary{
+    border-color: #3650fe !important; 
+    color: #3650fe !important;
+    border-left-color: transparent !important;
+}
+
+.btn-primary{
+    background-color: #3650fe !important;
+    border-color: #3650fe !important;
+}
+
+.btn-arrow-right {
+    position: relative;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.btn-arrow-right {
+    padding-left: 36px;
+}
+
+.btn-arrow-right:active,
+.btn-arrow-right:focus,
+.btn-arrow-right:hover,
+.btn-arrow-right.hover,
+.btn-arrow-right.active{
+    background: #3650fe !important;
+    border: #3650fe !important;  
+    z-index: 2;
+}
+
+.btn-arrow-right-before:before{
+    content:"";
+    position: absolute;
+    padding-left: 0;
+    margin-left:0;
+    border-left:0px;
+    top: 3px; /* move it down because of rounded corners */
+    width: 18px; /* same as height */
+    height: 18px; /* button_outer_height / sqrt(2) */
+    background: inherit; /* use parent background */
+    border: inherit; /* use parent border */
+    border-left-color: transparent; /* hide left border */
+    border-bottom-color: transparent; /* hide bottom border */
+    border-radius: 0px 4px 0px 0px; /* round arrow corner, the shorthand property doesn't accept "inherit" so it is set to 4px */
+    -webkit-border-radius: 0px 4px 0px 0px;
+    -moz-border-radius: 0px 4px 0px 0px;
+}
+.btn-arrow-right-after:after{
+    content:"";
+    position: absolute;
+    padding-left: 0;
+    margin-left:0;
+    border-left:0px;
+    top: 3px; /* move it down because of rounded corners */
+    width: 18px; /* same as height */
+    height: 18px; /* button_outer_height / sqrt(2) */
+    background: inherit; /* use parent background */
+    border: inherit; /* use parent border */
+    border-left-color: transparent; /* hide left border */
+    border-bottom-color: transparent; /* hide bottom border */
+    border-radius: 0px 4px 0px 0px; /* round arrow corner, the shorthand property doesn't accept "inherit" so it is set to 4px */
+    -webkit-border-radius: 0px 4px 0px 0px;
+    -moz-border-radius: 0px 4px 0px 0px;
+}
+
+.btn-arrow-right:before,
+.btn-arrow-right:after {
+    transform: rotate(45deg); /* rotate right arrow squares 45 deg to point right */
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+}
+
+.btn-arrow-right:before{ /* align the "before" square to the left */
+    left: -12px;
+}
+.btn-arrow-right:after{ /* align the "after" square to the right */
+    right: -8px;
+}
+.btn-arrow-right:after{ /* bring arrow pointers to front */
+    z-index: 1;
+}
+.btn-arrow-right:before{ /* hide arrow tails background */
+    background-color: white;
+}
+.btn-arrow-right:hover::before{ /* hide arrow tails background */
+    background-color: transparent;
+}
+.btn.arrow-right:hover::after{
+    background-color: #3650fe !important; 
+}
+
+.btn-arrow-right:active::before,
+.btn-arrow-right.active::before{ /* hide arrow tails background */
+    background-color: transparent !important;
+}
+
+
+/*Entrypoint 1*/
+.transparentBtn{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.entry1{
+    box-sizing: content-box;
+    width: 70px !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-xs{
+    line-height: 0 !important;
+}
+
+.close-entry{
+    float:left;
+    font-size:7px;
+    z-index: 1;
+    top: -5px;
+    left: -5px;
+    border-radius: 50% !important;
+    padding: 0.5em;
+    width: 8px !important;
+    height: 8px !important;
+    color: rgb(255, 255, 255) !important;
+    background-color: #0c43dc !important;
+    position: absolute;
+    opacity: 1 !important;   
+}
+
+.btn-close{
+    filter: invert(1);
+    color:white;
+
+}
+
+.close-entry1{
+    top: -5px;
+    left: 5px;
+}
+
+.close-entry:hover {
+    border: 2px solid rgb(255, 136, 0);
+    background-color: rgb(255, 196, 0);
+    color: #ffffff;
+  }
+
+.background2{
+    background-image: url('Img/background_entry1.png');
+    background-size: cover;
+}  
+
+#entry1ID{
+    display: none;
+}
+
+
+/*Entrypoint 2*/
+#entry2ID{
+    display:none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#improveWebsite{
+    display:none;
+}
+
+#improveWebsite2{
+    display:none;
+}
+
+#personaliseAds{
+    display:none;
+}
+
+#personaliseAds2{
+    display:none;
+}
+
+#service{
+    display:none;
+}
+
+#contact{
+    display:none;
+}
+
+#security{
+    display:none;
+}
+
+#legalRequirements{
+    display:none;
+}
+
+.borderbox1{
+    box-sizing: content-box;
+    width: 100%;
+    height: 70px;
+} 
+
+
+.background1{
+    background-image: url('Img/background4.png');
+    background-size: cover;
+}
+
+.centering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.entry2a{
+    padding: 0px !important;
+    margin: 0px !important;
+    box-sizing: border-box;
+    height: 100% !important;
+}
+.entry2asize{
+    width: 260px !important;
+}
+
+
+
+
+
