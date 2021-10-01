@@ -17,8 +17,38 @@
 - Beim Privacy Dashboard werden auf der linken Seite nur die Zwecke angezeigt, die beim jeweiligen Dienst gegeben sind.
 
 ## Todo
+- kleines Icon, immer? Check with Unterlagen
 - Lupen-Ikon neben der Search-Bar wird nicht angezeigt (verstehe nicht warum).
+- Close-Window müsste unten sein, auch wenn keine Checkboxen auf der linken Seite angezigt werden
+- bzw. zu weit oben, wenn Checkboxen auf der liknen sSeite da sind
+- ausgegraute Checkbox hat keinen weißen Kreis
+- add "nudges" from slide 18 (mouse over, hover effekt)
+- Slide 24-29 low prio (maximal zum Prokrastinieren)
+- Hover effect blue backgorund, white font, when entering linke checkboxen
+- when hovering menu entries -> do not get smaller
+- gelbes x wird blau, lieber gelben border
+- "add textbox, where you can insert new tilt" and the respective privacy icons banner gets rendered
+- 1 weiterer Reiter mit Kurzzusammenfassung aus TILT. z.B. so ähnlich wie hier laden: https://github.com/Transparency-Information-Language/chrome-tilt/blob/master/popup.js
+
+```
+1. Demonstrator:
+
+Menüleiste: BVG | BMJV |  XYZonline.com Website (z.B. DaSKITA) (session cookie) | Custom
+
+==========
+<iframe src="https://www.bmjv.de/DE/Startseite/Startseite_node.html" width="100%"></iframe>
++
+Privacy-Icons-Overlay
 
 
 
+============
+
+
+2. "PrivIcons library"
+also mit 2-3 Zeilen in eigene Website einbindbar, nur TILT-Link anzupassen 
+
+<script src="https://"></script>
+<link ...
+```
 
