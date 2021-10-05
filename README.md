@@ -19,17 +19,19 @@
 ## Todo
 - Entrypoint 2 verschwindet, wenn user auf website klickt oder scrollt -> entrypoint 1 wird stattdessen angezeigt
 - Lupen-Ikon neben der Search-Bar wird nicht angezeigt (verstehe nicht warum).
-- Close-Window müsste unten sein, auch wenn keine Checkboxen auf der linken Seite angezigt werden
-- bzw. zu weit oben, wenn Checkboxen auf der liknen sSeite da sind
-- ausgegraute Checkbox hat keinen weißen Kreis
 - add "nudges" from slide 18 (mouse over, hover effekt)
 - Slide 24-29 low prio (maximal zum Prokrastinieren)
-- Hover effect blue backgorund, white font, when entering linke checkboxen
-- when hovering menu entries -> do not get smaller
-- gelbes x wird blau, lieber gelben border
-- gelbes x nur anzeigen, wenn über box gehovert wird
+- Hover effect linke checkboxen -> toggle farbe ändern
 - "add textbox, where you can insert new tilt" and the respective privacy icons banner gets rendered
 - 1 weiterer Reiter mit Kurzzusammenfassung aus TILT. z.B. so ähnlich wie hier laden: https://github.com/Transparency-Information-Language/chrome-tilt/blob/master/popup.js
+
+check: 
+- when hovering menu entries -> do not get smaller
+- ausgegraute Checkbox hat keinen weißen Kreis
+- gelbes x wird blau, lieber gelben border
+- gelbes x nur anzeigen, wenn über box gehovert wird
+- Close-Window müsste unten sein, auch wenn keine Checkboxen auf der linken Seite angezigt werden (klappt bei mir, warum bei Elias nicht?)
+- bzw. zu weit oben, wenn Checkboxen auf der liknen sSeite da sind
 
 ```
 1. Demonstrator:
