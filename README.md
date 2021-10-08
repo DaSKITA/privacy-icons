@@ -17,15 +17,18 @@
 - Beim Privacy Dashboard werden auf der linken Seite nur die Zwecke angezeigt, die beim jeweiligen Dienst gegeben sind.
 
 ## Todo
-- Entrypoint 2 verschwindet, wenn user auf website klickt oder scrollt -> entrypoint 1 wird stattdessen angezeigt
 - Lupen-Ikon neben der Search-Bar wird nicht angezeigt (verstehe nicht warum).
-- add "nudges" from slide 18 (mouse over, hover effekt)
-- Slide 24-29 low prio (maximal zum Prokrastinieren)
-- Hover effect linke checkboxen -> toggle farbe ändern
-- "add textbox, where you can insert new tilt" and the respective privacy icons banner gets rendered
 - 1 weiterer Reiter mit Kurzzusammenfassung aus TILT. z.B. so ähnlich wie hier laden: https://github.com/Transparency-Information-Language/chrome-tilt/blob/master/popup.js
+- Slide 24-29 low prio (maximal zum Prokrastinieren)
+- Einbinden möglich machen
 
 check: 
+- Menüleiste statt Buttons (collapse sieht noch etwas komisch aus)
+- Dummy Hintergrund Website
+- "add textbox, where you can insert new tilt" and the respective privacy icons banner gets rendered
+- Entrypoint 2 verschwindet, wenn user auf website klickt oder scrollt -> entrypoint 1 wird stattdessen angezeigt
+- add "nudges" from slide 18 (mouse over, hover effekt)
+- Hover effect linke checkboxen -> toggle farbe ändern
 - when hovering menu entries -> do not get smaller
 - ausgegraute Checkbox hat keinen weißen Kreis
 - gelbes x wird blau, lieber gelben border
@@ -39,7 +42,7 @@ check:
 Menüleiste: BVG | BMJV |  XYZonline.com Website (z.B. DaSKITA) (session cookie) | Custom
 
 ==========
-<iframe src="https://www.bmjv.de/DE/Startseite/Startseite_node.html" width="100%"></iframe>
+Dummy-Website (Einbinden klappt nicht)
 +
 Privacy-Icons-Overlay
 
