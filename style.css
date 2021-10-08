@@ -1,3 +1,9 @@
+ 
+ /*service navbar*/
+ #navbarNav{
+     z-index: 3;
+ }
+ 
  /*Privacy Dashboard*/
 .privDash{
     --bs-gutter-x: 0px !important;
@@ -22,6 +28,20 @@
 .paddingbottom{
     padding-bottom: 10px;
     padding-top: 0px;
+}
+
+
+/* Toggle style */
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { 
+    border-radius: 20rem; 
+}
+.toggle.ios .toggle-handle { 
+    border-radius: 20rem; 
+}
+
+.toggle-off {
+    background-color: rgb(175, 170, 170) !important;
+    border-color: rgb(175, 170, 170) !important;
 }
  
  /* The Modal (background) */
@@ -107,8 +127,9 @@
 .btn-outline-primary.active {
     background: #3650fe !important;
     color: white !important;
-    border-left-color: transparent; /* hide left border */
-    border-right-color:transparent;
+    border-color: #3650fe !important; 
+    border-left-color: transparent !important; /* hide left border */
+    border-right-color:transparent !important;
 }
 .btn-outline-primary{
     border-color: #3650fe !important; 
@@ -135,8 +156,7 @@
 .btn-arrow-right:hover,
 .btn-arrow-right.hover,
 .btn-arrow-right.active{
-    background: #3650fe !important;
-    border: #3650fe !important;  
+    background: #3650fe !important; 
     z-index: 2;
 }
 
@@ -223,8 +243,9 @@
     box-sizing: content-box;
     width: 70px !important;
     position: fixed;
-    top: 20px;
+    top: 76px;
     right: 20px;
+    z-index: 3;
 }
 
 .btn-xs{
@@ -244,13 +265,13 @@
     color: rgb(255, 255, 255) !important;
     background-color: #0c43dc !important;
     position: absolute;
-    opacity: 1 !important;   
+    opacity: 1 !important;
+    display: none;   
 }
 
 .btn-close{
     filter: invert(1);
     color:white;
-
 }
 
 .close-entry1{
@@ -259,8 +280,7 @@
 }
 
 .close-entry:hover {
-    border: 2px solid rgb(255, 136, 0);
-    background-color: rgb(255, 196, 0);
+    background-color: #2456e0  !important;
     color: #ffffff;
   }
 
@@ -278,8 +298,25 @@
 #entry2ID{
     display:none;
     position: fixed;
-    top: 20px;
+    top: 76px;
     right: 20px;
+    z-index: 3;
+}
+
+#annoyed1{
+    display:none;
+}
+
+#annoyed2{
+    display:none;
+}
+
+#purpose-box-ads{
+    display:none;
+}
+
+#custom_field{
+    display:none;
 }
 
 #improveWebsite{
@@ -339,6 +376,15 @@
 }
 .entry2asize{
     width: 260px !important;
+}
+
+.purpose-box{
+    height: 73px !important;
+}
+
+.purpose-box:hover{
+    background-color: #3650fe !important; 
+    color: white !important;
 }
 
 
