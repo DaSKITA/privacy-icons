@@ -61,16 +61,16 @@
           <div class="btn-group-lg btn-group-vertical" id="btns-part">
             <ul class="navbar-nav flex-fill">
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px;" onclick="load_tilt('bvg'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'entry2')">BVG</b-btn>
+                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px;" onclick="load_tilt('bvg'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'entry2')">BVG</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('bmjv'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'entry2')">BMJV</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('bmjv'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'entry2')">BMJV</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('priv-icons'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'entry2')">Privacy Icons Forum</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('priv-icons'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'entry2')">Privacy Icons Forum</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px;" onclick="load_tilt('test'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'modal')">Only Session Cookies</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px;" onclick="load_tilt('test'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'modal')">Only Session Cookies</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
                 <b-btn variant="secondary"class="btn-block" style="margin-left: 3px;" onclick="show_hide_textarea('custom_field'); activate_btn('control_btn');">Enter Custom Tilt</b-btn>
@@ -83,7 +83,7 @@
         <div class="form-group mb-2">
           <textarea class="form-control" rows="5" id="custom_tilt" maxlength="100000" placeholder="Enter Custom Tilt" rows="5"></textarea>
         </div>
-        <b-btn variant="secondary" class="btn btn-primary btn-block" style="margin-left: 8px;" onclick="load_tilt('cust_tilt'); hide_components(['custom_field']);  print_YaPPL('', 'modal')">Submit</b-btn>
+        <b-btn variant="secondary" class="btn btn-primary btn-block" style="margin-left: 8px;" onclick="load_tilt('cust_tilt'); hide_components(['custom_field']);  update_yappl('', 'modal')">Submit</b-btn>
       </form>
     </div>
     
@@ -91,7 +91,7 @@
     <!--Entrypoint 1: session cookies-->
     <div class="container entry1" id="entry1ID" onmouseover="show_components('close1')" onmouseout="hide_components(['close1'])">
       <button type="button" class="btn-close close-entry close-entry1" id="close1" aria-label="Close" onclick="hide_components(['entry1ID', 'entry2ID', 'service', 'contact', 'improveWebsite2', 'personaliseAds2', 'legalRequirements', 'security'])"></button>
-        <div class="card mb-4 shadow-sm background2 p-0" onclick="show_components('myModal'); print_YaPPL('','modal')">
+        <div class="card mb-4 shadow-sm background2 p-0" onclick="show_components('myModal'); update_yappl('','modal')">
           <div class="borderbox1 centering p-0">
             <button class="transparentBtn" id="modalBtn2">
             <img src="Icons/data-protection.svg" alt="SVG mit img Tag laden" width="30" >
@@ -130,7 +130,7 @@
                   <div class="col-2 order-1 paddingleft" style="text-align: left;">
                     <img src="Icons/freedom-icon.svg" alt="SVG mit img Tag laden" width="20" >
                   </div>
-                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglPersAds', 'entry2')">
+                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglPersAds', 'entry2')">
                     <input class="toggle-btn-ads" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglPersAds" >
                   </div>
                 </div>
@@ -144,7 +144,7 @@
                 <p style="font-size: 13px; text-align: left; margin-bottom: 2px;"><b>Personalize your ads</b></p>
                 <div class="row gy-5 w-100 paddingbottom" id="box-content-ads">
                   <p style="font-size: 11px; text-align: left; margin-bottom: 0px;">You're annoyed from cookie banners?<br> Click here and control once</p>
-                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="print_YaPPL('tglAnnoyed1', 'entry2')">
+                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="update_yappl('tglAnnoyed1', 'entry2');">
                     <input class="toggle-btn-ads" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglAnnoyed1">
                   </div>
                 </div>
@@ -160,7 +160,7 @@
                   <div class="col-6 order-1 paddingleft" style="text-align: left;">
                     <img src="Icons/privacy-icon.svg" alt="SVG mit img Tag laden" width="20" >
                   </div>
-                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglWebsite', 'entry2')">
+                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglWebsite', 'entry2');">
                     <input class="toggle-btn-wbs" type="checkbox" id="tglWebsite" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " checked>
                   </div>
                 </div>
@@ -174,14 +174,14 @@
                 <p style="font-size: 13px; text-align: left; margin-bottom: 2px;"><b>Improve the website</b></p>
                 <div class="row gy-5 w-100 paddingbottom" id="box-content-ads">
                   <p style="font-size: 11px; text-align: left; margin-bottom: 0px;">You're annoyed from cookie banners?<br> Click here and control once</p>
-                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="print_YaPPL('tglAnnoyed2','entry2')">
+                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="update_yappl('tglAnnoyed2','entry2'); update_toggle_state_inv('tglAnnoyed2', 'tglWebsiteModal')">
                     <input class="toggle-btn-wbs" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglAnnoyed2">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <button type="button" id="modalBtn" onclick="show_components('myModal'); print_YaPPL('','modal')" class="btn btn-outline-light btn-sm" style="color: rgb(115, 122, 122); font-family: Batang; font-size:large; width:100%;">=</button>
+          <button type="button" id="modalBtn" onclick="show_components('myModal'); update_yappl('','modal')" class="btn btn-outline-light btn-sm" style="color: rgb(115, 122, 122); font-family: Batang; font-size:large; width:100%;">=</button>
         </div>
       </div>
     </div>
@@ -215,7 +215,7 @@
                     <div class="col-6 order-1 paddingleft" style="text-align: left;">
                       <img src="Icons/privacy-icon.svg" alt="SVG mit img Tag laden" width="20" >
                     </div>
-                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglWebsiteModal','modal')">
+                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglWebsiteModal','modal'); update_toggle_state_inv('tglWebsiteModal', 'tglAnnoyed2'); update_toggle_state_inv('tglWebsiteModal', 'tglWebsite')">
                       <input class="toggle-btn-wbs" id="tglWebsiteModal" type="checkbox" checked data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" ">
                     </div>
                   </div>
@@ -237,7 +237,7 @@
                     <div class="col-2 order-1 paddingleft" style="text-align: left;">
                       <img src="Icons/freedom-icon.svg" alt="SVG mit img Tag laden" width="20" >
                     </div>
-                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglPersAdsModal','modal')">
+                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglPersAdsModal','modal'); update_toggle_state_inv('tglPersAdsModal', 'tglAnnoyed1'); update_toggle_state_inv('tglPersAdsModal', 'tglPersAds')">
                       <input class="toggle-btn-ads" id="tglPersAdsModal" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " checked>
                     </div>
                   </div>

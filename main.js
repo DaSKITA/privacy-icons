@@ -6,13 +6,12 @@ var contactStrings = ["email address", "name", "time and date", "personal inform
 var improveTheWebsiteStrings = ["IP address", "browser", "pages you visited", "time and date"];
 // var personaliseYourAdsStrings (to be defined)
 
-//print YaPPL whenever toggle changes
-function print_YaPPL(cur_tgl, rel_toggles){
-    var YaPPL_string = `{
-        "_id": 123,
-        "preference":[]
-    }`
-    var YaPPL_json = JSON.parse(YaPPL_string);
+
+let yappl;
+
+
+function load_purposes(cur_tgl, rel_toggles){
+    var purposes=[];
     if (rel_toggles =="entry2"){
         ids = ["tglAnnoyed1", "tglAnnoyed2"];
         for (var i=0; i<ids.length; i++){
@@ -20,69 +19,99 @@ function print_YaPPL(cur_tgl, rel_toggles){
             if ((id == cur_tgl && !document.getElementById(id).checked) || (id!= cur_tgl && document.getElementById(id).checked)){
                 if (id=="tglAnnoyed1" && (document.getElementById("annoyed1").style.display=="block" || document.getElementById("personaliseAds").style.display=="block")){
                     var purpose = "Personalise your ads";
-                    var rule = {
-                        "rule": {
-                            "purpose": {
-                                "permitted": [
-                                    purpose
-                                ]
-                            }
-                        }
-                    };
-                    YaPPL_json["preference"].push(rule);
+                    purposes.push(purpose);
                 }
                 else if (id=="tglAnnoyed2" && (document.getElementById("annoyed2").style.display=="block" || document.getElementById("improveWebsite").style.display=="block")){
                     var purpose = "Improve the website";
-                    var rule = {
-                        "rule": {
-                            "purpose": {
-                                "permitted": [
-                                    purpose
-                                ]
-                            }
-                        }
-                    };
-                    YaPPL_json["preference"].push(rule);
+                    purposes.push(purpose);
                 }
 
             }
         }
     }
-    if (rel_toggles =="modal"){
+    else if (rel_toggles =="modal"){
         ids = ["tglPersAdsModal", "tglWebsiteModal"];
         for (var i=0; i<ids.length; i++){
             id = ids[i];
             if ((id == cur_tgl && !document.getElementById(id).checked) || (id!= cur_tgl && document.getElementById(id).checked)){
                 if (id=="tglPersAdsModal" && document.getElementById("personaliseAds2").style.display=="block"){
                     var purpose = "Personalise your ads";
-                    var rule = {
-                        "rule": {
-                            "purpose": {
-                                "permitted": [
-                                    purpose
-                                ]
-                            }
-                        }
-                    };
-                    YaPPL_json["preference"].push(rule);
+                    purposes.push(purpose);
                 }
                 else if (id=="tglWebsiteModal" && document.getElementById("improveWebsite2").style.display=="block"){    
                     var purpose = "Improve the website";
-                    var rule = {
-                        "rule": {
-                            "purpose": {
-                                "permitted": [
-                                    purpose
-                                ]
-                            }
-                        }
-                    };
-                    YaPPL_json["preference"].push(rule);
+                    purposes.push(purpose);
                 }  
             }
         }
     }
-    console.log(YaPPL_json);      
+    return purposes;
+}
+
+
+function update_yappl(cur_tgl, rel_toggles){
+    var purpose_list = ["Personalise your ads", "Improve the website"];
+    var purpose_permitted = load_purposes(cur_tgl, rel_toggles);
+    var purpose_excluded = []
+    for (i=0; i<purpose_list.length; i++){
+        if (purpose_permitted.includes(purpose_list[i])==false){
+            purpose_excluded.push(purpose_list[i]);
+        }
+    }
+    for (var i=0; i<yappl["preference"].length; i++){
+        rule=yappl["preference"][i]["rule"];
+        rule["purpose"]["permitted"] = purpose_permitted;
+        rule["purpose"]["excluded"] = purpose_excluded;
+    }
+    console.log(yappl)
+}
+
+function add_rule(yappl, category, recipients_list, cur_time){
+    var rule = {
+        "rule": {
+            "valid_from": cur_time,
+            "utilizer": {
+                "permitted": recipients_list,
+                "excluded": []
+            },
+            "purpose":{
+                "permitted": [],
+                "excluded": []
+            },
+            "transformation":[
+                {
+                    "tr_func": "",
+                    "attribute": category
+                }
+            ]
+        }
+    };
+    yappl["preference"].push(rule)
+}
+
+
+function load_yappl(obj){
+    var _id = obj.meta._id;
+    yappl = {
+        "_id": _id,
+        "preference": []
+    }
+    var dataDisclosedLength = obj.dataDisclosed.length;
+    for (var i=0; i<dataDisclosedLength; i++){
+        var category = obj.dataDisclosed[i].category; //get category
+        var recipientsLength = obj.dataDisclosed[i].recipients;
+        recipients_list = [] //get recipients
+        for (j=0; j<recipientsLength; j++){
+            var recipient_name = obj.dataDisclosed[i].recipients[j].name;
+            recipients_list.push(recipient_name);
+        }	
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var cur_time = date+' '+time;
+        add_rule(yappl, category, recipients_list, cur_time);
+    }
+    load_purposes("", "entry2");
 }
 
 
@@ -162,6 +191,16 @@ document.addEventListener('scroll', function(){
 function update_toggle_state(id, id_change){
     if (document.getElementById(id).checked != document.getElementById(id_change).checked){
         if (document.getElementById(id).checked == false){
+            $('#'+id_change).bootstrapToggle('off');
+        }
+        else{
+            $('#'+id_change).bootstrapToggle('on');
+        }
+    }
+}
+function update_toggle_state_inv(id, id_change){
+    if (document.getElementById(id).checked == document.getElementById(id_change).checked){
+        if (document.getElementById(id).checked == true){
             $('#'+id_change).bootstrapToggle('off');
         }
         else{
@@ -291,8 +330,8 @@ function load_components(obj){
                 recipients.push(obj.dataDisclosed[i].recipients[j].name);
             }
         }
-        
     }
+
     //load third country component
     var thirdCountries = obj.thirdCountryTransfers;
     document.getElementById('thirdCountry').innerHTML ="";
@@ -308,14 +347,7 @@ function load_components(obj){
     }else{
         document.getElementById('thirdCountry').innerHTML = "Your data is not transferred to other countries."
     }
-    //load controller component
-    /*document.getElementById('controller').innerHTML ="";
-    if (obj.controller.name != undefined){
-        document.getElementById("controller").innerHTML = `Controller: <b>${obj.controller.name}</b></br>`;
-        show_components('controller');
-    }else{
-        hide_components(['controller']);
-    }*/
+
     //load data protection component
     document.getElementById('dpo').innerHTML ="";
     if (obj.dataProtectionOfficer.name != undefined){
@@ -385,23 +417,28 @@ function load_tilt(tilt){
             var obj = JSON.parse(test);
             show_components("entry1ID");
             document.getElementById('mindmap').innerHTML="";
+            load_yappl(obj);
         }
         else if (tilt == "bmjv"){
             var obj = JSON.parse(bmjv);
             load_components(obj);  
+            load_yappl(obj);
         }
         else if (tilt=="bvg"){
             var obj = JSON.parse(bvg);
             load_components(obj); 
+            load_yappl(obj);
         }
         else if (tilt=="priv-icons"){
             var obj = JSON.parse(priv_icons);
             load_components(obj); 
+            load_yappl(obj);
         }
         else if (tilt=="cust_tilt"){
             var c_tilt = document.getElementById("custom_tilt").value;
             var obj = JSON.parse(c_tilt);
             load_components(obj);
+            load_yappl(obj);
         }
     }
     catch (e){
