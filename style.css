@@ -8,7 +8,6 @@
 .privDash{
     --bs-gutter-x: 0px !important;
     border-radius: 0.3rem !important;
-    height: 120% !important;
     position: relative !important;
 }
 
@@ -42,6 +41,11 @@
 .toggle-off {
     background-color: rgb(175, 170, 170) !important;
     border-color: rgb(175, 170, 170) !important;
+}
+
+.inverse-toggle{
+    background-color: red !important;
+    border-color: red !important;
 }
  
  /* The Modal (background) */
@@ -139,7 +143,7 @@
 
 .btn-primary{
     background-color: #3650fe !important;
-    border-color: #3650fe !important;
+    border-color: #a2adf1 !important;
 }
 
 .btn-arrow-right {
@@ -226,6 +230,15 @@
 .btn-arrow-right:active::before,
 .btn-arrow-right.active::before{ /* hide arrow tails background */
     background-color: transparent !important;
+}
+
+/*Content container 2*/
+#contentContainer2{
+    display:none;
+}
+
+.force-graph-container{
+    position: absolute !important;
 }
 
 

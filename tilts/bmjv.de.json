@@ -21,7 +21,7 @@ bmjv = `{
     "address": "Mohrenstraße 37, 10117 Berlin"
   },
   "dataProtectionOfficer": {
-    "name": "Elisabeth Duhr (Behördliche Datenschutzbeauftragte)",
+    "name": "Elisabeth Duhr",
     "address": "Mohrenstraße. 37, 10117 Berlin",
     "country": "DE",
     "email": "datenschutz@bmjv.bund.de",

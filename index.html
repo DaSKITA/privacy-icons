@@ -23,7 +23,9 @@
     <script type="text/javascript" src="tilts/test.json"></script>
     <script type="text/javascript" src="tilts/bmjv.de.json"></script>
     <script type="text/javascript" src="tilts/bvg.de.json"></script>
-
+    <script type="text/javascript" src="tilts/privacy-icons.en.json"></script>
+    <!-- add force graph script-->
+    <script src="//unpkg.com/force-graph"></script>
     <!-- Required Stylesheets -->
     <link
       type="text/css"
@@ -50,8 +52,8 @@
     <!-- Our application root element -->
     <div id="app">
       <!--Navigation bar-->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#" style="margin-left: 10px;">Cookie Information For Different Services</a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar_top">
+        <a class="navbar-brand" href="#" style="margin-left: 10px;">Transparency Information For Different Services</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon" id="nav-tgl-icon"></span>
         </button>
@@ -59,16 +61,19 @@
           <div class="btn-group-lg btn-group-vertical" id="btns-part">
             <ul class="navbar-nav flex-fill">
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px; width: 180px;" onclick="load_tilt('bvg'); hide_components(['custom_field'])">BVG</b-btn>
+                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px;" onclick="load_tilt('bvg'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'entry2')">BVG</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; width: 180px;" onclick="load_tilt('bmjv'); hide_components(['custom_field'])">BMJV</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('bmjv'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'entry2')">BMJV</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; width: 180px;" onclick="load_tilt('test'); hide_components(['custom_field'])">Only Session Cookies</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('priv-icons'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'entry2')">Privacy Icons Forum</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; width: 180px;" onclick="show_hide_textarea('custom_field')">Enter Custom Tilt</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px;" onclick="load_tilt('test'); hide_components(['custom_field']); activate_btn('control_btn'); print_YaPPL('', 'modal')">Only Session Cookies</b-btn>
+              </li>
+              <li class="nav-item navbar-dark bg-dark flex-fill">
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px;" onclick="show_hide_textarea('custom_field'); activate_btn('control_btn');">Enter Custom Tilt</b-btn>
               </li>
             </ul>
           </div>
@@ -78,15 +83,15 @@
         <div class="form-group mb-2">
           <textarea class="form-control" rows="5" id="custom_tilt" maxlength="100000" placeholder="Enter Custom Tilt" rows="5"></textarea>
         </div>
-        <b-btn variant="secondary" class="btn btn-primary btn-block" onclick="load_tilt('cust_tilt'); hide_components(['custom_field'])">Submit</b-btn>
+        <b-btn variant="secondary" class="btn btn-primary btn-block" style="margin-left: 8px;" onclick="load_tilt('cust_tilt'); hide_components(['custom_field']);  print_YaPPL('', 'modal')">Submit</b-btn>
       </form>
     </div>
     
 
     <!--Entrypoint 1: session cookies-->
-    <div class="container entry1" id="entry1ID" onclick="show_components('myModal')" onmouseover="show_components('close1')" onmouseout="hide_components(['close1'])">
+    <div class="container entry1" id="entry1ID" onmouseover="show_components('close1')" onmouseout="hide_components(['close1'])">
       <button type="button" class="btn-close close-entry close-entry1" id="close1" aria-label="Close" onclick="hide_components(['entry1ID', 'entry2ID', 'service', 'contact', 'improveWebsite2', 'personaliseAds2', 'legalRequirements', 'security'])"></button>
-        <div class="card mb-4 shadow-sm background2 p-0">
+        <div class="card mb-4 shadow-sm background2 p-0" onclick="show_components('myModal'); print_YaPPL('','modal')">
           <div class="borderbox1 centering p-0">
             <button class="transparentBtn" id="modalBtn2">
             <img src="Icons/data-protection.svg" alt="SVG mit img Tag laden" width="30" >
@@ -100,7 +105,7 @@
       <button type="button" class="btn-close close-entry" id="close2" aria-label="Close" onclick="hide_components(['entry1ID', 'entry2ID', 'service', 'contact', 'improveWebsite2', 'personaliseAds2', 'legalRequirements', 'security'])"></button>
       <div class="card-deck text-center">
         <div class="card mb-2 shadow-sm">
-          <div class="borderbox centering background1">
+          <div class="borderbox centering background1 borderRad">
             <div class="row gy-5 w-100 p-3">
               <div class="col-3 p-0 order-1" style="text-align: left;">
                 <img src="Icons/data-protection.svg" alt="SVG mit img Tag laden" width="50" >
@@ -112,7 +117,7 @@
           </div>
           <!--Purpose "Personalise your ads"-->
           <div class="container" id="personaliseAds">
-            <div class="card-deck text-center" onmouseenter="hide_components(['personaliseAds']); show_components('annoyed1'); update_toggle_state('tglPersAds', 'tglAnnoyed1')">
+            <div class="card-deck text-center" onmouseenter="hide_components(['personaliseAds']); show_components('annoyed1'); update_toggle_state('tglPersAds', 'tglAnnoyed1'); switchColors('tglPersAds')">
               <div class="card mb-2 shadow-sm paddingleft purpose-box" id="purpose-box-ads">
                 <p style="font-size: 13px; text-align: left;"><b>Personalise your ads</b></p>
                 <div class="row gy-5 w-100 paddingbottom " id="box-content-ads">
@@ -125,8 +130,8 @@
                   <div class="col-2 order-1 paddingleft" style="text-align: left;">
                     <img src="Icons/freedom-icon.svg" alt="SVG mit img Tag laden" width="20" >
                   </div>
-                  <div class="col-6 p-0 order-2" style="text-align: right;">
-                    <input class="toggle-btn-test" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglPersAds">
+                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglPersAds', 'entry2')">
+                    <input class="toggle-btn-ads" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglPersAds" >
                   </div>
                 </div>
               </div>
@@ -134,13 +139,13 @@
           </div>
           <!--Annoyed message 1-->
           <div class="container" >
-            <div class="card-deck text-center" onclick="show_components('myModal')" >
+            <div class="card-deck text-center annoyed_message" >
               <div class="card mb-2 shadow-sm paddingleft purpose-box" id="annoyed1" onmouseleave="hide_components(['annoyed1']); show_components('personaliseAds'); update_toggle_state('tglAnnoyed1', 'tglPersAds')">
                 <p style="font-size: 13px; text-align: left; margin-bottom: 2px;"><b>Personalize your ads</b></p>
                 <div class="row gy-5 w-100 paddingbottom" id="box-content-ads">
                   <p style="font-size: 11px; text-align: left; margin-bottom: 0px;">You're annoyed from cookie banners?<br> Click here and control once</p>
-                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;">
-                    <input class="toggle-btn-test" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglAnnoyed1">
+                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="print_YaPPL('tglAnnoyed1', 'entry2')">
+                    <input class="toggle-btn-ads" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglAnnoyed1">
                   </div>
                 </div>
               </div>
@@ -155,8 +160,8 @@
                   <div class="col-6 order-1 paddingleft" style="text-align: left;">
                     <img src="Icons/privacy-icon.svg" alt="SVG mit img Tag laden" width="20" >
                   </div>
-                  <div class="col-6 p-0 order-2" style="text-align: right;">
-                    <input type="checkbox" id="tglWebsite" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " checked>
+                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglWebsite', 'entry2')">
+                    <input class="toggle-btn-wbs" type="checkbox" id="tglWebsite" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " checked>
                   </div>
                 </div>
               </div>
@@ -164,19 +169,19 @@
           </div>
           <!--Annoyed message 2-->
           <div class="container" >
-            <div class="card-deck text-center" onclick="show_components('myModal')" >
-              <div class="card mb-2 shadow-sm paddingleft purpose-box" id="annoyed2" onmouseleave="hide_components(['annoyed2']); show_components('improveWebsite'); update_toggle_state('tglAnnoyed2', 'tglWebsite')">
+            <div class="card-deck text-center annoyed_message" id="annoyed_message">
+              <div class="card mb-2 shadow-sm paddingleft purpose-box" id="annoyed2" onmouseleave="hide_components(['annoyed2']); show_components('improveWebsite'); update_toggle_state('tglAnnoyed2', 'tglWebsite');" onmouseover="switchColors('tglAnnoyed2')">
                 <p style="font-size: 13px; text-align: left; margin-bottom: 2px;"><b>Improve the website</b></p>
                 <div class="row gy-5 w-100 paddingbottom" id="box-content-ads">
                   <p style="font-size: 11px; text-align: left; margin-bottom: 0px;">You're annoyed from cookie banners?<br> Click here and control once</p>
-                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;">
-                    <input class="toggle-btn-test" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglAnnoyed2">
+                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="print_YaPPL('tglAnnoyed2','entry2')">
+                    <input class="toggle-btn-wbs" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglAnnoyed2">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <button type="button" id="modalBtn" onclick="show_components('myModal')" class="btn btn-outline-light btn-sm" style="color: rgb(115, 122, 122); font-family: Batang; font-size:large; width:100%;">=</button>
+          <button type="button" id="modalBtn" onclick="show_components('myModal'); print_YaPPL('','modal')" class="btn btn-outline-light btn-sm" style="color: rgb(115, 122, 122); font-family: Batang; font-size:large; width:100%;">=</button>
         </div>
       </div>
     </div>
@@ -187,10 +192,10 @@
 <div id="myModal" class="modal">
   <div class="modal-content">
   <!--Privacy Dashboard -->
-  <div class="row gy-0 w-100 privDash" style="overflow: hidden;">
-    <div class="col p-0 privDash" style="max-width:270px; height:100% !important; box-shadow: #e0d0cd 0px 2px 8px 0px;">
-      <div class="container entry2a privDash" style="height:100% !important; ">
-        <div class="card-deck text-center privDash" style="height:100% !important;">
+  <div class="row gy-0 w-100 privDash" id="modalContent" style="overflow: hidden; display:flex; align-items: stretch !important;">
+    <div class="col p-0 privDash" style="max-width:270px; box-shadow: #e0d0cd 0px 2px 8px 0px;">
+      <div class="container entry2a privDash">
+        <div class="card-deck text-center privDash">
             <div class="borderbox centering background1 borderRad">
               <div class="row gy-5 w-100 p-3">
                 <div class="col-3 p-0 order-1" style="text-align: left;">
@@ -210,8 +215,8 @@
                     <div class="col-6 order-1 paddingleft" style="text-align: left;">
                       <img src="Icons/privacy-icon.svg" alt="SVG mit img Tag laden" width="20" >
                     </div>
-                    <div class="col-6 p-0 order-2" style="text-align: right;">
-                      <input type="checkbox" checked data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" ">
+                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglWebsiteModal','modal')">
+                      <input class="toggle-btn-wbs" id="tglWebsiteModal" type="checkbox" checked data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" ">
                     </div>
                   </div>
                 </div>
@@ -232,8 +237,8 @@
                     <div class="col-2 order-1 paddingleft" style="text-align: left;">
                       <img src="Icons/freedom-icon.svg" alt="SVG mit img Tag laden" width="20" >
                     </div>
-                    <div class="col-6 p-0 order-2" style="text-align: right;">
-                      <input type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " checked>
+                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="print_YaPPL('tglPersAdsModal','modal')">
+                      <input class="toggle-btn-ads" id="tglPersAdsModal" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " checked>
                     </div>
                   </div>
                 </div>
@@ -305,16 +310,15 @@
                 </div>
               </div>
             </div>
+          </div>
             <!--Close window button-->
-            <div class="container" style="padding:7px; bottom: 9px; position:absolute;">
+            <div class="container" style="padding:7px; bottom: 9px; position:absolute"> <!--position:absolute-->
               <div class="card-deck text-center">
                 <div class="card shadow-sm paddingleft">
                   <span class="close p-1" style="color:black; font-size: 13px;"><b>Close window</b></span>
                 </div>
               </div>
             </div>
-          
-        </div>
       </div>
     </div>
     
@@ -323,16 +327,16 @@
       <div class="form-group has-search">
         <input type="text" class="form-control" placeholder="Search" style="border:none !important;">
       </div>
-      <div class="p-3" style="background-color: whitesmoke; padding-top: 0.5rem !important;">
+      <div class="p-3" id="bigContainer" style="background-color: whitesmoke; padding-top: 0.5rem !important; position: relative; height:100%;">
       <!--Navbar-->
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid" style="box-shadow: #e0d0cd 0px 2px 8px 0px; padding:3px;">
             <div class="collapse navbar-collapse" >
               <ul class="navbar-nav flex-fill">
                 <li class="nav-item flex-fill">
-                  <button id="navbar" class="btn btn-outline-primary active btn-block btn-control" style="width:100%; padding:0px; color: white !important;" onclick='var current = document.getElementsByClassName("active");
+                  <button id="control_btn" class="btn btn-outline-primary active btn-block btn-control" style="width:100%; padding:0px; color: white !important;" onclick='var current = document.getElementsByClassName("active");
                   current[0].className = current[0].className.replace(" active", "");
-                  this.className += " active";'>Control</button>
+                  this.className += " active"; hide_components(["contentContainer2"]); show_components("contentContainer1")'>Control</button>
                 </li>
                 <li class="nav-item flex-fill">
                   <button id="navbar" class="btn btn-outline-primary btn-block btn-arrow-right btn-arrow-right-after" style="width:100%; padding:0px" onclick='var current = document.getElementsByClassName("active");
@@ -352,7 +356,7 @@
                 <li class="nav-item flex-fill">
                   <button id="navbar" class="btn btn-outline-primary btn-block btn-arrow-right btn-arrow-right-before btn-arrow-right-after" style="width:100%; padding:0px" onclick='var current = document.getElementsByClassName("active");
                   current[0].className = current[0].className.replace(" active", "");
-                  this.className += " active";'>Data receiver</button>
+                  this.className += " active"; get_set_height("modalContent", "modalContent"); get_set_height("contentContainer1", "contentContainer2"); hide_components(["contentContainer1"]); show_components("contentContainer2"); load_mindmap();'>Data receiver</button>
                 </li>
                 <li class="nav-item flex-fill">
                   <button id="navbar" class="btn btn-outline-primary btn-block btn-arrow-right btn-arrow-right-before btn-arrow-right-after" style="width:100%; padding:0px" onclick='var current = document.getElementsByClassName("active");
@@ -368,9 +372,9 @@
             </div>
           </div>
         </nav>
-        <!--Example page:Personalise your advertisements-->
-        <div class="container" id="contentContainter1">
-          <div class="card" style="box-shadow: #e0d0cd 0px 2px 8px 0px;">
+        <!--Example page: Personalise your advertisements-->
+        <div class="container" id="contentContainer1" style="top: 4px; bottom:9px; position:relative;"> <!--height: 83%;-->
+          <div class="card" style="box-shadow: #e0d0cd 0px 2px 8px 0px; height:100%;">
             <div class="card-body">
               <div  style="float: left; width:70%">
                 <h3><b>Personalise your advertisements (ads)</b></h3>
@@ -378,7 +382,14 @@
                   This <b><a style="color: #3650fe;">Privacy-Seal</a></b> makes sure that you maintain control and the advertising companies ("they") implement all safeguards effectively.
                 </p>
               </div>
-              <div class="col-12 p-1" style="float:right; text-align:right;">
+              <div class="col-md-6 p-1" style="float:left; text-align:left; padding-top: 0px !important; padding-bottom: 40px !important;">
+                <p>
+                  <!--<span id="controller"></span>-->
+                  <span id="dpo"></span>
+                  <span id="automatedDec"></span>
+                </p>
+              </div>
+              <div class="col-md-6 p-1" style="float:right; text-align:right;">
                 <div class="card" style="margin:5px 0px 5px 5px !important; border:none; width:90px; height:90px; float:right;">
                   <div class="card" style="background-color: #f8f0ee; border-color: #f8f0ee; width:90px; height:90px; float:right; box-shadow: #e0d0cd 0px 2px 8px 0px;">
                     <div class="card-body centering">
@@ -421,6 +432,22 @@
             </div>
           </div>
         </div>
+        <!--Example page 2: read stuff from tilt-->
+        <div class="container" id="contentContainer2" style="top: 4px; bottom:9px; position:relative;" ><!--height: 83%;-->
+          <div class="card" style="box-shadow: #e0d0cd 0px 2px 8px 0px; height: 100%">
+            <div class="card-body" style="height:100%;">
+              <div class="col-12 p-1" style="float: left; width:70%">
+                <h3><b>Who else has access to your data</b></h3>
+                <p>In the graphic below you can see which companies get access to your data that is collected on this website. </br>
+                Hover over the nodes to get more information.</p>
+                <p><span id="thirdCountry"></span>
+                </p>
+              </div>
+              <div id="mindmap" class="col-12 p-1" style="bottom:9px;  float:right">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div> 
@@ -429,7 +456,7 @@
 
 
 <!--Dummy page-->
-<div class="container" style="margin-top: 20px;">
+<div class="container" style="margin-top: 20px;" id="test_mindmap">
   <div class="row">
       <!-- Blog entries-->
       <div class="col-lg-8">
@@ -490,19 +517,7 @@
                   </div>
               </div>
           </div>
-          <!-- Pagination-->
-          <nav aria-label="Pagination">
-              <hr class="my-0" />
-              <ul class="pagination justify-content-center my-4">
-                  <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                  <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                  <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                  <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                  <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-              </ul>
-          </nav>
+         
       </div>
       <!-- Side widgets-->
       <div class="col-lg-4">
@@ -512,7 +527,6 @@
               <div class="card-body">
                   <div class="input-group">
                       <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                      <button class="btn btn-primary" id="button-search" type="button">Go!</button>
                   </div>
               </div>
           </div>
@@ -546,7 +560,6 @@
       </div>
   </div>
 </div>
-  
     <!-- Start running your app -->
     <script>
       window.app = new Vue({

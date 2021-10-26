@@ -1,0 +1,246 @@
+priv_icons = `{
+    "meta": {
+      "_id": "f1424f86-ca0f-4f0c-9438-43cc00509931",
+      "name": "Privacy Icons Forum",
+      "created": "2020-04-03T15:53:05.929588",
+      "modified": "2020-04-03T15: 53: 05.929588",
+      "version": 2,
+      "language": "en",
+      "status": "active",
+      "url": "https://privacyiconsforum.eu/privacy-policies/privacy-policy/",
+      "_hash": "d732a793562a3e5dc57645a8"
+    },
+    "controller": {
+      "name": "Privacy Icons Forum",
+      "division": "",
+      "address": "",
+      "country": "DE",
+      "representative": {
+        "name": "",
+        "email": "",
+        "phone": ""
+      }
+    },
+    "dataProtectionOfficer": {
+      "address": "",
+      "country": "DE",
+      "email": "privacyiconsforum@hu-berlin.de",
+      "phone": ""
+    },
+    "dataDisclosed": [
+      {
+        "_id": "f1424f86-ca0f-4f0c-9438-43cc00509931",
+        "category": "the operating system, the page you visited before landing on our website, the page or pages you visited on our website and the time and date you accessed our website",
+        "purposes": [
+          {
+            "purpose": "service",
+            "description": "We collect certain data to display the website in the best manner and to enable navigation. For example, we adapt the display of the website’s content to the size of your screen and to your browser characteristics."
+          }
+        ],
+        "legalBases": [
+          {
+            "reference": "Art. 6(1)(f) GDPR"
+          }
+        ],
+        "legitimateInterests": [
+          {
+            "exists": true,
+            "reasoning": "We have a legitimate interest to process this data to inform you and other visitors about our research projects in the best possible manner"
+          }
+        ],
+        "recipients": [],
+        "storage": [
+          {
+            "temporal": [],
+            "purposeConditional": [
+              "Our server stores your data only during the time that you are visiting our website"
+            ]
+          }
+        ],
+        "nonDisclosure": {
+          "legalRequirement": false,
+          "contractualRegulation": false,
+          "obligationToProvide": false
+        }
+      },
+      {
+        "_id": "f1424f86-ca0f-4f0c-9438-43cc00509932",
+        "category": "the operating system, IP address, port for file transfers, type and version of the internet browser, the size of the browser window, the page you visited before landing on our website, the page or pages you visited on our website and the time and date you accessed our website, the size of the data sent by your requests and responses sent between your browser and the server hosting our website and the HTTP Status COdes issued by our server when it responds to your browser's request.",
+        "purposes": [
+          {
+            "purpose": "security",
+            "description": "We collect certain data to maintain our website’s security, for example to analyse technical problems and malicious attacks."
+          }
+        ],
+        "legalBases": [
+          {
+            "reference": "Art. 6(1)(f) GDPR"
+          }
+        ],
+        "legitimateInterests": [
+          {
+            "exists": true,
+            "reasoning": "We have a legitimate interest to analyse your activity on our website in order to identify technical problems and protect it from cyberattacks. The data are used to ensure protection for the personal data on the server of our hosting institution. In case of a cyberattack, we may be required to provide the data to law enforcement authorities for criminal prosecution."
+          }
+        ],
+        "recipients": [],
+        "storage": [
+          {
+            "temporal": [],
+            "purposeConditional": [
+              "The data are stored on our server for one week and then they are erased. However, if our website has a security incident, we have a legitimate interest to keep the data as long as necessary to investigate the incident. For example, we might look into the IP addresses we collected to identify the origin of the attack."
+            ]
+          }
+        ],
+        "nonDisclosure": {
+          "legalRequirement": false,
+          "contractualRegulation": false,
+          "obligationToProvide": false
+        }
+      },
+      {
+        "_id": "f1424f86-ca0f-4f0c-9438-43cc00509933",
+        "category": "your email address and name (if it's visible in your email address or you decide to share it with us), the time and date your message was sent, other personal information that you decide to share with us in your message.",
+        "purposes": [
+          {
+            "purpose": "contact",
+            "description": "When you send us an email or use our contact form, we use your data to answer you and to be able to keep our conversation ongoing."
+          }
+        ],
+        "legalBases": [
+          {
+            "reference": "Art. 6(1)(f) GDPR"
+          }
+        ],
+        "legitimateInterests": [
+          {
+            "exists": true,
+            "reasoning": "We have a legitimate interest to collect and process your data to answer your request and to be able to keep the conversation ongoing."
+          }
+        ],
+        "recipients": [],
+        "storage": [
+          {
+            "temporal": [],
+            "purposeConditional": [
+              "We store your message, your email address and your name (if you shared it) in our mailbox as long as necessary to answer your contact request and to keep our conversation ongoing. We keep these data until you object to the processing or ask us to delete it."
+            ]
+          }
+        ],
+        "nonDisclosure": {
+          "legalRequirement": false,
+          "contractualRegulation": false,
+          "obligationToProvide": false
+        }
+      },
+      {
+        "_id": "f1424f86-ca0f-4f0c-9438-43cc00509931",
+        "category": "the operating system, the page you visited before landing on our website, the page or pages you visited on our website and the time and date you accessed our website",
+        "purposes": [
+          {
+            "purpose": "service",
+            "description": "We collect certain data to display the website in the best manner and to enable navigation. For example, we adapt the display of the website’s content to the size of your screen and to your browser characteristics."
+          }
+        ],
+        "legalBases": [
+          {
+            "reference": "Art. 6(1)(f) GDPR"
+          }
+        ],
+        "legitimateInterests": [
+          {
+            "exists": true,
+            "reasoning": "We have a legitimate interest to process this data to inform you and other visitors about our research projects in the best possible manner"
+          }
+        ],
+        "recipients": [],
+        "storage": [
+          {
+            "temporal": [],
+            "purposeConditional": [
+              "Our server stores your data only during the time that you are visiting our website"
+            ]
+          }
+        ],
+        "nonDisclosure": {
+          "legalRequirement": false,
+          "contractualRegulation": false,
+          "obligationToProvide": false
+        }
+      },
+      {
+        "_id": "f1424f86-ca0f-4f0c-9438-43cc00509934",
+        "category": "the operating system, your IP address in an anonymised form, type and version of your internet browser, the size of the browser window, the page you visited before landing on our website, the page or pages you visited on our website and the time and date you accessed our website.",
+        "purposes": [
+          {
+            "purpose": "improve the website",
+            "description": "When you navigate our website, we collect and immediately anonymise your data to create statistics about how visitors use our website, which is helpful to evaluate and enhance our website appearance."
+          }
+        ],
+        "legalBases": [
+          {
+            "reference": "Art. 6(1)(f) GDPR"
+          }
+        ],
+        "legitimateInterests": [
+          {
+            "exists": true,
+            "reasoning": "We have a legitimate interest to collect this data to create statistics about how visitors of our website use it to evaluate and enhance our website."
+          }
+        ],
+        "recipients": [],
+        "storage": [
+          {
+            "temporal": [],
+            "purposeConditional": [
+              "We do not store your personal data, because we immediately anonymise the data we collect."
+            ]
+          }
+        ],
+        "nonDisclosure": {
+          "legalRequirement": false,
+          "contractualRegulation": false,
+          "obligationToProvide": false
+        }
+      }
+    ],
+    "thirdCountryTransfers": [],
+    "accessAndDataPortability": {
+      "available": true
+    },
+    "sources": [],
+    "rightToInformation": {
+      "available": true,
+      "email": "privacyiconsforum@hu-berlin.de"
+    },
+    "rightToRectificationOrDeletion": {
+      "available": true,
+      "email": "privacyiconsforum@hu-berlin.de"
+    },
+    "rightToDataPortability": {
+      "available": true,
+      "email": "privacyiconsforum@hu-berlin.de"
+    },
+    "rightToWithdrawConsent": {
+      "available": true,
+      "email": "privacyiconsforum@hu-berlin.de"
+    },
+    "rightToComplain": {
+      "available": true,
+      "supervisoryAuthority": {
+        "name": "Commissioner for Data Protection",
+        "address": "Friedrichstrasse 219, 10969 Berlin",
+        "country": "DE",
+        "email": "behDSB@datenschutz-berlin.de",
+        "phone": "0049 30 13889406"
+      }
+    },
+    "automatedDecisionMaking": {
+      "inUse": false
+    },
+    "changesOfPurpose": [
+      {
+        "description": "The information on this page may change, for example when the law or the way we process personal data change. When this happens, we will always make it clear and publish the changes on our website. You can access older versions of our privacy policy under “Version history” at the top of the page."
+      }
+    ]
+  }`
