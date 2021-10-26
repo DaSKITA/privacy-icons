@@ -9,20 +9,23 @@
     - wenn kein Zweck gegeben ist, gehen wir davon aus, dass nur Session Cookies genutzt werden und es wird Entrypoint 1 angezeigt.
 - Order Img/ enthält die Hintergründe.
 - Ordner Icons/ enthält die svg-Icons.
+- Ordner tilts/ enthält die tilt-Dokumente
 
 ## Nutzung
+- force-graph funktioniert nicht lokal-> webserver starten z.B. mit http-server
 - Bei Klick auf die Buttons (BVG, BMJV und ein Beispiel für keinen Zweck (nur Session Cookies)) wird der passende Entrypoint angezeigt. 
   - Die purpose-Felder in den tilt-Dokumenten habe ich so angepasst, dass ich den Zweck leicht rauslesen kann.
 - Für das Anzeigen des Privacy Dashboards auf die zwei Striche (bei Entrypoint 2) oder auf den Entrypoint selbst (bei Entrypoint 1) klicken.
 - Beim Privacy Dashboard werden auf der linken Seite nur die Zwecke angezeigt, die beim jeweiligen Dienst gegeben sind.
+- Informationen für weiteres tilt anzeigen ist möglich, wenn man auch 'Enter custom tilt' clickt und tilt eingibt
 
 ## Todo
 - Lupen-Ikon neben der Search-Bar wird nicht angezeigt (verstehe nicht warum).
-- 1 weiterer Reiter mit Kurzzusammenfassung aus TILT. z.B. so ähnlich wie hier laden: https://github.com/Transparency-Information-Language/chrome-tilt/blob/master/popup.js
 - Slide 24-29 low prio (maximal zum Prokrastinieren)
 - Einbinden möglich machen
 
 check: 
+- 1 weiterer Reiter mit Kurzzusammenfassung aus TILT. z.B. so ähnlich wie hier laden: https://github.com/Transparency-Information-Language/chrome-tilt/blob/master/popup.js
 - Menüleiste statt Buttons (collapse sieht noch etwas komisch aus)
 - Dummy Hintergrund Website
 - "add textbox, where you can insert new tilt" and the respective privacy icons banner gets rendered
