@@ -26,7 +26,7 @@
 
 check: 
 - 1 weiterer Reiter mit Kurzzusammenfassung aus TILT. z.B. so ähnlich wie hier laden: https://github.com/Transparency-Information-Language/chrome-tilt/blob/master/popup.js
-- Menüleiste statt Buttons (collapse sieht noch etwas komisch aus)
+- Menüleiste statt Buttons
 - Dummy Hintergrund Website
 - "add textbox, where you can insert new tilt" and the respective privacy icons banner gets rendered
 - Entrypoint 2 verschwindet, wenn user auf website klickt oder scrollt -> entrypoint 1 wird stattdessen angezeigt
@@ -36,7 +36,7 @@ check:
 - ausgegraute Checkbox hat keinen weißen Kreis
 - gelbes x wird blau, lieber gelben border
 - gelbes x nur anzeigen, wenn über box gehovert wird
-- Close-Window müsste unten sein, auch wenn keine Checkboxen auf der linken Seite angezigt werden (klappt bei mir, warum bei Elias nicht?)
+- Close-Window müsste unten sein, auch wenn keine Checkboxen auf der linken Seite angezigt werden
 - bzw. zu weit oben, wenn Checkboxen auf der liknen sSeite da sind
 
 ```
