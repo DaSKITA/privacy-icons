@@ -24,8 +24,12 @@
     <script type="text/javascript" src="tilts/bmjv.de.json"></script>
     <script type="text/javascript" src="tilts/bvg.de.json"></script>
     <script type="text/javascript" src="tilts/privacy-icons.en.json"></script>
+    <!--<script type="application/json" src="tilts2/bmjv.de.json"></script>
+    <script type="application/json" src="tilts2/bvg.de.json"></script>
+    <script type="application/json" src="tilts2/privacy-icons.en.json"></script>
+    <script type="application/json" src="tilts2/test.json"></script>-->
     <!-- add force graph script-->
-    <script src="//unpkg.com/force-graph"></script>
+    <script src="https://unpkg.com/force-graph"></script>
     <!-- Required Stylesheets -->
     <link
       type="text/css"
@@ -61,13 +65,13 @@
           <div class="btn-group-lg btn-group-vertical" id="btns-part">
             <ul class="navbar-nav flex-fill">
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px;" onclick="load_tilt('bvg'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'entry2')">BVG</b-btn>
+                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px;" onclick="load_tilt('bvg'); hide_components(['custom_field']); activate_btn('control_btn');  update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglWebsite', 'tglAnnoyed2'); update_yappl('', 'entry2')">BVG</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('bmjv'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'entry2')">BMJV</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('bmjv'); hide_components(['custom_field']); activate_btn('control_btn'); update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglWebsite', 'tglAnnoyed2'); update_yappl('', 'entry2')">BMJV</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('priv-icons'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'entry2')">Privacy Icons Forum</b-btn>
+                <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('priv-icons'); hide_components(['custom_field']); activate_btn('control_btn'); update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglWebsite', 'tglAnnoyed2'); update_yappl('', 'entry2')">Privacy Icons Forum</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
                 <b-btn variant="secondary"class="btn-block" style="margin-left: 3px;" onclick="load_tilt('test'); hide_components(['custom_field']); activate_btn('control_btn'); update_yappl('', 'modal')">Only Session Cookies</b-btn>

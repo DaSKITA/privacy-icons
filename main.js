@@ -50,16 +50,26 @@ function load_purposes(cur_tgl, rel_toggles){
 
 
 function update_yappl(cur_tgl, rel_toggles){
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var cur_time = date+' '+time;
     var purpose_list = ["Personalise your ads", "Improve the website"];
     var purpose_permitted = load_purposes(cur_tgl, rel_toggles);
     var purpose_excluded = []
     for (i=0; i<purpose_list.length; i++){
         if (purpose_permitted.includes(purpose_list[i])==false){
-            purpose_excluded.push(purpose_list[i]);
+            if (purpose_list[i]=="Personalise your ads" && (document.getElementById("personaliseAds2").style.display=="block" || document.getElementById("annoyed1").style.display=="block" || document.getElementById("personaliseAds").style.display=="block")){
+                purpose_excluded.push(purpose_list[i]);
+            }
+            else if(purpose_list[i]=="Improve the website" && (document.getElementById("improveWebsite2").style.display=="block" || document.getElementById("annoyed2").style.display=="block" || document.getElementById("improveWebsite").style.display=="block")){
+                purpose_excluded.push(purpose_list[i]);
+            }
         }
     }
     for (var i=0; i<yappl["preference"].length; i++){
         rule=yappl["preference"][i]["rule"];
+        rule["valid_from"] = cur_time;
         rule["purpose"]["permitted"] = purpose_permitted;
         rule["purpose"]["excluded"] = purpose_excluded;
     }
@@ -91,27 +101,34 @@ function add_rule(yappl, category, recipients_list, cur_time){
 
 
 function load_yappl(obj){
-    var _id = obj.meta._id;
-    yappl = {
-        "_id": _id,
-        "preference": []
+    if (obj.meta == undefined){
+        var _id = "01";
+        yappl = {
+            "_id": _id,
+            "preference": []
+        }
+        add_rule(yappl, "", [], "");
+        load_purposes("", "entry2");
     }
-    var dataDisclosedLength = obj.dataDisclosed.length;
-    for (var i=0; i<dataDisclosedLength; i++){
-        var category = obj.dataDisclosed[i].category; //get category
-        var recipientsLength = obj.dataDisclosed[i].recipients;
-        recipients_list = [] //get recipients
-        for (j=0; j<recipientsLength; j++){
-            var recipient_name = obj.dataDisclosed[i].recipients[j].name;
-            recipients_list.push(recipient_name);
-        }	
-        var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var cur_time = date+' '+time;
-        add_rule(yappl, category, recipients_list, cur_time);
+    else{
+        var _id = obj.meta._id.replace(/[^\d.-]/g, '');
+        yappl = {
+            "_id": _id,
+            "preference": []
+        }
+        var dataDisclosedLength = obj.dataDisclosed.length;
+        for (var i=0; i<dataDisclosedLength; i++){
+            var category = obj.dataDisclosed[i].category; //get category
+            var recipientsLength = obj.dataDisclosed[i].recipients;
+            recipients_list = []; //get recipients
+            for (j=0; j<recipientsLength; j++){
+                var recipient_name = obj.dataDisclosed[i].recipients[j].name;
+                recipients_list.push(recipient_name);
+            }	
+            add_rule(yappl, category, recipients_list, "");
+        }
+        load_purposes("", "entry2");
     }
-    load_purposes("", "entry2");
 }
 
 
@@ -374,8 +391,6 @@ function load_components(obj){
     }
 
     //load mindmap
-    
-    //var myMindmap = ForceGraph();
     cur_service=obj.meta.name;
         
     myData = {
