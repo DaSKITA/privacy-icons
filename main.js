@@ -74,6 +74,9 @@ function update_yappl(cur_tgl, rel_toggles){
         rule["purpose"]["excluded"] = purpose_excluded;
     }
     console.log(yappl)
+    document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
+    //let x = document.cookie; 
+    //console.log(x);
 }
 
 function add_rule(yappl, category, recipients_list, cur_time){
@@ -207,6 +210,7 @@ document.addEventListener('scroll', function(){
 //update toggle state
 function update_toggle_state(id, id_change){
     if (document.getElementById(id).checked != document.getElementById(id_change).checked){
+        //alert("hi")
         if (document.getElementById(id).checked == false){
             $('#'+id_change).bootstrapToggle('off');
         }
@@ -217,6 +221,7 @@ function update_toggle_state(id, id_change){
 }
 function update_toggle_state_inv(id, id_change){
     if (document.getElementById(id).checked == document.getElementById(id_change).checked){
+        //alert("hi2")
         if (document.getElementById(id).checked == true){
             $('#'+id_change).bootstrapToggle('off');
         }
@@ -321,6 +326,13 @@ function load_components(obj){
                     }
                 }
             }
+            //check for personalise your ads component
+            if (obj.dataDisclosed[i].purposes[j].purpose == "personalise your ads" && personaliseYourAds==0){
+                show_components("personaliseAds");
+                show_components("personaliseAds2");
+                show_components("purpose-box-ads");
+                personaliseYourAds=1;
+            }
             //check for improve the website component
             if (obj.dataDisclosed[i].purposes[j].purpose == "improve the website" && improveTheWebsite==0){
                 for (k=0; k<improveTheWebsiteStrings.length; k++){
@@ -332,14 +344,7 @@ function load_components(obj){
                         break;
                     }
                 }
-            }
-            //check for personalise your ads component
-            if (obj.dataDisclosed[i].purposes[j].purpose == "personalise your ads" && personaliseYourAds==0){
-                show_components("personaliseAds");
-                show_components("personaliseAds2");
-                show_components("purpose-box-ads");
-                personaliseYourAds=1;
-            }
+            }  
         }
         var recLength = obj.dataDisclosed[i].recipients.length;
         for (var j=0; j<recLength; j++){

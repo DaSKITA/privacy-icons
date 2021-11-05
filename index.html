@@ -65,7 +65,7 @@
           <div class="btn-group-lg btn-group-vertical" id="btns-part">
             <ul class="navbar-nav flex-fill">
               <li class="nav-item navbar-dark bg-dark flex-fill">
-                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px;" onclick="load_tilt('bvg'); hide_components(['custom_field']); activate_btn('control_btn');  update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglWebsite', 'tglAnnoyed2'); update_yappl('', 'entry2')">BVG</b-btn>
+                <b-btn variant="secondary" class="btn-block" style="margin-left: 3px;" onclick="load_tilt('bvg'); hide_components(['custom_field']); activate_btn('control_btn');  update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglWebsite', 'tglAnnoyed2'); update_toggle_state('tglWebsite', 'tglWebsiteModal');update_toggle_state('tglPersAds', 'tglPersAdsModal'); update_yappl('', 'entry2')">BVG</b-btn>
               </li>
               <li class="nav-item navbar-dark bg-dark flex-fill">
                 <b-btn variant="secondary"class="btn-block" style="margin-left: 3px; " onclick="load_tilt('bmjv'); hide_components(['custom_field']); activate_btn('control_btn'); update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglWebsite', 'tglAnnoyed2'); update_yappl('', 'entry2')">BMJV</b-btn>
@@ -134,7 +134,7 @@
                   <div class="col-2 order-1 paddingleft" style="text-align: left;">
                     <img src="Icons/freedom-icon.svg" alt="SVG mit img Tag laden" width="20" >
                   </div>
-                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglPersAds', 'entry2')">
+                  <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglPersAds', 'entry2'); update_toggle_state('tglPersAds', 'tglAnnoyed1'); update_toggle_state('tglPersAds', 'tglPersAdsModal');">
                     <input class="toggle-btn-ads" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglPersAds" >
                   </div>
                 </div>
@@ -144,11 +144,11 @@
           <!--Annoyed message 1-->
           <div class="container" >
             <div class="card-deck text-center annoyed_message" >
-              <div class="card mb-2 shadow-sm paddingleft purpose-box" id="annoyed1" onmouseleave="hide_components(['annoyed1']); show_components('personaliseAds'); update_toggle_state('tglAnnoyed1', 'tglPersAds')">
+              <div class="card mb-2 shadow-sm paddingleft purpose-box" id="annoyed1" onmouseleave="hide_components(['annoyed1']); show_components('personaliseAds'); update_toggle_state('tglAnnoyed1', 'tglPersAds');">
                 <p style="font-size: 13px; text-align: left; margin-bottom: 2px;"><b>Personalize your ads</b></p>
                 <div class="row gy-5 w-100 paddingbottom" id="box-content-ads">
                   <p style="font-size: 11px; text-align: left; margin-bottom: 0px;">You're annoyed from cookie banners?<br> Click here and control once</p>
-                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="update_yappl('tglAnnoyed1', 'entry2');">
+                  <div class="col-6 p-0 order-2" style="text-align: right; margin-top: 0px; width: 100%; position: relative; top: -17px;" onclick="update_yappl('tglAnnoyed1', 'entry2'); update_toggle_state_inv('tglAnnoyed1', 'tglPersAdsModal')">
                     <input class="toggle-btn-ads" type="checkbox" data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" " id="tglAnnoyed1">
                   </div>
                 </div>
@@ -210,22 +210,6 @@
                 </div>
               </div>
             </div>
-            <!--Purpose "Improve the Website"-->
-            <div class="container" id="improveWebsite2" style="padding:7px;">
-              <div class="card-deck text-center">
-                <div class="card mb-2 shadow-sm paddingleft purpose-box" id="purpose-box">
-                  <p style="font-size: 13px; text-align: left;"><b>Improve the website</b></p>
-                  <div class="row gy-5 w-100 paddingbottom">
-                    <div class="col-6 order-1 paddingleft" style="text-align: left;">
-                      <img src="Icons/privacy-icon.svg" alt="SVG mit img Tag laden" width="20" >
-                    </div>
-                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglWebsiteModal','modal'); update_toggle_state_inv('tglWebsiteModal', 'tglAnnoyed2'); update_toggle_state_inv('tglWebsiteModal', 'tglWebsite')">
-                      <input class="toggle-btn-wbs" id="tglWebsiteModal" type="checkbox" checked data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" ">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <!--Purpose "Personalize your ads"-->
             <div class="container" id="personaliseAds2" style="padding:7px;">
               <div class="card-deck text-center">
@@ -248,6 +232,23 @@
                 </div>
               </div>
             </div>
+            <!--Purpose "Improve the Website"-->
+            <div class="container" id="improveWebsite2" style="padding:7px;">
+              <div class="card-deck text-center">
+                <div class="card mb-2 shadow-sm paddingleft purpose-box" id="purpose-box">
+                  <p style="font-size: 13px; text-align: left;"><b>Improve the website</b></p>
+                  <div class="row gy-5 w-100 paddingbottom">
+                    <div class="col-6 order-1 paddingleft" style="text-align: left;">
+                      <img src="Icons/privacy-icon.svg" alt="SVG mit img Tag laden" width="20" >
+                    </div>
+                    <div class="col-6 p-0 order-2" style="text-align: right;" onclick="update_yappl('tglWebsiteModal','modal'); update_toggle_state_inv('tglWebsiteModal', 'tglAnnoyed2'); update_toggle_state_inv('tglWebsiteModal', 'tglWebsite')">
+                      <input class="toggle-btn-wbs" id="tglWebsiteModal" type="checkbox" checked data-toggle="toggle" data-size="xs" data-style="ios" data-on=" " data-off=" ">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <!--Purpose "Security"-->
             <div class="container" id="security" style="padding:7px;">
               <div class="card-deck text-center">
