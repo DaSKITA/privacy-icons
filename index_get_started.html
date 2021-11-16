@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+  <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+  <!--add tilt as string-->
+  <script type="text/javascript" src="tilts/tilt.json"></script>
+</head>
+
+<!--add tilt as string-->
+<body onload="load_tilt(tilt);">
+	<div id="privacy_info"></div>
+	rest of website
+
+
+
+<!--add scripts-->
+<script type="text/javascript" language="javascript" src="privacy-banner-code.js"></script>
+<script type="text/javascript" src="privacy-banner.js"></script>
+<script>
+  window.app = new Vue({
+    el: '#app',
+    data: {
+      name: ''
+    },
+    computed: {
+      showAlert() {
+        return this.name.length > 4 ? true : false
+      }
+    }
+  })
+  console.log(window.app)
+</script>
+
+</body>
+</html>
