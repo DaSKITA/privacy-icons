@@ -1,63 +1,51 @@
-# Privacy Icons
+# Transparency Privacy Banner
+Add transparent privacy information to your website using your privacy policy in tilt-format. And saving the privacy preferences in a YaPPL format.
+Designed according to the approach of the Privacy Icons Forum headed by Max von Grafenstein. 
+For more information: 
+- Privacy Icons Forum: https://www.privacy-icons.info/
+- Tilt: https://github.com/Transparency-Information-Language
+- YaPPL: https://github.com/yappl, https://emidd.de/material
 
-## Dateien
-- index.html enthält Aubau der Seite und der Komponenten.
-- style.css enthält style-Anpassungen.
-- main.js 
-    - lädt die relevanten Infos aus den tilt-Dokumenten und zeigt die entsprechenden Komponenten an.
-    - je nach Zwecken und Datentypen werden verschiedene Komponenten angepasst und angezeigt.
-    - wenn kein Zweck gegeben ist, gehen wir davon aus, dass nur Session Cookies genutzt werden und es wird Entrypoint 1 angezeigt.
-- Order Img/ enthält die Hintergründe.
-- Ordner Icons/ enthält die svg-Icons.
-- Ordner tilts/ enthält die tilt-Dokumente
+## Structure and Functionality
+- The funcionality is built using Bootstrap and jQuery
+- Relevant privacy information is loaded from tilt documents
+- Depending on the purposes and data types specified in the tilt document, the corresponding privacy banner is rendered
+- Users can then specify their privacy settings by changing the toggles
+- These privacy preferences are saved as a YaPPL file in a cookie
+- tilts/ folder contains privacy policies in tilt-format
+- Icons/ folder contains privacy icons
+- Img/ folder contains background images
 
-## Nutzung
-- force-graph funktioniert nicht lokal-> webserver starten z.B. mit http-server
-- Bei Klick auf die Buttons (BVG, BMJV und ein Beispiel für keinen Zweck (nur Session Cookies)) wird der passende Entrypoint angezeigt. 
-  - Die purpose-Felder in den tilt-Dokumenten habe ich so angepasst, dass ich den Zweck leicht rauslesen kann.
-- Für das Anzeigen des Privacy Dashboards auf die zwei Striche (bei Entrypoint 2) oder auf den Entrypoint selbst (bei Entrypoint 1) klicken.
-- Beim Privacy Dashboard werden auf der linken Seite nur die Zwecke angezeigt, die beim jeweiligen Dienst gegeben sind.
-- Informationen für weiteres tilt anzeigen ist möglich, wenn man auch 'Enter custom tilt' clickt und tilt eingibt
+## Usage
+- Clone repository with `git clone`
 
-## Todo
-- Lupen-Ikon neben der Search-Bar wird nicht angezeigt (verstehe nicht warum).
-- Slide 24-29 low prio (maximal zum Prokrastinieren)
-- Einbinden möglich machen
+### Demo
+- Open file `index_demo.html`
+- Click on the buttons or enter a custom tilt to show the transparency information for the different services
+![tempsnip](https://user-images.githubusercontent.com/33124461/141969386-fa4cfcae-c330-4dcb-b423-d515c378ad81.png)
 
-check: 
-- 1 weiterer Reiter mit Kurzzusammenfassung aus TILT. z.B. so ähnlich wie hier laden: https://github.com/Transparency-Information-Language/chrome-tilt/blob/master/popup.js
-- Menüleiste statt Buttons
-- Dummy Hintergrund Website
-- "add textbox, where you can insert new tilt" and the respective privacy icons banner gets rendered
-- Entrypoint 2 verschwindet, wenn user auf website klickt oder scrollt -> entrypoint 1 wird stattdessen angezeigt
-- add "nudges" from slide 18 (mouse over, hover effekt)
-- Hover effect linke checkboxen -> toggle farbe ändern
-- when hovering menu entries -> do not get smaller
-- ausgegraute Checkbox hat keinen weißen Kreis
-- gelbes x wird blau, lieber gelben border
-- gelbes x nur anzeigen, wenn über box gehovert wird
-- Close-Window müsste unten sein, auch wenn keine Checkboxen auf der linken Seite angezigt werden
-- bzw. zu weit oben, wenn Checkboxen auf der liknen sSeite da sind
 
+### Embed it to your own page
+For an example check the `index_get_started.html`.
+
+ - Save your tilt file as a String named `tilt`:
+ ```
+ tilt = `{"meta": ...}`
+ ```
+- Add jQuery and load your tilt as a script in your `<head>` tag:
 ```
-1. Demonstrator:
-
-Menüleiste: BVG | BMJV |  XYZonline.com Website (z.B. DaSKITA) (session cookie) | Custom
-
-==========
-Dummy-Website (Einbinden klappt nicht)
-+
-Privacy-Icons-Overlay
-
-
-
-============
-
-
-2. "PrivIcons library"
-also mit 2-3 Zeilen in eigene Website einbindbar, nur TILT-Link anzupassen 
-
-<script src="https://"></script>
-<link ...
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script type="text/javascript" src=path_to_tilt></script>
+ ```
+ - Add the function call `load_tilt(tilt)` to your `<body>` tag and start your body with a div for the privacy banner:
+ ```
+ <body onload="load_tilt(tilt);">
+	<div id="privacy_info"></div>
+ ```
+ - At the end of your body add the scripts to load the privacy banner
+ ```
+<script type="text/javascript" language="javascript" src="privacy-banner-code.js"></script>
+<script type="text/javascript" src="privacy-banner.js"></script>
 ```
+ 
 
