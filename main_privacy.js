@@ -73,10 +73,72 @@ function update_yappl(cur_tgl, rel_toggles){
         rule["purpose"]["permitted"] = purpose_permitted;
         rule["purpose"]["excluded"] = purpose_excluded;
     }
-    console.log(yappl)
+    console.log(yappl);
     document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
-    //let x = document.cookie; 
-    //console.log(x);
+}
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+var cookie_content;
+function load_YaPPL_cookie(){
+    cookie_content = getCookie("YaPPL");
+    if (typeof(cookie_content) != 'undefined'){
+        cookie_content = JSON.parse(cookie_content);
+        update_toggles(cookie_content);
+    } 
+}
+
+//update toggle state
+function update_toggles(cookie_content){
+    permitted = cookie_content["preference"][0]["rule"]["purpose"]["permitted"]
+    excluded = cookie_content["preference"][0]["rule"]["purpose"]["excluded"]
+    if (permitted.length != 0){
+        for(i=0; i<permitted.length; i++){
+            if (permitted[i]==="Improve the website"){
+                tgl_list = ['tglWebsite', 'tglAnnoyed2', 'tglWebsiteModal'];
+                for(j=0;j<tgl_list.length; j++){
+                    id = tgl_list[j];
+                    if (document.getElementById(id).checked == false){
+                        $('#'+id).bootstrapToggle('on');
+                    }
+                }
+            }
+            else{
+                tgl_list = ['tglPersAds', 'tglAnnoyed1', 'tglPersAdsModal'];
+                for(j=0;j<tgl_list.length; j++){
+                    id = tgl_list[j];
+                    if (document.getElementById(id).checked == false){
+                        $('#'+id).bootstrapToggle('on');
+                    }
+                }
+            }
+        }
+    }
+    if (excluded.length != 0){
+        for(i=0; i<excluded.length; i++){
+            if (excluded[i]==="Improve the website"){
+                tgl_list = ['tglWebsite', 'tglAnnoyed2', 'tglWebsiteModal'];
+                for(j=0;j<tgl_list.length; j++){
+                    id = tgl_list[j];
+                    if (document.getElementById(id).checked == true){
+                        $('#'+id).bootstrapToggle('off');
+                    }
+                }
+            }
+            else{
+                tgl_list = ['tglPersAds', 'tglAnnoyed1', 'tglPersAdsModal'];
+                for(j=0;j<tgl_list.length; j++){
+                    id = tgl_list[j];
+                    if (document.getElementById(id).checked == true){
+                        $('#'+id).bootstrapToggle('off');
+                    }
+                }
+            }
+        }
+    }
 }
 
 function add_rule(yappl, category, recipients_list, cur_time){

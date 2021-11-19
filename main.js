@@ -87,12 +87,10 @@ function getCookie(name) {
 var cookie_content;
 window.onload=function(){
     cookie_content = getCookie("YaPPL");
-    console.log(cookie_content);
     if (typeof(cookie_content) != 'undefined'){
         cookie_content = JSON.parse(cookie_content);
         update_toggles(cookie_content);
-    }
-    
+    } 
 }
 
 //update toggle state

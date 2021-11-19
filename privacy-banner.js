@@ -14,6 +14,7 @@ function setInnerHtml(elm, html) {
 setInnerHtml(document.querySelector("head"), loadedScripts["scripts"])
 document.getElementById('privacy_info').innerHTML = loadedScripts["HTML_content"];
 
+
 console.log('Successfully added privacy icons!');
 
 
