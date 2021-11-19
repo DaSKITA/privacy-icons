@@ -1,6 +1,6 @@
 # Effective Transparency Information and Control
 Add transparency information according to the GDPR to your website using your privacy policy in [TILT format](https://github.com/Transparency-Information-Language/schema) and save the privacy preferences using [YaPPL](https://emidd.de/material).
-Designed according to _[Effective regulation through design](https://www.researchgate.net/profile/Elias-Belgacem/publication/355394794_Effective_regulation_through_design_-_Aligning_the_ePrivacy_Regulation_with_the_EU_General_Data_Protection_Regulation_GDPR_Tracking_technologies_in_personalised_internet_content_and_the_data_protectio/links/616e850225467d2f005ab081/Effective-regulation-through-design-Aligning-the-ePrivacy-Regulation-with-the-EU-General-Data-Protection-Regulation-GDPR-Tracking-technologies-in-personalised-internet-content-and-the-data-protectio.pdf)_ (von Grafenstein et al. 2021) proposed by the Privacy Icons Forum and technically powered by the _[Transparency Information Language and Toolkit](https://dl.acm.org/doi/10.1145/3442188.3445925)_ (Grünewald and Pallas 2021). 
+Designed according to _[Effective regulation through design](https://www.researchgate.net/profile/Elias-Belgacem/publication/355394794_Effective_regulation_through_design_-_Aligning_the_ePrivacy_Regulation_with_the_EU_General_Data_Protection_Regulation_GDPR_Tracking_technologies_in_personalised_internet_content_and_the_data_protectio/links/616e850225467d2f005ab081/Effective-regulation-through-design-Aligning-the-ePrivacy-Regulation-with-the-EU-General-Data-Protection-Regulation-GDPR-Tracking-technologies-in-personalised-internet-content-and-the-data-protectio.pdf)_ (by Grafenstein et al. 2021) proposed by the Privacy Icons Forum and technically powered by the _[Transparency Information Language and Toolkit](https://dl.acm.org/doi/10.1145/3442188.3445925)_ (Grünewald and Pallas 2021). 
 
 For more information, see also: 
 - Privacy Icons Forum: https://www.privacy-icons.info/
@@ -45,10 +45,15 @@ For an example check out the `index_get_started.html`.
  <body onload="load_tilt(tilt);">
 	<div id="privacy_info"></div>
  ```
- - At the end of your body add the scripts to load the privacy banner
+ - At the end of your body add the following scripts to load the privacy banner
  ```
 <script type="text/javascript" language="javascript" src="privacy-banner-code.js"></script>
 <script type="text/javascript" src="privacy-banner.js"></script>
+```
+- Or load them from github directly
+```
+<script src='https://cdn.jsdelivr.net/gh/DaSKITA/privacy-icons@master/privacy-banner-code.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/DaSKITA/privacy-icons@master/privacy-banner.js'></script>
 ```
 
 ## Contact
