@@ -1,5 +1,5 @@
 # Transparency Privacy Banner
-Add transparent privacy information to your website using your privacy policy in tilt-format. And saving the privacy preferences in a YaPPL format.
+Add transparent privacy information to your website using your privacy policy in tilt-format and save the privacy preferences in a YaPPL format.
 Designed according to the approach of the Privacy Icons Forum headed by Max von Grafenstein. 
 For more information: 
 - Privacy Icons Forum: https://www.privacy-icons.info/
@@ -26,7 +26,7 @@ For more information:
 
 
 ### Embed it to your own page
-For an example check the `index_get_started.html`.
+For an example check the `index_get_started.html` out.
 
  - Save your tilt file as a String named `tilt`:
  ```
