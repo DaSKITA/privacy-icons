@@ -53,3 +53,6 @@ For an example check out the `index_get_started.html`.
 
 ## Contact
 For more information, please contact [Elias Grünewald](https://www.ise.tu-berlin.de/eg).
+
+## Acknowledgements
+Initial development: Flora Muscinelli
