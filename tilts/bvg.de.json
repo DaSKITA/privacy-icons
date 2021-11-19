@@ -26,7 +26,7 @@ bvg = `{
 	"dataDisclosed": [
 		{
 			"_id": "380760cf-2702-4a0c-b529-d36c479b0221",
-			"category": "IP-Adresse; Zeitpunkt der Anfrage; Gerätedaten, wie Betriebssystem, Browserversion, Bildschirmauflösung; Einstellungen, die Sie bei der Nutzung unserer Website vornehmen",
+			"category": "IP-Adresse, Zeitpunkt der Anfrage, Gerätedaten, wie Betriebssystem, Browserversion, Bildschirmauflösung, Einstellungen, die Sie bei der Nutzung unserer Website vornehmen",
 			"purposes": [
 				{
 					"purpose": "Website-Funktionalität",
@@ -65,7 +65,7 @@ bvg = `{
 		},
 		{
 			"_id": "c4b49913-5e39-4b73-bf7f-4056dac66ff0",
-			"category": "Grund der Konkaktaufnahme; E-Mail-Adresse; Name",
+			"category": "Grund der Konkaktaufnahme, E-Mail-Adresse, Name",
 			"purposes": [
 				{
 					"purpose": "Kundenservice",
@@ -114,7 +114,7 @@ bvg = `{
 		},
 		{
 			"_id": "02e8fa6e-323b-4a6e-88e6-04fd34cdbce6",
-			"category": "Vorname; Nachname; Anschrift (beim Online-Verfahren: auch E-Mail-Adresse); Informationen zu Ihren fachlichen Kompetenzen sowie Nachweise entsprechender Angaben; Geburtsdatum; Gehaltsvorstellung; das Vorliegen eines gültigen Aufenthaltstitels; weitere Daten, die Sie uns mit Ihrer Bewerbung übermitteln; Durch den Chatbot hochgeladene Dokumente",
+			"category": "Vorname, Nachname, Anschrift (beim Online-Verfahren: auch E-Mail-Adresse), Informationen zu Ihren fachlichen Kompetenzen sowie Nachweise entsprechender Angaben, Geburtsdatum, Gehaltsvorstellung, das Vorliegen eines gültigen Aufenthaltstitels, weitere Daten, die Sie uns mit Ihrer Bewerbung übermitteln, Durch den Chatbot hochgeladene Dokumente",
 			"purposes": [
 				{
 					"purpose": "Bewerberauswahl",
@@ -171,7 +171,7 @@ bvg = `{
 		},
 		{
 			"_id": "2b575be1-8e45-4135-890a-72f1d3d4dd81",
-			"category": "Name; Konktaktdaten; Qualifikationen; weitere Daten, die Sie uns mit Ihrer Bewerbung übermitteln",
+			"category": "Name, Konktaktdaten, Qualifikationen, weitere Daten, die Sie uns mit Ihrer Bewerbung übermitteln",
 			"purposes": [
 				{
 					"purpose": "Bewerberauswahl",
@@ -231,7 +231,7 @@ bvg = `{
 		},
 		{
 			"_id": "cf83f6c7-a46d-450b-a809-49b5aae5ce05",
-			"category": "Vorname; Name; Geburtsdatum; Geschecht; IP-Adresse; Uhrzeit und Datum des Zugriffs; Browseraktivitäten und -einstellungen; Anmelde-ID-Daten",
+			"category": "Vorname, Name, Geburtsdatum, Geschecht, IP-Adresse, Uhrzeit und Datum des Zugriffs, Browseraktivitäten und -einstellungen, Anmelde-ID-Daten",
 			"purposes": [
 				{
 					"purpose": "Bewerberauswahl",
@@ -239,7 +239,7 @@ bvg = `{
 				},
 				{
 					"purpose": "Sicherheit",
-					"description": "...werden aus Sicherheitsgründen zur Authentifizierung und Eingabesteuerung benötigt;"
+					"description": "...werden aus Sicherheitsgründen zur Authentifizierung und Eingabesteuerung benötigt,"
 				}
 			],
 			"legalBases": [
@@ -293,7 +293,7 @@ bvg = `{
 		},
 		{
 			"_id": "288382a4-068a-49a2-bd30-f5791eed014e",
-			"category": "E-Mail-Adresse; Name; Jobinteressen; IP-Adresse; Datum der Anmeldung; Bestätigung der Anmeldung",
+			"category": "E-Mail-Adresse, Name, Jobinteressen, IP-Adresse, Datum der Anmeldung, Bestätigung der Anmeldung",
 			"purposes": [
 				{
 					"purpose": "Newsletter",
@@ -338,7 +338,7 @@ bvg = `{
 		},
 		{
 			"_id": "ce0f891e-340d-4065-9639-ff03bb651a39",
-			"category": "Name; E-Mail-Adresse; Passwort; angegebene freiwillige Daten",
+			"category": "Name, E-Mail-Adresse, Passwort, angegebene freiwillige Daten",
 			"purposes": [
 				{
 					"purpose": "Website-Funktionalität",
@@ -390,7 +390,7 @@ bvg = `{
 		},
 		{
 			"_id": "a55585e2-be98-4b69-b1f2-37e32ca477d3",
-			"category": "Vollständiger Name; Adresse; Geburtsdatum; Geschlecht; Kontodaten; Zahlungsweise; ...der vollständige Name, Geburtsdatum, Geschlecht und Adresse der gesetzlichen Vertretung oder des Vormunds/Betreuers; Foto; Berechtigungsnachweis; freiwillige Daten; Personaldokument als Altersnachweis",
+			"category": "Vollständiger Name, Adresse, Geburtsdatum, Geschlecht, Kontodaten, Zahlungsweise, ...der vollständige Name, Geburtsdatum, Geschlecht und Adresse der gesetzlichen Vertretung oder des Vormunds/Betreuers, Foto, Berechtigungsnachweis, freiwillige Daten, Personaldokument als Altersnachweis",
 			"purposes": [
 				{
 					"purpose": "Abonnementvertrag",
@@ -496,7 +496,7 @@ bvg = `{
 		},
 		{
 			"_id": "995c53cd-1246-4c28-96a5-df303dd5f236",
-			"category": "Foto; Name; Adresse; Firmenzugehörigkeit; Kontodaten; Zahlungsinformationen",
+			"category": "Foto, Name, Adresse, Firmenzugehörigkeit, Kontodaten, Zahlungsinformationen",
 			"purposes": [
 				{
 					"purpose": "Firmenticket-Vertrag",
@@ -573,7 +573,7 @@ bvg = `{
 		},
 		{
 			"_id": "ca9e6507-edbe-4370-a29d-da691f742818",
-			"category": "Maximale Nutzungsdauer der fahrCard; Kartennummer; Kundenvertragspartner; Name; Vorname",
+			"category": "Maximale Nutzungsdauer der fahrCard, Kartennummer, Kundenvertragspartner, Name, Vorname",
 			"purposes": [
 				{
 					"purpose": "Fahrausweiskontrolle",
@@ -615,7 +615,7 @@ bvg = `{
 		},
 		{
 			"_id": "0407e23e-cc5a-4865-b0c5-68edd488b764",
-			"category": "Maximale Nutzungsdauer der fahrCard; Kartennummer; Kundenvertragspartner; Name; Vorname; Geschlecht; Anschrift; E-Mail-Adresse; Bankverbindung; Name und Anschrift gesetzlicher Vertreterinnen und Vertreter; Zeit, Ort und sonstige für die Rechtsverfolgung erhebliche Umstände des Vorfalls einschließlich Forderungen.",
+			"category": "Maximale Nutzungsdauer der fahrCard, Kartennummer, Kundenvertragspartner, Name, Vorname, Geschlecht, Anschrift, E-Mail-Adresse, Bankverbindung, Name und Anschrift gesetzlicher Vertreterinnen und Vertreter, Zeit, Ort und sonstige für die Rechtsverfolgung erhebliche Umstände des Vorfalls einschließlich Forderungen.",
 			"purposes": [
 				{
 					"purpose": "Fahrausweiskontrollen",
@@ -662,7 +662,7 @@ bvg = `{
 		},
 		{
 			"_id": "8ed4cc50-098c-484d-9ee8-6d7670524590",
-			"category": "Vorname; Nachname; Kontaktdaten; Adresse; E-Mail-Adresse; Telefonnummer; Organisationseinheit; Dienstausweis-Nummer; Zeitstempel der Anmeldung sowie Ihre Lösung",
+			"category": "Vorname, Nachname, Kontaktdaten, Adresse, E-Mail-Adresse, Telefonnummer, Organisationseinheit, Dienstausweis-Nummer, Zeitstempel der Anmeldung sowie Ihre Lösung",
 			"purposes": [
 				{
 					"purpose": "Gewinnspiel",
@@ -718,7 +718,7 @@ bvg = `{
 		},
 		{
 			"_id": "f891862e-36b9-4fb1-852a-e434dd13ff90",
-			"category": "Name; Konktaktdaten; Adresse; E-Mail-Adresse;",
+			"category": "Name, Konktaktdaten, Adresse, E-Mail-Adresse,",
 			"purposes": [
 				{
 					"purpose": "Marktforschung",
@@ -770,7 +770,7 @@ bvg = `{
 		},
 		{
 			"_id": "e908e0cf-5a93-4f99-8a59-76db8f24e076",
-			"category": "IP-Adresse; Zeitpunkt und Dauer des Besuchs; Gerätedaten wie Betriebssystem, Browserversion, Bildschirmauflösung; Besuchte Websiten; Zustimmungsinformationen",
+			"category": "IP-Adresse, Zeitpunkt und Dauer des Besuchs, Gerätedaten wie Betriebssystem, Browserversion, Bildschirmauflösung, Besuchte Websiten, Zustimmungsinformationen",
 			"purposes": [
 				{
 					"purpose": "Cookie-Verwaltung",
@@ -825,7 +825,7 @@ bvg = `{
 		},
 		{
 			"_id": "6b6af4aa-5499-45c8-a283-5239a3f6d73c",
-			"category": "IP address; Gerätedaten, wie Betriebssystem, Browserversion, Bildschirmauflösung; Informationen über den Traffic von und zu unserer Webseite",
+			"category": "IP address, Gerätedaten, wie Betriebssystem, Browserversion, Bildschirmauflösung, Informationen über den Traffic von und zu unserer Webseite",
 			"purposes": [
 				{
 					"purpose": "improve the website",
@@ -876,7 +876,7 @@ bvg = `{
 		},
 		{
 			"_id": "05e1ba0b-e1ff-41d0-a6d9-2c8d4b821f6f",
-			"category": "IP-Adresse; operating system, Gerätedaten wie Betriebssystem, Browserversion, Bildschirmauflösung",
+			"category": "IP-Adresse, operating system, Gerätedaten wie Betriebssystem, Browserversion, Bildschirmauflösung",
 			"purposes": [
 				{
 					"purpose": "service",
@@ -931,7 +931,7 @@ bvg = `{
 		},
 		{
 			"_id": "1e68f0e2-ce98-418f-bad6-986e89ec87d7",
-			"category": "IP-Adresse; Datum und Uhrzeit; Seitenaufrufe inkl. Titel und URL; Referrer-URL; aufgerufene und heruntergeladene Dateien; Klicks auf Elemente oder Links zu anderen Seiten; für den Seitenaufbau benötigte Zeit; Geräteinformationen (Spracheinstellungen, Bildschirmauflösung, Browsertyp/-version); Zeitpunkt des Absendens; Information, auf welcher Seite Sie das Formular ausgefüllt haben",
+			"category": "IP-Adresse, Datum und Uhrzeit, Seitenaufrufe inkl. Titel und URL, Referrer-URL, aufgerufene und heruntergeladene Dateien, Klicks auf Elemente oder Links zu anderen Seiten, für den Seitenaufbau benötigte Zeit, Geräteinformationen (Spracheinstellungen, Bildschirmauflösung, Browsertyp/-version), Zeitpunkt des Absendens, Information, auf welcher Seite Sie das Formular ausgefüllt haben",
 			"purposes": [
 				{
 					"purpose": "Landing pages und Kontaktformulare",
@@ -986,7 +986,7 @@ bvg = `{
 		},
 		{
 			"_id": "3652596d-e938-4f84-9687-9eb1d65ad8e1",
-			"category": "email address; IP-Adresse; UserID; ConversationID; vom Nutzer eingegebene Daten",
+			"category": "email address, IP-Adresse, UserID, ConversationID, vom Nutzer eingegebene Daten",
 			"purposes": [
 				{
 					"purpose": "contact",
@@ -1037,7 +1037,7 @@ bvg = `{
 		},
 		{
 			"_id": "575fc128-30f9-4a64-a054-e90ae1bafbce",
-			"category": "eindeutige Kennung; von Microsoft Corporation erhobene Daten",
+			"category": "eindeutige Kennung, von Microsoft Corporation erhobene Daten",
 			"purposes": [
 				{
 					"purpose": "Auslastungsinfo",
@@ -1086,7 +1086,7 @@ bvg = `{
 		},
 		{
 			"_id": "333a05db-8106-4c1b-b89a-a9477e273301",
-			"category": "IP-Adresse, Online-Kennzeichnungen (einschließlich Cookie-Kennungen); Gerätekennungen; Technische Eigenschaften von Nutzern (z.B. Browsertyp und -version, Gerätetyp, Betriebssystem); Messung des Nutzungsverhaltens (z.B. Aufrufe einzelner Seiten / Inhalte, Aufrufe von Inhalten verschiedener Bereiche, Sitzungsdauer / Verweildauer, Absprungrate); Nutzung einzelner Funktionalitäten der Webseite (z.B. Fahrplanauskunft, Suchanfragen, Downloads); eCommerce-Aktivität (z.B. gekaufte Produkte, Umsätze)",
+			"category": "IP-Adresse, Online-Kennzeichnungen (einschließlich Cookie-Kennungen), Gerätekennungen, Technische Eigenschaften von Nutzern (z.B. Browsertyp und -version, Gerätetyp, Betriebssystem), Messung des Nutzungsverhaltens (z.B. Aufrufe einzelner Seiten / Inhalte, Aufrufe von Inhalten verschiedener Bereiche, Sitzungsdauer / Verweildauer, Absprungrate), Nutzung einzelner Funktionalitäten der Webseite (z.B. Fahrplanauskunft, Suchanfragen, Downloads), eCommerce-Aktivität (z.B. gekaufte Produkte, Umsätze)",
 			"purposes": [
 				{
 					"purpose": "personalise your ads",
@@ -1144,7 +1144,7 @@ bvg = `{
 		},
 		{
 			"_id": "04517949-df39-430b-a41b-84bbf4418df4",
-			"category": "IP-Adressen; Online-Kennzeichnungen (einschließlich Cookie-Kennungen); Gerätekennungen; Technische Eigenschaften von Nutzern (z.B. Browsertyp und -version, Gerätetyp, Betriebssystem); Messung des Nutzungsverhaltens (z.B. Aufrufe einzelner Seiten / Inhalte, Aufrufe von Inhalten verschiedener Bereiche, Sitzungsdauer / Verweildauer, Absprungrate; Nutzung einzelner Funktionalitäten der Webseite (z.B. Fahrplanauskunft, Suchanfragen, Downloads); eCommerce-Aktivität (z.B. gekaufte Produkte, Umsätze)",
+			"category": "IP-Adressen, Online-Kennzeichnungen (einschließlich Cookie-Kennungen), Gerätekennungen, Technische Eigenschaften von Nutzern (z.B. Browsertyp und -version, Gerätetyp, Betriebssystem), Messung des Nutzungsverhaltens (z.B. Aufrufe einzelner Seiten / Inhalte, Aufrufe von Inhalten verschiedener Bereiche, Sitzungsdauer / Verweildauer, Absprungrate, Nutzung einzelner Funktionalitäten der Webseite (z.B. Fahrplanauskunft, Suchanfragen, Downloads), eCommerce-Aktivität (z.B. gekaufte Produkte, Umsätze)",
 			"purposes": [
 				{
 					"purpose": "A/B-Tests",
@@ -1202,7 +1202,7 @@ bvg = `{
 		},
 		{
 			"_id": "6f2fd44d-bf1d-4b97-bd53-fc74ceb1adc0",
-			"category": "IP-Adresse; Browser-Daten; Einstellungen; Browsertyp; Betriebssystem; Informationen zu der zuvor aufgerufenen Website; den von Ihnen aufgerufenen Seiten; Standort; Mobilfunkanbieter; genutztes Endgerät; Suchbegriffe; Cookie-Informationen",
+			"category": "IP-Adresse, Browser-Daten, Einstellungen, Browsertyp, Betriebssystem, Informationen zu der zuvor aufgerufenen Website, den von Ihnen aufgerufenen Seiten, Standort, Mobilfunkanbieter, genutztes Endgerät, Suchbegriffe, Cookie-Informationen",
 			"purposes": [
 				{
 					"purpose": "Marketing",

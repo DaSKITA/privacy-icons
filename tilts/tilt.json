@@ -65,7 +65,7 @@ tilt = `{
         "consequences": "Sollten Sie mit den Aufnahmen und Veröffentlichungen nicht einverstanden sein, wenden Sie sich nach Möglichkeit unmittelbar an den für die Motivsuche verantwortlichen Fotografen."
       },
       "_id": "3543974c-7611-4694-ab27-6fb2d906712e",
-      "category": "IP address, time and date, Name der abgerufenen Datei; Datum und Uhrzeit des Abrufs; übertragene Datenmenge; Meldung, ob der Abruf erfolgreich war",
+      "category": "IP address, time and date, Name der abgerufenen Datei, Datum und Uhrzeit des Abrufs, übertragene Datenmenge, Meldung, ob der Abruf erfolgreich war",
       "storage": []
     },
     {
@@ -206,7 +206,7 @@ tilt = `{
         {
           "temporal": [
             {
-              "description": "Die uns von Ihnen zur Verfügung gestellten Daten (Vor- und Zuname; Geburtsdatum, Geburtsort) werden ebenso wie die von Ihnen ggf. freiwillig übermittelten personenbezogenen Daten eine Woche nach Ihrem Besuch im BMJV vollständig gelöscht.",
+              "description": "Die uns von Ihnen zur Verfügung gestellten Daten (Vor- und Zuname, Geburtsdatum, Geburtsort) werden ebenso wie die von Ihnen ggf. freiwillig übermittelten personenbezogenen Daten eine Woche nach Ihrem Besuch im BMJV vollständig gelöscht.",
               "ttl": "P1W"
             }
           ],
