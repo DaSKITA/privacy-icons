@@ -18,6 +18,7 @@ _Disclaimer: This is a very prototypical implementation and not yet recommended 
 - tilts/ folder contains exemplary privacy policies in tilt-format
 - Icons/ folder contains preliminary privacy icons
 - Img/ folder contains background images
+- For adding other purposes change `main_privacy.js` function `load_components` in line 335
 
 ## Usage
 - Clone repository with `git clone`
