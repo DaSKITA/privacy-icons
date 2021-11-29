@@ -51,7 +51,7 @@ For an example check out the `index_get_started.html`.
 <script type="text/javascript" language="javascript" src="privacy-banner-code.js"></script>
 <script type="text/javascript" src="privacy-banner.js"></script>
 ```
-- Or load them from github directly
+- Alternatively, load them via a CDN from Github
 ```
 <script src='https://cdn.jsdelivr.net/gh/DaSKITA/privacy-icons@master/privacy-banner-code.js'></script>
 <script src='https://cdn.jsdelivr.net/gh/DaSKITA/privacy-icons@master/privacy-banner.js'></script>
