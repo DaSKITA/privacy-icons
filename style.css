@@ -125,6 +125,22 @@
     color: white !important;
 }
 
+.nav-top-item{
+    background-color:#212529;
+    padding: 3px;
+}
+.btn-nav{
+    background: grey;
+    color: whitesmoke;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.3s;
+    padding: 3px;
+}
+.btn-nav:hover{
+    color: #3650fe;
+}
+
 .btn-outline-primary:active,
 .btn-outline-primary:focus, 
 .btn-outline-primary:hover, 
