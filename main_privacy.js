@@ -410,9 +410,24 @@ function load_components(obj){
         }
         var recLength = obj.dataDisclosed[i].recipients.length;
         for (var j=0; j<recLength; j++){
+            var individual_recipient = [];
             if (obj.dataDisclosed[i].recipients[j].name != undefined && obj.dataDisclosed[i].recipients[j].name != ""){
-                recipients.push(obj.dataDisclosed[i].recipients[j].name);
+                individual_recipient.push(obj.dataDisclosed[i].recipients[j].name); // loc 0 = id 
+            } else {
+                    continue;
+                }
+            if (obj.dataDisclosed[i].recipients[j].country != undefined && obj.dataDisclosed[i].recipients[j].country != ""){
+                individual_recipient.push(obj.dataDisclosed[i].recipients[j].country);
+            } else {
+                individual_recipient.push("");  // loc 1 = country
             }
+            var purLength = obj.dataDisclosed[i].purposes.length; // loop over all the different purposes in one piece of data disclosed
+            var purposes_list = []; // empty list of purposes for one recipient
+            for (var p = 0; p < purLength; p++){ // for each purpose iterate
+                purposes_list.push(obj.dataDisclosed[i].purposes[p].purpose); // record the purpose
+            }
+            individual_recipient.push(purposes_list);  // append the purpose list to loc 2 = purposes 
+            recipients.push(individual_recipient); // add the individual row to the node list
         }
     }
 
@@ -461,12 +476,12 @@ function load_components(obj){
     cur_service=obj.meta.name;
         
     myData = {
-        nodes: [ {id: cur_service, group:1}],
+        nodes: [ {id: cur_service, country: obj.controller.country, purpose:"", group:1}],
         links: []
     };
     for (var i=0; i< recipients.length; i++){
-        myData['nodes'].push({id: recipients[i], group:2});
-        myData['links'].push({source: cur_service, target: recipients[i]})
+        myData['nodes'].push({id: recipients[i][0], country: recipients[1], purpose: recipients[2], group:2});
+        myData['links'].push({source: cur_service, target: recipients[i][0]})
     }
       
       
@@ -487,9 +502,10 @@ function load_mindmap(){
       .width(400)
       .height(300)
       .centerAt(0,18)
-      .nodeLabel('id')
+      .nodeLabel('purpose')
       .nodeColor(n => n.group==2 ? '#3650fe': '#a2adf1')
       .nodeRelSize(6)
+      .linkCurvature(0.2)
 }
 
 function load_tilt(tilt){
