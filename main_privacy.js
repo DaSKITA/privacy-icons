@@ -508,10 +508,10 @@ function load_mindmap(){
       .width(400)
       .height(300)
       .centerAt(0,18)
-      .nodeLabel(n => `<div class='node-label'>
+      .nodeLabel(n => `<div class='node-label'> 
         <span>`+n.id+` (`+n.country+`)</span> </br>
         <span> Purpose: `+n.purpose+`</span>
-      </div>`)
+      </div>`)                                              // custom HTML document to manipulate the label of the nodes. Make purposes icons
       .nodeColor(n => n.group==2 ? '#3650fe': '#a2adf1')
       .nodeRelSize(6)
       .linkCurvature(0.2)
