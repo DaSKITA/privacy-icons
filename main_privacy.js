@@ -473,14 +473,19 @@ function load_components(obj){
     }
 
     //load mindmap
-    cur_service=obj.meta.name;
-        
+    cur_service= obj.meta.name;
+    var cur_purpose= [];
+    for (r of recipients){
+        if (!(r[2] in cur_purpose)){
+            cur_purpose.push(r[2]);
+        }
+    }
     myData = {
-        nodes: [ {id: cur_service, country: obj.controller.country, purpose:"", group:1}],
+        nodes: [ {id: cur_service, country: obj.controller.country, purpose: cur_purpose, group:1}],
         links: []
     };
     for (var i=0; i< recipients.length; i++){
-        myData['nodes'].push({id: recipients[i][0], country: recipients[1], purpose: recipients[2], group:2});
+        myData['nodes'].push({id: recipients[i][0], country: recipients[i][1], purpose: recipients[i][2], group:2});
         myData['links'].push({source: cur_service, target: recipients[i][0]})
     }
       
@@ -495,6 +500,7 @@ function load_components(obj){
     }
 }
 
+
 function load_mindmap(){
     var myMindmap = ForceGraph();
     myMindmap(document.getElementById('mindmap'))
@@ -502,7 +508,10 @@ function load_mindmap(){
       .width(400)
       .height(300)
       .centerAt(0,18)
-      .nodeLabel('purpose')
+      .nodeLabel(n => `<div class='node-label'>
+        <span>`+n.id+` (`+n.country+`)</span> </br>
+        <span> Purpose: `+n.purpose+`</span>
+      </div>`)
       .nodeColor(n => n.group==2 ? '#3650fe': '#a2adf1')
       .nodeRelSize(6)
       .linkCurvature(0.2)

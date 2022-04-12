@@ -113,7 +113,7 @@
 
 /* Navigation bar */
 .navbar-light{
-    background-color: whitesmoke !important;
+    background-color: #f5f5f5 !important;
 }
 
 .nav-item{
@@ -401,6 +401,12 @@
 }
 
 
-
-
-
+.node-label{
+    width: 200px;
+    height: 50px;
+    background: #3650fe;
+    color:rgb(255, 255, 255);
+    align-items: center;
+    font-size: 12px;
+    line-height: 16px;
+}
