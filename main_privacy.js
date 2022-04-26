@@ -501,7 +501,7 @@ function load_components(obj){
 }
 
 
-/*function load_mindmap(){
+function load_mindmap(){
     var myMindmap = ForceGraph();
     myMindmap(document.getElementById('mindmap'))
       .graphData(myData)
@@ -515,22 +515,22 @@ function load_components(obj){
       .nodeColor(n => n.group==2 ? '#3650fe': '#a2adf1')
       .nodeRelSize(6)
       .linkCurvature(0.2)
-} */
+}
 
-function load_mindmap(){
+/*function load_mindmap(){
     const myMindmap = ForceGraph(myData, {
         nodeId: d => d.id,
         nodeGroup: d => d.group,
         nodeTitle: d => `${d.id}\n${d.group}`,
         linkStrokeWidth: l => Math.sqrt(l.value),
         nodeStrength: -30,
-        width: 20,
-        height: 20
+        width: 300,
+        height: 150
         //invalidation // a promise to stop the simulation when the cell is re-run
       })
-      console.log(myMindmap)
-      document.getElementById("mindmap").innerHTML(myMindmap);
-}
+    console.log(myMindmap.outerHTML);
+    document.getElementById("mindmap").innerHTML = myMindmap.outerHTML;
+}*/
 
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
@@ -562,7 +562,6 @@ function ForceGraph({
     invalidation // when this promise resolves, stop the simulation
   } = {}) {
     // Compute values.
-    console.log(d3.map)
     const N = d3.map(nodes, nodeId).map(intern);
     const LS = d3.map(links, linkSource).map(intern);
     const LT = d3.map(links, linkTarget).map(intern);
