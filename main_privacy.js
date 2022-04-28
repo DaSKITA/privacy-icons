@@ -481,12 +481,19 @@ function load_components(obj){
         }
     }
     myData = {
-        nodes: [ {id: cur_service, country: obj.controller.country, purpose: cur_purpose, group:1}],
+        nodes: [ {id: cur_service, country: obj.controller.country, purpose: cur_purpose}],
         links: []
     };
     for (var i=0; i< recipients.length; i++){
-        myData['nodes'].push({id: recipients[i][0], country: recipients[i][1], purpose: recipients[i][2], group:2});
+        myData['nodes'].push({id: recipients[i][0], country: recipients[i][1], purpose: recipients[i][2]});
         myData['links'].push({source: cur_service, target: recipients[i][0]})
+    }    
+    myCyt = [
+        {data: {id: cur_service, group: 'nodes', country: obj.controller.country, purpose: cur_purpose}}
+    ];
+    for (var i=0; i< recipients.length; i++){
+        myCyt.push({data: {id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2]}});
+        myCyt.push({data: {id: i, source: cur_service, target: recipients[i][0], group: 'edges'}})
     }
       
       
@@ -500,6 +507,71 @@ function load_components(obj){
     }
 }
 
+function load_cytoscape(){
+    console.log(myCyt);
+    var cy = cytoscape({
+
+        
+        container: document.getElementById('cy'), // container to render in
+      
+        elements: myCyt,
+
+        style: [ // the stylesheet for the graph
+            {
+                selector: 'node',
+                style: {
+                'background-color': '#666',
+                'compound-sizing-wrt-labels': 'include',
+                'width': '10px',
+                'height': '10px',
+                'label': function(node) {
+                    return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\nCountry:\t${node.data("country")}`
+                },
+                'color': '#fff',
+                'text-wrap': 'wrap',
+                'text-max-width': '200px',
+                'text-background-color': "#3650fe",
+                'text-background-opacity': '1', 
+                'text-background-shape':'round-rectangle',
+                'text-halign': 'right',
+                },
+            },
+      
+            {
+                selector: 'edge',
+                style: {
+                'width': 3,
+                'line-color': '#ccc',
+                'target-arrow-color': '#ccc',
+                'target-arrow-shape': 'triangle',
+                'curve-style': 'bezier'
+                },
+            },
+            {
+                selector: '.hidden',
+                css: {
+                    'display': 'none'
+                }
+            }
+        ],
+      
+        layout: {
+          name: 'circle',
+          rows: 2
+        }
+      });
+      cy.removeListener("tap");
+      cy.on("tap", function(event) {
+          console.log('tap!')
+          cy.nodes('[country!="DE"]').toggleClass("hidden");
+          console.log(cy.nodes('[country!="DE"]'))
+          cy.nodes('[country="DE"]').each(function(node) {
+          if (node.connectedEdges().hidden()) {
+              node.toggleClass("hidden");
+          }
+          });
+        });
+    }
 
 /*function load_mindmap(){
     var myMindmap = ForceGraph();
@@ -517,7 +589,8 @@ function load_components(obj){
       .linkCurvature(0.2)
 } */
 
-function load_mindmap(){
+// Using d3 graph. Does not work. Does not have the interactive features we would want. 
+/*function load_mindmap(){
     const myMindmap = ForceGraph(myData, {
         nodeId: d => d.id,
         nodeGroup: d => d.group,
@@ -667,7 +740,7 @@ function ForceGraph({
     }
     console.log("Built the force graph")
     return Object.assign(svg.node(), {scales: {color}});
-    }
+    } */
 
 
 function load_tilt(tilt){
