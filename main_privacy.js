@@ -533,6 +533,7 @@ function load_cytoscape() {
                     'text-background-color': "#3650fe",
                     'text-background-opacity': '1',
                     'text-background-shape': 'round-rectangle',
+                    //'border-radius': '20px',
                     'text-halign': 'right',
                 },
             },
@@ -560,11 +561,16 @@ function load_cytoscape() {
             rows: 2
         }
     });
-
+    for(var i =0; i<10; i++){
+        var myButton = document.createElement("button");
+        myButton.textContent = i;
+        document.getElementById('contentContainer2').appendChild(myButton);
+        
+            //<button id="europe" class="btn btn-primary btn-xs toggle-on">i</button> 
+    }
     document.getElementById("europe").addEventListener('click', function () {
-        // var cy_toggle = document.getElementById('cy');
         cy.nodes('[country="NZ"]').toggleClass("hidden");
-        console.log(cy.nodes('[country="NZ"]'))
+        // console.log(cy.nodes('[country="NZ"]'))
         cy.nodes('[country!="NZ"]').each(function (node) {
             if (node.connectedEdges().hidden()) {
                 node.toggleClass("hidden");
