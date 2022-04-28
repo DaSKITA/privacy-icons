@@ -501,7 +501,7 @@ function load_components(obj){
 }
 
 
-function load_mindmap(){
+/*function load_mindmap(){
     var myMindmap = ForceGraph();
     myMindmap(document.getElementById('mindmap'))
       .graphData(myData)
@@ -515,9 +515,9 @@ function load_mindmap(){
       .nodeColor(n => n.group==2 ? '#3650fe': '#a2adf1')
       .nodeRelSize(6)
       .linkCurvature(0.2)
-}
+} */
 
-/*function load_mindmap(){
+function load_mindmap(){
     const myMindmap = ForceGraph(myData, {
         nodeId: d => d.id,
         nodeGroup: d => d.group,
@@ -530,7 +530,7 @@ function load_mindmap(){
       })
     console.log(myMindmap.outerHTML);
     document.getElementById("mindmap").innerHTML = myMindmap.outerHTML;
-}*/
+}
 
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
