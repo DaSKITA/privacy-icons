@@ -518,13 +518,21 @@ function load_cytoscape() {
 
         style: [ // the stylesheet for the graph
             {
-                selector: 'node',
+                selector: 'node', // fix color and fix width
                 style: {
-                    'background-color': '#666',
-                    'compound-sizing-wrt-labels': 'include',
-                    'width': '10px',
-                    'height': '10px',
-                    'label': function (node) {
+                    'shape':'round-rectangle',
+                    'text-max-width': '200px', 
+                    'background-color': '#666', // find the correct color
+                    'text-valign': 'center',
+                    'color': 'black',
+                    'text-outline-color': '#888', 
+                    'background-color': '#444',
+                    'text-wrap': 'wrap',
+                    'content': function (node) {
+                        return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\nCountry:\t${node.data("country")}`
+                    },
+                    // all this refers to the label only. it is removed and instead the text should just be the node
+                    /*'label': function (node) {
                         return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\nCountry:\t${node.data("country")}`
                     },
                     'color': '#fff',
@@ -532,9 +540,9 @@ function load_cytoscape() {
                     'text-max-width': '200px',
                     'text-background-color': "#3650fe",
                     'text-background-opacity': '1',
-                    'text-background-shape': 'round-rectangle',
-                    //'border-radius': '20px',
-                    'text-halign': 'right',
+                    'text-background-shape': 'roundrectangle',
+                    'border-radius': '20px',
+                    'text-halign': 'right', */
                 },
             },
 
@@ -557,7 +565,7 @@ function load_cytoscape() {
         ],
 
         layout: {
-            name: 'circle',
+            name: 'breadthfirst',
             rows: 2
         }
     });
@@ -568,7 +576,7 @@ function load_cytoscape() {
         
             //<button id="europe" class="btn btn-primary btn-xs toggle-on">i</button> 
     }
-    document.getElementById("europe").addEventListener('click', function () {
+    document.getElementById("europe").addEventListener('change', function () {
         cy.nodes('[country="NZ"]').toggleClass("hidden");
         // console.log(cy.nodes('[country="NZ"]'))
         cy.nodes('[country!="NZ"]').each(function (node) {
