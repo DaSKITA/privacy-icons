@@ -1,19 +1,28 @@
-var loadedScripts = {"scripts":
+var loadedScripts = {"scripts":"
   <!-- stylesheet and script for toggles-->
   <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
   <!-- add personal stylesheet-->
   <link href="style_privacy.css" rel="stylesheet">
-  <!-- add personal javascript-->
-  <script src="main_privacy.js"></script>
+  <!-- add personal javascript--> 
+ <script src="main_privacy.js"></script>
 
   <!-- add HTMLcontent-->
   </script>
 
-  <!-- add force graph script-->
-  <script src="https://unpkg.com/force-graph"></script>
-  <!-- Required Stylesheets -->
+  <!-- add force graph script -->
+ <script type="module"> 
+ import cytoscape from "./cytoscape.esm.min.js"; 
+ </script> 
+ <script type="module"> 
+ import * as d3 from "https://cdn.skypack.dev/d3@7"; 
+ const div = d3.selectAll("div"); 
+ </script> <script src="https://cdn.jsdelivr.net/npm/d3-dispatch@3"></script> 
+ <script src="https://cdn.jsdelivr.net/npm/d3-quadtree@3"></script> 
+ <script src="https://cdn.jsdelivr.net/npm/d3-timer@3"></script> 
+ 
+ <script src="https://cdn.jsdelivr.net/npm/d3-force@3"></script>  <--Required Stylesheets -->
   <link
     type="text/css"
     rel="stylesheet"
@@ -297,7 +306,7 @@ var loadedScripts = {"scripts":
                 <li class="nav-item flex-fill">
                   <button id="navbar" class="btn btn-outline-primary btn-block btn-arrow-right btn-arrow-right-before btn-arrow-right-after" style="width:100%; padding:0px" onclick='var current = document.getElementsByClassName("active");
                   current[0].className = current[0].className.replace(" active", "");
-                  this.className += " active"; get_set_height("modalContent", "modalContent"); get_set_height("contentContainer1", "contentContainer2"); hide_components(["contentContainer1"]); show_components("contentContainer2"); load_mindmap();'>Data receiver</button>
+                  this.className += " active"; get_set_height("modalContent", "modalContent"); get_set_height("contentContainer1", "contentContainer2"); hide_components(["contentContainer1"]); show_components("contentContainer2"); load_cytoscape();'>Data receiver</button>
                 </li>
                 <li class="nav-item flex-fill">
                   <button id="navbar" class="btn btn-outline-primary btn-block btn-arrow-right btn-arrow-right-before btn-arrow-right-after" style="width:100%; padding:0px" onclick='var current = document.getElementsByClassName("active");
@@ -376,18 +385,28 @@ var loadedScripts = {"scripts":
         <!--Example page 2: read stuff from tilt-->
         <div class="container" id="contentContainer2" style="top: 4px; bottom:9px; position:relative;" ><!--height: 83%;-->
           <div class="card" style="box-shadow: #e0d0cd 0px 2px 8px 0px; height: 100%">
-            <div class="card-body" style="height:100%;">
-              <div class="col-12 p-1" style="float: left; width:70%">
+    <div class="card-group"> 
+       <div class="card-body" style="height:100%;">
+              <div class="col-12 p-1 border" style="float: left; width:60%">
                 <h3><b>Who else has access to your data</b></h3>
                 <p>In the graphic below you can see which companies get access to your data that is collected on this website. </br>
                 Hover over the nodes to get more information.</p>
                 <p><span id="thirdCountry"></span>
                 </p>
-              </div>
-              <div id="mindmap" class="col-12 p-1" style="bottom:9px;  float:right">
-              </div>
+     </div>
+   </div>
+   <div class="card-body" style="height:100%; border-width=3; border-color=rgb(0,0,0)">
+    <div class="col-12 p-1 border" style="float: left; width:100%">
+        <div class="form-check form-switch" style="float: right; size:60%">
+          <input class="form-check-input" type="checkbox" id="europe" checked>
+          <label class="form-check-label" for="europe">Include Non-EU</label>
+      </div>
+   </div>
             </div>
-          </div>
+         </div>
+       <div id="cy">
+  </div>
+       </div>
         </div>
       </div>
     </div>

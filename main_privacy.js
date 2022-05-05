@@ -525,10 +525,10 @@ function load_cytoscape() {
                     'shape':'round-rectangle',
                     'color': 'black',
                     'background-color': '#3650fe',
-                    // all this refers to the label only. it overlays the actual node
+                    // all this refers to the label only. it overlays the actual node. 
                     'label': function (node) {
                         return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\nCountry:\t${node.data("country")}`
-                    },
+                    }, // html text to go inside the node label.
                     'color': '#fff',
                     'text-wrap': 'wrap',
                     'text-background-color': "#3650fe",
@@ -562,13 +562,17 @@ function load_cytoscape() {
             rows: 2
         }
     });
-    /*for(var i =0; i<10; i++){
-        var myButton = document.createElement("button");
-        myButton.textContent = i;
-        document.getElementById('contentContainer2').appendChild(myButton);
-        
-            //<button id="europe" class="btn btn-primary btn-xs toggle-on">i</button> 
-    }  */
+    cy.nodes().forEach(function( ele ){
+            console.log( ele.id() );
+        var myButton = document.createElement("div");
+        myButton.innerHTML = `<div class=\"col-12 p-1 border\" style=\"float: right; width:100%\">\n
+        <div id="switch${ele.id()}" class="form-check form-switch style=\"float:right; size:50%\">\n
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
+        <label class="form-check-label" for="flexSwitchCheckChecked">placeholder</label> \n
+      </div> \n</div>`; 
+        document.getElementById('comp_switches').appendChild(myButton);    
+        }); 
+            //<button id="europe" class="btn btn-primary btn-xs toggle-on">i</button>   
     document.getElementById("europe").addEventListener('change', function () {
         cy.nodes('[country="NZ"]').toggleClass("hidden");
         // console.log(cy.nodes('[country="NZ"]'))
