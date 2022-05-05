@@ -562,6 +562,7 @@ function load_cytoscape() {
             rows: 2
         }
     });
+    //make toggles for each node to be toggled out 
     cy.nodes().forEach(function( ele ){
             console.log( ele.id() );
         var myButton = document.createElement("div");
@@ -569,7 +570,7 @@ function load_cytoscape() {
         <div id="switch${ele.id()}" class="form-check form-switch style=\"float:right; size:50%\">\n
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
         <label class="form-check-label" for="flexSwitchCheckChecked">placeholder</label> \n
-      </div> \n</div>`; 
+      </div> \n</div>`; //currently names are too long so get pushed into random part of page so placeholder is used.
         document.getElementById('comp_switches').appendChild(myButton);    
         }); 
             //<button id="europe" class="btn btn-primary btn-xs toggle-on">i</button>   
