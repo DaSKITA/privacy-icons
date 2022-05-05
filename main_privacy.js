@@ -520,36 +520,29 @@ function load_cytoscape() {
             {
                 selector: 'node', // fix color and fix width
                 style: {
+                    'width': '100%',
+                    'height': '75%',
                     'shape':'round-rectangle',
-                    'text-max-width': '200px', 
-                    'background-color': '#666', // find the correct color
-                    'text-valign': 'center',
                     'color': 'black',
-                    'text-outline-color': '#888', 
-                    'background-color': '#444',
-                    'text-wrap': 'wrap',
-                    'content': function (node) {
-                        return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\nCountry:\t${node.data("country")}`
-                    },
-                    // all this refers to the label only. it is removed and instead the text should just be the node
-                    /*'label': function (node) {
+                    'background-color': '#3650fe',
+                    // all this refers to the label only. it overlays the actual node
+                    'label': function (node) {
                         return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\nCountry:\t${node.data("country")}`
                     },
                     'color': '#fff',
                     'text-wrap': 'wrap',
-                    'text-max-width': '200px',
                     'text-background-color': "#3650fe",
                     'text-background-opacity': '1',
                     'text-background-shape': 'roundrectangle',
-                    'border-radius': '20px',
-                    'text-halign': 'right', */
+                    'text-halign': 'center',
+                    'text-valign': 'center', 
                 },
             },
 
             {
                 selector: 'edge',
                 style: {
-                    'width': 3,
+                    'width': 2,
                     'line-color': '#ccc',
                     'target-arrow-color': '#ccc',
                     'target-arrow-shape': 'triangle',
@@ -569,13 +562,13 @@ function load_cytoscape() {
             rows: 2
         }
     });
-    for(var i =0; i<10; i++){
+    /*for(var i =0; i<10; i++){
         var myButton = document.createElement("button");
         myButton.textContent = i;
         document.getElementById('contentContainer2').appendChild(myButton);
         
             //<button id="europe" class="btn btn-primary btn-xs toggle-on">i</button> 
-    }
+    }  */
     document.getElementById("europe").addEventListener('change', function () {
         cy.nodes('[country="NZ"]').toggleClass("hidden");
         // console.log(cy.nodes('[country="NZ"]'))

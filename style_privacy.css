@@ -285,6 +285,7 @@
 .btn-close{
     filter: invert(1);
     color:white;
+    color: #0c43dc;
 }
 
 .close-entry1{
@@ -426,6 +427,6 @@
 #cy {
     width: 100%;
     height: 100%;
-    background-color: rgb(175, 170, 170);
+    background-color: rgb(255, 255, 255);
     display: block;
   } 
