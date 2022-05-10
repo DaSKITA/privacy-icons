@@ -569,11 +569,19 @@ function load_cytoscape() {
         myButton.innerHTML = `<div class=\"col-12 p-1 border\" style=\"float: right; width:100%\">\n
         <div id="switch${ele.id()}" class="form-check form-switch style=\"float:right; size:50%\">\n
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
-        <label class="form-check-label" for="flexSwitchCheckChecked">placeholder</label> \n
+        <label class="form-check-label" for="flexSwitchCheckChecked">Company Name</label> \n
       </div> \n</div>`; //currently names are too long so get pushed into random part of page so placeholder is used.
-        document.getElementById('comp_switches').appendChild(myButton);    
+        document.getElementById('comp_switches').appendChild(myButton); 
+        
+        document.getElementById(`switch${ele.id()}`).addEventListener('change', function () {
+            ele.toggleClass("hidden");
+            console.log(ele.id())
+            ele.successors().toggleClass("hidden")
+        });
+        
         }); 
-            //<button id="europe" class="btn btn-primary btn-xs toggle-on">i</button>   
+    
+        // toggle EU states
     document.getElementById("europe").addEventListener('change', function () {
         cy.nodes('[country="NZ"]').toggleClass("hidden");
         // console.log(cy.nodes('[country="NZ"]'))
