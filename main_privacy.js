@@ -331,6 +331,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let myData;
+
+// source: https://dev.to/jorik/country-code-to-flag-emoji-a21
+function getFlagEmoji(countryCode) {
+    const codePoints = countryCode
+      .toUpperCase()
+      .split('')
+      .map(char =>  127397 + char.charCodeAt());
+    return String.fromCodePoint(...codePoints);
+  }
+
 //load relevant components
 function load_components(obj) {
     var service = 0;
@@ -437,6 +447,7 @@ function load_components(obj) {
     if (thirdCountries.length > 0) {
         for (var i = 0; i < thirdCountries.length; i++) {
             var transfer = thirdCountries[i];
+            console.log(`third country ${i}`)
             //var flag = document.createElement('img');
             //flag.id = transfer.country.toLowerCase();
             //flag.src = 'https://www.countryflags.io/' + transfer.country.toLowerCase() + '/shiny/24.png';
@@ -527,8 +538,9 @@ function load_cytoscape() {
                     'background-color': '#3650fe',
                     // all this refers to the label only. it overlays the actual node. 
                     'label': function (node) {
-                        return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\nCountry:\t${node.data("country")}`
-                    }, // html text to go inside the node label.
+                        return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\n${getFlagEmoji(node.data("country"))}` 
+                    }, // html text to go inside the node label. 
+                    // add flags (check), icons for purposes
                     'color': '#fff',
                     'text-wrap': 'wrap',
                     'text-background-color': "#3650fe",
@@ -562,14 +574,14 @@ function load_cytoscape() {
             rows: 2
         }
     });
-    //make toggles for each node to be toggled out 
+
     cy.nodes().forEach(function( ele ){
             console.log( ele.id() );
         var myButton = document.createElement("div");
         myButton.innerHTML = `<div class=\"col-12 p-1 border\" style=\"float: right; width:100%\">\n
-        <div id="switch${ele.id()}" class="form-check form-switch style=\"float:right; size:50%\">\n
+        <div id="switch${ele.id()}" class="form-check form-switch style=\"float:right; size:100%\">\n
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
-        <label class="form-check-label" for="flexSwitchCheckChecked">Company Name</label> \n
+        <label class="form-check-label" for="flexSwitchCheckChecked">${ele.id()}</label> \n
       </div> \n</div>`; //currently names are too long so get pushed into random part of page so placeholder is used.
         document.getElementById('comp_switches').appendChild(myButton); 
         
@@ -801,4 +813,3 @@ function switchColors(id) {
     }
 
 }
-
