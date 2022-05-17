@@ -533,17 +533,18 @@ function load_cytoscape() {
                 style: {
                     'width': '100%',
                     'height': '75%',
-                    'shape':'round-rectangle',
+                    'shape':'ellipse',
                     'color': 'black',
                     'background-color': '#3650fe',
+                    //'content': `${node.data("id")}`,
                     // all this refers to the label only. it overlays the actual node. 
                     'label': function (node) {
-                        return `${node.data("id")} \n\nPurpose:\t${node.data("purpose")} \n\n${getFlagEmoji(node.data("country"))}` 
-                    }, // html text to go inside the node label. 
+                        return `${node.data("id")}` 
+                    }, // html text to go inside the node label. */
                     // add flags (check), icons for purposes
-                    'color': '#fff',
+                    'color': 'rgb(0,0,0)',
                     'text-wrap': 'wrap',
-                    'text-background-color': "#3650fe",
+                    'text-background-color': "#fff",
                     'text-background-opacity': '1',
                     'text-background-shape': 'roundrectangle',
                     'text-halign': 'center',
@@ -608,12 +609,21 @@ function load_cytoscape() {
 
     function makePopper(ele) {
         let ref = ele.popperRef(); // used only for positioning
+        let dummyDom = document.createElement('div')
     
-        ele.tippy = tippy(ref, { // tippy options:
+        ele.tippy = tippy(dummyDom, { // tippy options:
+          //getReferenceClientRect: ref,
+          followCursor: true,
+          allowHTML: true,
           content: () => {
             let content = document.createElement('div');
             console.log(ele)
-            content.innerHTML = ele.id();
+            content.innerHTML = `<div class=\"node-label\" style=\"height:100%; width:100%\"> 
+                                    <div>${ele.data("id")}</div> 
+                                    <div id = purpose_${ele.data("purpose")}> Purpose:\t${purpose_icon(ele.data("purpose"))} </div> 
+                                    <div> ${getFlagEmoji(ele.data("country"))} </div>    
+                                </div>` ;
+            
     
             return content;
           },
@@ -667,6 +677,14 @@ function load_tilt(tilt) {
     }
 }
 
+//get svg for puposes in tilt
+function purpose_icon(purpose){
+    var purpose_dict = {'service': `<iframe src="Icons/service.svg" width="12px" height="12px"> </iframe>`, 
+                        'improve the website':`<iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe>`}
+
+    console.log(purpose)
+    return purpose_dict[purpose]
+}
 
 //change colour of toggle, if checked and hovered (does not work)
 function switchColors(id) {

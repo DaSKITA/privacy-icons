@@ -403,13 +403,15 @@
 
 
 .node-label{
-    width: 200px;
-    height: 50px;
-    background: #3650fe;
+    background: #3651fe5d;
     color:rgb(255, 255, 255);
-    align-items: center;
+    text-align: center;
     font-size: 12px;
     line-height: 16px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: #3650fe;
+    padding: 2px;
 }
 
 .node{
@@ -430,3 +432,4 @@
     background-color: rgb(255, 255, 255);
     display: block;
   } 
+
