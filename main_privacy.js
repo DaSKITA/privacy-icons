@@ -507,7 +507,7 @@ function load_components(obj) {
         myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
         myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } });
 
-        secondary_nodes(recipients[i][0])
+        myCyt.push(secondary_nodes(recipients[i][0]));
     }
 
 
@@ -524,27 +524,26 @@ function load_components(obj) {
 
 function secondary_nodes(thirdPartyName) {
 
-    
     async function fetchTilt(thirdPartyName){
         try {
-        let response = await fetch("http://ec2-3-64-237-95.eu-central-1.compute.amazonaws.com:8080/tilt/tilt?filter={'meta.name' : 'Johannes'}&keys={'dataDisclosed' : 1}&keys={'dataProtectionOfficer' : 1}", 
+        let response_var = await fetch("http://ec2-3-64-237-95.eu-central-1.compute.amazonaws.com:8080/tilt/tilt?filter={'meta.name' : 'Johannes'}&keys={'dataDisclosed' : 1}&keys={'dataProtectionOfficer' : 1}",
         {method:'GET', 
-        headers: {'Authorization': 'Basic ' + btoa('admin:secret')}}
-        );
+        headers: {'Authorization': 'Basic ' + btoa('admin:secret')}}).then(response => response.json());
+        return response_var;
 
-        return await response.json();
     } catch (error) {
-        console.log(error);
+        console.log('error', error);
     }
-    };
-    
+    }; 
+
     // use an asyncronous request to retrieve the tilt
-    var thirdPartyTilt = fetchTilt('Johannes');
+    let thirdPartyTilt = fetchTilt('Johannes');
 
     if (thirdPartyTilt === 400) {
         return thirdPartyTilt // return 400 to the load elements function in case there is no tilt in database 
     }
-    console.log(thirdPartyTilt)
+    console.log('log2', thirdPartyTilt)
+    /*
     var recLength = thirdPartyTilt.dataDisclosed[i].recipients.length;
     for (var j = 0; j < recLength; j++) {
         var individual_recipient = [];
@@ -567,15 +566,15 @@ function secondary_nodes(thirdPartyName) {
         recipients.push(individual_recipient); // add the individual row to the node list
 
     }
-    myCyt = [
+    thirdPartyNodes = [
         { data: { id: cur_service, group: 'nodes', country: thirdPartyTilt.controller.country, purpose: cur_purpose } }
     ];
     for (var i = 0; i < recipients.length; i++) {
-        myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
-        myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } })
-    } 
+        thirdPartyNodes.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
+        thirdPartyNodes.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } })
+    } */
 
-    return myCyt
+    return thirdPartyNodes 
 }
 
 function load_cytoscape() {
