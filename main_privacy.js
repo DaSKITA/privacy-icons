@@ -438,6 +438,7 @@ function load_components(obj) {
             }
             individual_recipient.push(purposes_list);  // append the purpose list to loc 2 = purposes 
             recipients.push(individual_recipient); // add the individual row to the node list
+            
         }
     }
 
@@ -504,7 +505,9 @@ function load_components(obj) {
     ];
     for (var i = 0; i < recipients.length; i++) {
         myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
-        myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } })
+        myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } });
+
+        secondary_nodes(recipients[i][0])
     }
 
 
@@ -516,6 +519,63 @@ function load_components(obj) {
     else {
         show_components("entry2ID");
     }
+}
+
+
+function secondary_nodes(thirdPartyName) {
+
+    
+    async function fetchTilt(thirdPartyName){
+        try {
+        let response = await fetch("http://ec2-3-64-237-95.eu-central-1.compute.amazonaws.com:8080/tilt/tilt?filter={'meta.name' : 'Johannes'}&keys={'dataDisclosed' : 1}&keys={'dataProtectionOfficer' : 1}", 
+        {method:'GET', 
+        headers: {'Authorization': 'Basic ' + btoa('admin:secret')}}
+        );
+
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+    }
+    };
+    
+    // use an asyncronous request to retrieve the tilt
+    var thirdPartyTilt = fetchTilt('Johannes');
+
+    if (thirdPartyTilt === 400) {
+        return thirdPartyTilt // return 400 to the load elements function in case there is no tilt in database 
+    }
+    console.log(thirdPartyTilt)
+    var recLength = thirdPartyTilt.dataDisclosed[i].recipients.length;
+    for (var j = 0; j < recLength; j++) {
+        var individual_recipient = [];
+        if (thirdPartyTilt.dataDisclosed[i].recipients[j].name != undefined && thirdPartyTilt.dataDisclosed[i].recipients[j].name != "") {
+            individual_recipient.push(thirdPartyTilt.dataDisclosed[i].recipients[j].name); // loc 0 = id 
+        } else {
+            continue;
+        }
+        if (thirdPartyTilt.dataDisclosed[i].recipients[j].country != undefined && thirdPartyTilt.dataDisclosed[i].recipients[j].country != "") {
+            individual_recipient.push(thirdPartyTilt.dataDisclosed[i].recipients[j].country);
+        } else {
+            individual_recipient.push("");  // loc 1 = country
+        }
+        var purLength = thirdPartyTilt.dataDisclosed[i].purposes.length; // loop over all the different purposes in one piece of data disclosed
+        var purposes_list = []; // empty list of purposes for one recipient
+        for (var p = 0; p < purLength; p++) { // for each purpose iterate
+            purposes_list.push(thirdPartyTilt.dataDisclosed[i].purposes[p].purpose); // record the purpose
+        }
+        individual_recipient.push(purposes_list);  // append the purpose list to loc 2 = purposes 
+        recipients.push(individual_recipient); // add the individual row to the node list
+
+    }
+    myCyt = [
+        { data: { id: cur_service, group: 'nodes', country: thirdPartyTilt.controller.country, purpose: cur_purpose } }
+    ];
+    for (var i = 0; i < recipients.length; i++) {
+        myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
+        myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } })
+    } 
+
+    return myCyt
 }
 
 function load_cytoscape() {
@@ -617,13 +677,12 @@ function load_cytoscape() {
           allowHTML: true,
           content: () => {
             let content = document.createElement('div');
-            console.log(ele)
+            
             content.innerHTML = `<div class=\"node-label\" style=\"height:100%; width:100%\"> 
                                     <div>${ele.data("id")}</div> 
-                                    <div id = purpose_${ele.data("purpose")}> Purpose:\t${purpose_icon(ele.data("purpose"))} </div> 
+                                    <div id = purpose_${ele.data("purpose")}> ${purpose_icon(ele.data("purpose"))} </div> 
                                     <div> ${getFlagEmoji(ele.data("country"))} </div>    
-                                </div>` ;
-            
+                                ` ;
     
             return content;
           },
@@ -679,11 +738,25 @@ function load_tilt(tilt) {
 
 //get svg for puposes in tilt
 function purpose_icon(purpose){
-    var purpose_dict = {'service': `<iframe src="Icons/service.svg" width="12px" height="12px"> </iframe>`, 
-                        'improve the website':`<iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe>`}
 
-    console.log(purpose)
-    return purpose_dict[purpose]
+    var purpose_div = document.createElement('div')
+    purpose_div.classList = 'card-group'
+    // got these icons from https://www.svgrepo.com/vectors/service/outlined/1 //
+    var purpose_dict = {'service': '<iframe src="Icons/service.svg" width="12px" height="12px"> </iframe>', 
+                        'improve the website':'<iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe>'}
+
+    for (var pur of purpose){
+        
+        var card = document.createElement('div');
+        card.classList = 'card-body';
+
+        var icon_content = purpose_dict[pur] ;
+        card.innerHTML = icon_content;
+        
+        purpose_div.appendChild(card);
+    }
+
+    return purpose_div.outerHTML
 }
 
 //change colour of toggle, if checked and hovered (does not work)

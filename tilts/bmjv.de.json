@@ -90,6 +90,15 @@ bmjv = `{
           "address": "150 Willis St, 6011 Wellington",
           "country": "NZ",
           "category": "Webanalysedienst"
+        },
+        {
+          "representative": {
+            "name": "Johannes Halkenhaeusser"
+          },
+          "name": "Johannes",
+          "address": "Str. 17 Juni, Berlin",
+          "country": "DE",
+          "category": "Test Business"
         }
       ],
       "nonDisclosure": {
