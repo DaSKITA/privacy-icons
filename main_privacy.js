@@ -485,7 +485,7 @@ function load_components(obj) {
     }
 
     //load mindmap
-    cur_service = obj.meta.name;
+    var cur_service = obj.meta.name;
     var cur_purpose = [];
     for (r of recipients) {
         if (!(r[2] in cur_purpose)) {
@@ -507,7 +507,16 @@ function load_components(obj) {
         myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
         myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } });
 
-        myCyt.push(secondary_nodes(recipients[i][0]));
+        var secondary = secondary_nodes(recipients[i][0]);
+
+        if (secondary === 400){
+            
+        }
+        else{
+        for (var elem of secondary){
+            myCyt.push(elem);
+        }       
+        }
     }
 
 
@@ -524,55 +533,78 @@ function load_components(obj) {
 
 function secondary_nodes(thirdPartyName) {
 
-    async function fetchTilt(thirdPartyName){
-        try {
-        let response_var = await fetch("http://ec2-3-64-237-95.eu-central-1.compute.amazonaws.com:8080/tilt/tilt?filter={'meta.name' : 'Johannes'}&keys={'dataDisclosed' : 1}&keys={'dataProtectionOfficer' : 1}",
-        {method:'GET', 
-        headers: {'Authorization': 'Basic ' + btoa('admin:secret')}}).then(response => response.json());
-        return response_var;
-
-    } catch (error) {
-        console.log('error', error);
-    }
+    /*async function fetchTilt(){
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Basic YWRtaW46c2VjcmV0");
+        
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+        
+        const response = await fetch("http://ec2-3-64-237-95.eu-central-1.compute.amazonaws.com:8080/tilt/tilt?filter={'meta.name' : 'Johannes'}&keys={'dataDisclosed' : 1}&keys={'dataProtectionOfficer' : 1}", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log('result', result))
+          .catch(error => console.log('error', error));
+        return response
     }; 
 
-    // use an asyncronous request to retrieve the tilt
-    let thirdPartyTilt = fetchTilt('Johannes');
+    // use a fetch request to retrieve the tilt
+    var thirdPartyTilt = fetchTilt('Johannes')
+        .then(result => {return result})
+        .catch(error => console.log(error)); */
+    
+    var thirdPartyTilt = '{"_id":{"$oid":"628369ae3417930007e61549"},"controller":{"country":"DE","representative":{"name":"Christine Lambrecht (Bundesministerin der Justiz und für Verbraucherschutz)","email":"christine.lambrecht@bundestag.de","phone":"+493022773286"},"name":"Bundesministerium der Justiz und für Verbraucherschutz","address":"Mohrenstraße 37, 10117 Berlin"},"dataProtectionOfficer":{"name":"Elisabeth Duhr","address":"Mohrenstraße. 37, 10117 Berlin","country":"DE","email":"datenschutz@bmjv.bund.de","phone":"+4930185800"},"dataDisclosed":[{"purposes":[{"purpose":"service","description":"Bei jedem Besuch unserer Internetseite werden Daten erhoben, die aus Sicherheitsgründen und zur Bereitstellung und Optimierung einer funktionsfähigen Webseite sowie unserer Inhalte und Leistungen erforderlich sind."}],"legalBases":[{"reference":"DSGVO-6-1-e","description":"Die Verarbeitung ist für die Wahrnehmung einer Aufgabe erforderlich, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, die dem Verantwortlichen übertragen wurde."},{"reference":"BSIG-5","description":"Abwehr von Schadprogrammen und Gefahren für die Kommunikationstechnik des Bundes"}],"legitimateInterests":[],"recipients":[{"representative":{"name":"Direktor des ITZBund","email":"poststelle@itzbund.de"},"name":"Test A","address":"Friedrichstr. 170, Berlin","country":"DE","category":"IT-Dienstleister"}],"nonDisclosure":{"legalRequirement":false,"contractualRegulation":false,"obligationToProvide":true,"consequences":"Sollten Sie mit den Aufnahmen und Veröffentlichungen nicht einverstanden sein, wenden Sie sich nach Möglichkeit unmittelbar an den für die Motivsuche verantwortlichen Fotografen."},"_id":"3543974c-7611-4694-ab27-6fb2d906712e","category":"IP address, time and date, Name der abgerufenen Datei, Datum und Uhrzeit des Abrufs, übertragene Datenmenge, Meldung, ob der Abruf erfolgreich war","storage":[]},{"purposes":[{"purpose":"improve the website","description":"Aus den erhobenen Daten (z. B. welche Seite besucht worden ist, Länge der Verweildauer auf der Internetseite, ob Downloads vorgenommen wurden, Suchbegriffe usw.) können wir Rückschlüsse über das Nutzungsverhalten auf unserer Internetseite ziehen und erhalten Informationen über weitere technische Parameter (z. B. verwendeter Browser und die Version, Bildschirmauflösung des verwendeten Endgeräts, Betriebssystem)."}],"legalBases":[{"reference":"DSGVO-6-1-a","description":"Dieses Webangebot und seine einzelnen Angebote sind Teil der Öffentlichkeitsarbeit des BMJV. Um das Informationsangebot auf die Bedürfnisse der Nutzerinnen und Nutzer ausrichten zu können, wertet das BMJV die Zugriffe auf diese Internetseite auf der Grundlage Ihrer Einwilligung gemäß Artikel 6 Absatz 1 Buchstabe a DS-GVO statistisch aus."}],"recipients":[{"representative":{"name":"InnoCraft Ltd."},"name":"Test B","address":"1412 Market Street, SF","country":"US","category":"Webanalysedienst"}],"nonDisclosure":{"legalRequirement":false,"contractualRegulation":false,"obligationToProvide":false,"consequences":""},"category":"IP address, Durch Matomo-Technologie erhobenen Daten (einschließlich Ihrer anonymisierten IP-Adresse)","_id":"de70e0d8-9282-45c7-88ed-192385764952","legitimateInterests":[],"storage":[]},{"purposes":[{"purpose":"contact","description":"Die Verarbeitung der Daten ist zur Wahrnehmung unserer Aufgaben erforderlich."}],"legalBases":[{"reference":"DSGVO-6-1-e","description":"Die Verarbeitung der Daten ist zur Wahrnehmung unserer Aufgaben erforderlich."},{"reference":"DSGVO-6-3-b","description":"Die Verarbeitung der Daten ist zur Wahrnehmung unserer Aufgaben erforderlich."},{"reference":"BDSG-3","description":"Die Verarbeitung der Daten ist zur Wahrnehmung unserer Aufgaben erforderlich."}],"recipients":[],"storage":[],"legitimateInterests":[],"nonDisclosure":{"legalRequirement":false,"contractualRegulation":false,"obligationToProvide":false,"consequences":""},"_id":"f161d40b-2bb3-4f24-b09c-644e7b051588","category":"name, email address"},{"purposes":[{"purpose":"contact","description":"Wenn Sie Broschüren über die Warenkorbfunktion unserer Internetseite, per Post oder E-Mail bestellen, benötigen wir für den Versand Ihren Namen und Ihre Anschrift. "}],"legalBases":[{"reference":"DSGVO-6-1-e"},{"reference":"DSGVO-6-3-b"},{"reference":"BDSG-3"}],"legitimateInterests":[],"recipients":[],"storage":[{"temporal":[{"description":"Die übermittelten Daten werden einen Monat nach Abwicklung der Bestellung gelöscht.","ttl":"P1M"}],"purposeConditional":[],"legalBasisConditional":[],"aggregationFunction":"max"}],"nonDisclosure":{"legalRequirement":false,"contractualRegulation":false,"obligationToProvide":false,"consequences":"Bei der Registrierung werden Ihre Daten auf unserem Server gespeichert und eine Bestätigungsnachricht mit einem Link zur endgültigen Registrierung an die von Ihnen angegebene E-Mail Adresse generiert. Soweit Sie die Registrierung nicht durch den Link in dieser E-Mail bestätigen, werden die Daten nach 24 Stunden gelöscht. Im Übrigen werden Ihre Daten bei Abbestellung des Newsletters unmittelbar gelöscht."},"_id":"e8c06b82-a5fd-4513-b5f9-7bb318ae4863","category":"name, email address"},{"purposes":[{"description":"Um den Besucherinnen und Besuchern den Zugang zu den Räumlichkeiten des BMJV gewähren zu können.","purpose":"Öffentlichkeitsarbeit"}],"legalBases":[{"reference":"DSGVO-6-1-e"},{"reference":"DSGVO-6-3-b"},{"reference":"BDSG-3"}],"recipients":[{"representative":{},"category":"Diese Daten werden für die Zugangskontrolle an die zuständige Bundespolizei weitergegeben."}],"storage":[{"temporal":[{"description":"Die uns von Ihnen zur Verfügung gestellten Daten (Vor- und Zuname, Geburtsdatum, Geburtsort) werden ebenso wie die von Ihnen ggf. freiwillig übermittelten personenbezogenen Daten eine Woche nach Ihrem Besuch im BMJV vollständig gelöscht.","ttl":"P1W"}],"purposeConditional":[],"legalBasisConditional":[],"aggregationFunction":"max"}],"nonDisclosure":{"legalRequirement":false,"contractualRegulation":false,"obligationToProvide":false,"consequences":""},"category":"name","_id":"db28f111-f3d1-4523-8465-690c8979c76f","legitimateInterests":[]},{"purposes":[{"purpose":"Presse- und Öffentlichkeitsarbeit","description":"Bei einigen Veranstaltungen werden Foto- und Filmaufnahmen im Rahmen der Presse- und Öffentlichkeitsarbeit des BMJV angefertigt. Auf diese wird in der Regel beim Betreten des Veranstaltungsgeländes hingewiesen. Die Aufnahmen können auf unserer Internetseite, Social-Media-Kanälen, Printmedien und weiteren Medien veröffentlicht werden."}],"legalBases":[{"reference":"DSGVO-6-1-e"},{"reference":"DSGVO-6-3-b"},{"reference":"BDSG-3"},{"reference":"KUNSTURHG-23"}],"nonDisclosure":{"legalRequirement":false,"contractualRegulation":false,"obligationToProvide":false,"consequences":""},"_id":"7da43e44-9ce7-4d75-8e37-5bc35f0882bd","category":"Filmaufnahmen","legitimateInterests":[],"recipients":[],"storage":[]}]}';
+    
+    if (thirdPartyName != 'Johannes'){
+        return 400
+    };
 
     if (thirdPartyTilt === 400) {
         return thirdPartyTilt // return 400 to the load elements function in case there is no tilt in database 
+    };
+    
+    try {
+        hide_components(["entry1ID", "entry2ID", "service", "contact", "improveWebsite", "personaliseAds", "improveWebsite2", "personaliseAds2", "legalRequirements", "security"]);
+        var obj_tt = JSON.parse(thirdPartyTilt);
     }
-    console.log('log2', thirdPartyTilt)
-    /*
-    var recLength = thirdPartyTilt.dataDisclosed[i].recipients.length;
-    for (var j = 0; j < recLength; j++) {
-        var individual_recipient = [];
-        if (thirdPartyTilt.dataDisclosed[i].recipients[j].name != undefined && thirdPartyTilt.dataDisclosed[i].recipients[j].name != "") {
-            individual_recipient.push(thirdPartyTilt.dataDisclosed[i].recipients[j].name); // loc 0 = id 
-        } else {
-            continue;
-        }
-        if (thirdPartyTilt.dataDisclosed[i].recipients[j].country != undefined && thirdPartyTilt.dataDisclosed[i].recipients[j].country != "") {
-            individual_recipient.push(thirdPartyTilt.dataDisclosed[i].recipients[j].country);
-        } else {
-            individual_recipient.push("");  // loc 1 = country
-        }
-        var purLength = thirdPartyTilt.dataDisclosed[i].purposes.length; // loop over all the different purposes in one piece of data disclosed
-        var purposes_list = []; // empty list of purposes for one recipient
-        for (var p = 0; p < purLength; p++) { // for each purpose iterate
-            purposes_list.push(thirdPartyTilt.dataDisclosed[i].purposes[p].purpose); // record the purpose
-        }
-        individual_recipient.push(purposes_list);  // append the purpose list to loc 2 = purposes 
-        recipients.push(individual_recipient); // add the individual row to the node list
+    catch (e) {
+        alert(e)
+        alert("Wrong pasted tilt format.")
+    }
 
+    var dataDisclosedLength = obj_tt.dataDisclosed.length;
+    var recipients = [];
+    for (var i = 0; i < dataDisclosedLength; i++) {
+        var recLength = obj_tt.dataDisclosed[i].recipients.length;
+        for (var j = 0; j < recLength; j++) {
+            var individual_recipient = [];
+            if (obj_tt.dataDisclosed[i].recipients[j].name != undefined && obj_tt.dataDisclosed[i].recipients[j].name != "") {
+                individual_recipient.push(obj_tt.dataDisclosed[i].recipients[j].name); // loc 0 = id 
+            } else {
+                continue;
+            }
+            if (obj_tt.dataDisclosed[i].recipients[j].country != undefined && obj_tt.dataDisclosed[i].recipients[j].country != "") {
+                individual_recipient.push(obj_tt.dataDisclosed[i].recipients[j].country);
+            } else {
+                individual_recipient.push("");  // loc 1 = country
+            }
+            var purLength = obj_tt.dataDisclosed[i].purposes.length; // loop over all the different purposes in one piece of data disclosed
+            var purposes_list = []; // empty list of purposes for one recipient
+            for (var p = 0; p < purLength; p++) { // for each purpose iterate
+                purposes_list.push(obj_tt.dataDisclosed[i].purposes[p].purpose); // record the purpose
+            }
+            individual_recipient.push(purposes_list);  // append the purpose list to loc 2 = purposes 
+            recipients.push(individual_recipient); // add the individual row to the node list
+        }
     }
-    thirdPartyNodes = [
-        { data: { id: cur_service, group: 'nodes', country: thirdPartyTilt.controller.country, purpose: cur_purpose } }
-    ];
-    for (var i = 0; i < recipients.length; i++) {
-        thirdPartyNodes.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
-        thirdPartyNodes.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } })
-    } */
+
+    thirdPartyNodes = [];
+    for (var k = 0; k < recipients.length; k++) {
+        thirdPartyNodes.push({ data: { id: recipients[k][0], group: 'nodes', country: recipients[k][1], purpose: recipients[k][2] } });
+        thirdPartyNodes.push({ data: { id: thirdPartyName+k, source: thirdPartyName, target: recipients[k][0], group: 'edges' } })
+    }
 
     return thirdPartyNodes 
 }
