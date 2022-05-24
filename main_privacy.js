@@ -566,7 +566,6 @@ function secondary_nodes(thirdPartyName) {
     };
     
     try {
-        hide_components(["entry1ID", "entry2ID", "service", "contact", "improveWebsite", "personaliseAds", "improveWebsite2", "personaliseAds2", "legalRequirements", "security"]);
         var obj_tt = JSON.parse(thirdPartyTilt);
     }
     catch (e) {
