@@ -623,7 +623,7 @@ function load_cytoscape() {
                 selector: 'node', // fix color and fix width
                 style: {
                     'width': '100%',
-                    'height': '70%',
+                    'height': '75%',
                     'shape':'ellipse',
                     'color': 'black',
                     'background-color': '#3650fe',
@@ -663,7 +663,7 @@ function load_cytoscape() {
 
         layout: {
             name: 'breadthfirst',
-            rows: 3
+            rows: 2
         }
 
         
