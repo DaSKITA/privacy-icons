@@ -334,10 +334,12 @@ let myData;
 
 // source: https://dev.to/jorik/country-code-to-flag-emoji-a21
 function getFlagEmoji(countryCode) {
+    
     const codePoints = countryCode
       .toUpperCase()
       .split('')
       .map(char =>  127397 + char.charCodeAt());
+    
     return String.fromCodePoint(...codePoints);
   }
 
@@ -485,6 +487,7 @@ async function load_components(obj) {
     }
 
     //load mindmap
+    
     var cur_service = obj.meta.name;
     var cur_purpose = [];
     for (r of recipients) {
@@ -495,19 +498,19 @@ async function load_components(obj) {
             cur_purpose.push(r[2][0]);
         }
     }
-    myData = {
+    /*myData = {
         nodes: [{ id: cur_service, country: obj.controller.country, purpose: cur_purpose }],
         links: []
     };
     for (var i = 0; i < recipients.length; i++) {
         myData['nodes'].push({ id: recipients[i][0], country: recipients[i][1], purpose: recipients[i][2] });
         myData['links'].push({ source: cur_service, target: recipients[i][0] })
-    }
+    }*/
     myCyt = [
-        { data: { id: cur_service, group: 'nodes', country: obj.controller.country, purpose: cur_purpose } }
+        { data: { id: cur_service, group: 'nodes', country: obj.controller.country, purpose: cur_purpose, europe: isEU(obj.controller.country) } }
     ];
     for (var i = 0; i < recipients.length; i++) {
-        myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2] } });
+        myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2], europe: isEU(recipients[i][1]) } });
         myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } });
 
         var secondary = await secondary_nodes(recipients[i][0]);
@@ -604,7 +607,7 @@ async function secondary_nodes(thirdPartyName) {
 
         thirdPartyNodes = [];
         for (var k = 0; k < recipients.length; k++) {
-            thirdPartyNodes.push({ data: { id: recipients[k][0], group: 'nodes', country: recipients[k][1], purpose: recipients[k][2] } });
+            thirdPartyNodes.push({ data: { id: recipients[k][0], group: 'nodes', country: recipients[k][1], purpose: recipients[k][2], europe: isEU(recipients[k][1]) } });
             thirdPartyNodes.push({ data: { id: thirdPartyName+k, source: thirdPartyName, target: recipients[k][0], group: 'edges' } })
         }
 
@@ -684,7 +687,7 @@ function load_cytoscape() {
         
         document.getElementById(`switch${ele.id()}`).addEventListener('change', function () {
             ele.toggleClass("hidden");
-            console.log(ele.id())
+            //console.log(ele.id())
             ele.successors().toggleClass("hidden")
         });
         
@@ -692,9 +695,9 @@ function load_cytoscape() {
     
         // toggle EU states
     document.getElementById("europe").addEventListener('change', function () {
-        cy.nodes('[country="NZ"]').toggleClass("hidden");
+        cy.nodes('[!europe]').toggleClass("hidden");
         // console.log(cy.nodes('[country="NZ"]'))
-        cy.nodes('[country!="NZ"]').each(function (node) {
+        cy.nodes('[?europe]').each(function (node) {
             if (node.connectedEdges().hidden()) {
                 node.toggleClass("hidden");
             }
@@ -711,11 +714,19 @@ function load_cytoscape() {
           allowHTML: true,
           content: () => {
             let content = document.createElement('div');
+
+            if (ele.data("europe")){
+                var eu_flag = getFlagEmoji("EU")
+                }
+            else{
+                var eu_flag = ""
+            }
             
             content.innerHTML = `<div class=\"node-label\" style=\"height:100%; width:100%\"> 
-                                    <div>${ele.data("id")}</div> 
+                                    <div>${ele.data("id")} ${getFlagEmoji(ele.data("country"))} ${eu_flag}
+                                    </div> 
                                     <div id = purpose_${ele.data("purpose")}> ${purpose_icon(ele.data("purpose"))} </div> 
-                                    <div> ${getFlagEmoji(ele.data("country"))} </div>    
+                                    </div>    
                                 ` ;
     
             return content;
@@ -776,8 +787,8 @@ function purpose_icon(purpose){
     var purpose_div = document.createElement('div');
     purpose_div.classList = 'card-group';
     // got these icons from https://www.svgrepo.com/vectors/service/outlined/1 //
-    var purpose_dict = {'service': '<iframe src="Icons/service.svg" width="12px" height="12px"> </iframe>', 
-                        'improve the website':'<iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe>'}
+    var purpose_dict = {'service': 'Service: <iframe src="Icons/service.svg" width="12px" height="12px"> </iframe>', 
+                        'improve the website':'Improving the website: <iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe>'}
 
     //let unique_purposes = purpose.filter((v, i, a) => a.indexOf(v) === i);
     for (var pur of purpose){
@@ -787,6 +798,7 @@ function purpose_icon(purpose){
 
         var icon_content = purpose_dict[pur] ;
         card.innerHTML = icon_content;
+
 
         purpose_div.appendChild(card);
     }
@@ -800,4 +812,62 @@ function switchColors(id) {
         document.getElementById(id).classList.add("inverse-toggle");
     }
 
+}
+
+
+function isEU(code){
+    const EU = [
+        'AL',
+        'AD',
+        'AT',
+        'AZ',
+        'BY',
+        'BE',
+        'BA',
+        'BG',
+        'HR',
+        'CY',
+        'CZ',
+        'DK',
+        'EE',
+        'FI',
+        'FR',
+        'GE',
+        'DE',
+        'GR',
+        'HU',
+        'IS',
+        'IE',
+        'IT',
+        'KZ',
+        'XK',
+        'LV',
+        'LI',
+        'LT',
+        'LU',
+        'MK',
+        'MT',
+        'MD',
+        'MC',
+        'ME',
+        'NL',
+        'NO',
+        'PL',
+        'PT',
+        'RO',
+        'RU',
+        'SM',
+        'RS',
+        'SK',
+        'SI',
+        'ES',
+        'SE',
+        'CH',
+        'TR',
+        'UA',
+        //'GB', removed even though they adopted GDPR after they left the EU
+        'VA',
+      ]
+      var inEU = EU.includes(code);
+      return inEU
 }
