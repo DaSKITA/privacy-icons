@@ -488,8 +488,11 @@ async function load_components(obj) {
     var cur_service = obj.meta.name;
     var cur_purpose = [];
     for (r of recipients) {
-        if (!(r[2] in cur_purpose)) {
-            cur_purpose.push(r[2]);
+        if (cur_purpose.includes(r[2][0])) {
+            continue;
+        }
+        else{
+            cur_purpose.push(r[2][0]);
         }
     }
     myData = {
@@ -770,12 +773,13 @@ function load_tilt(tilt) {
 //get svg for puposes in tilt
 function purpose_icon(purpose){
 
-    var purpose_div = document.createElement('div')
-    purpose_div.classList = 'card-group'
+    var purpose_div = document.createElement('div');
+    purpose_div.classList = 'card-group';
     // got these icons from https://www.svgrepo.com/vectors/service/outlined/1 //
     var purpose_dict = {'service': '<iframe src="Icons/service.svg" width="12px" height="12px"> </iframe>', 
                         'improve the website':'<iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe>'}
 
+    //let unique_purposes = purpose.filter((v, i, a) => a.indexOf(v) === i);
     for (var pur of purpose){
         
         var card = document.createElement('div');
@@ -783,7 +787,7 @@ function purpose_icon(purpose){
 
         var icon_content = purpose_dict[pur] ;
         card.innerHTML = icon_content;
-        
+
         purpose_div.appendChild(card);
     }
 
