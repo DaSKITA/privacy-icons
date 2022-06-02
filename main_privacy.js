@@ -568,12 +568,9 @@ async function secondary_nodes(thirdPartyName) {
             alert(e)
             alert("Inside Fetch Wrong pasted tilt format.")
         }
-        if (thirdPartyName != 'Johannes'){
-            return 400
-        };
 
-        if (obj_tt === 400) {
-            return thirdPartyTilt // return 400 to the load elements function in case there is no tilt in database 
+        if (typeof obj_tt === 'undefined') {
+            return 400 // return 400 to the load elements function in case there is no tilt in database 
         };
         
         var dataDisclosedLength = obj_tt.dataDisclosed.length;
