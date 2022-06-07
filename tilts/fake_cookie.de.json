@@ -1,31 +1,31 @@
-bmjv = `{
+cag = `{
   "meta": {
     "version": 1,
     "language": "de",
     "status": "active",
     "_id": "3fbbd729-3ae2-48d2-b2d5-5201d956c638",
-    "name": "Bundesministerium der Justiz und für Verbraucherschutz",
+    "name": "Keks AG",
     "created": "2021-05-10T12:00:00+0000",
     "modified": "2021-05-10T12:00:00+0000",
-    "url": "https://www.bmjv.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
+    "url": "https://www.kekse.de",
     "_hash": "7200cd9b4b1e78f41b53ea6dd07f6fbbdc8a2e6d6fe61e60ea5538602d3a60b7"
   },
   "controller": {
     "country": "DE",
     "representative": {
-      "name": "Christine Lambrecht (Bundesministerin der Justiz und für Verbraucherschutz)",
-      "email": "christine.lambrecht@bundestag.de",
-      "phone": "+493022773286"
+      "name": "B. Leibniz",
+      "email": "bl@keks.de",
+      "phone": ""
     },
-    "name": "Bundesministerium der Justiz und für Verbraucherschutz",
-    "address": "Mohrenstraße 37, 10117 Berlin"
+    "name": "Keks AG",
+    "address": "Keksstr 4, 10115 Berlin"
   },
   "dataProtectionOfficer": {
-    "name": "Elisabeth Duhr",
-    "address": "Mohrenstraße. 37, 10117 Berlin",
+    "name": "Krümelmonster",
+    "address": "Keksstr 4, 10115 Berlin",
     "country": "DE",
-    "email": "datenschutz@bmjv.bund.de",
-    "phone": "+4930185800"
+    "email": "km@keks.de",
+    "phone": ""
   },
   "dataDisclosed": [
     {
@@ -42,18 +42,18 @@ bmjv = `{
         },
         {
           "reference": "BSIG-5",
-          "description": "Abwehr von Schadprogrammen und Gefahren für die Kommunikationstechnik des Bundes"
+          "description": "Abwehr von Schadprogrammen und Gefahren für die Kommunikationstechnik des ages"
         }
       ],
       "legitimateInterests": [],
       "recipients": [
         {
           "representative": {
-            "name": "Direktor des ITZBund",
-            "email": "poststelle@itzbund.de"
+            "name": "Biscuit Gmbh",
+            "email": "jelly@buscuit.de"
           },
-          "name": "InformationsTechnikZentrum Bund (ITZBund)",
-          "address": "Bernkasteler Straße 8, 53175 Bonn",
+          "name": "Biscuit Gmbh",
+          "address": "Jellystr. 7, 53175 Bonn",
           "country": "DE",
           "category": "IT-Dienstleister"
         }
@@ -78,16 +78,16 @@ bmjv = `{
       "legalBases": [
         {
           "reference": "DSGVO-6-1-a",
-          "description": "Dieses Webangebot und seine einzelnen Angebote sind Teil der Öffentlichkeitsarbeit des BMJV. Um das Informationsangebot auf die Bedürfnisse der Nutzerinnen und Nutzer ausrichten zu können, wertet das BMJV die Zugriffe auf diese Internetseite auf der Grundlage Ihrer Einwilligung gemäß Artikel 6 Absatz 1 Buchstabe a DS-GVO statistisch aus."
+          "description": "Dieses Webangebot und seine einzelnen Angebote sind Teil der Öffentlichkeitsarbeit des CAG. Um das Informationsangebot auf die Bedürfnisse der Nutzerinnen und Nutzer ausrichten zu können, wertet das BMJV die Zugriffe auf diese Internetseite auf der Grundlage Ihrer Einwilligung gemäß Artikel 6 Absatz 1 Buchstabe a DS-GVO statistisch aus."
         }
       ],
       "recipients": [
         {
           "representative": {
-            "name": "InnoCraft Ltd."
+            "name": "T. Scone"
           },
-          "name": "Matomo",
-          "address": "150 Willis St, 6011 Wellington",
+          "name": "Scone Ltd.",
+          "address": "150 Scone St, 6011 Wellington",
           "country": "NZ",
           "category": "Webanalysedienst"
         },
@@ -95,7 +95,7 @@ bmjv = `{
           "representative": {
             "name": "Johannes Halkenhaeusser"
           },
-          "name": "Johannes",
+          "name": "TILT Baker",
           "address": "Str. 17 Juni, Berlin",
           "country": "DE",
           "category": "Test Business"
@@ -107,7 +107,7 @@ bmjv = `{
         "obligationToProvide": false,
         "consequences": ""
       },
-      "category": "IP address, Durch Matomo-Technologie erhobenen Daten (einschließlich Ihrer anonymisierten IP-Adresse)",
+      "category": "IP address, Durch fake-Technologie erhobenen Daten (einschließlich Ihrer anonymisierten IP-Adresse)",
       "_id": "de70e0d8-9282-45c7-88ed-192385764952",
       "legitimateInterests": [],
       "storage": []
@@ -190,7 +190,7 @@ bmjv = `{
     {
       "purposes": [
         {
-          "description": "Um den Besucherinnen und Besuchern den Zugang zu den Räumlichkeiten des BMJV gewähren zu können.",
+          "description": "Um den Besucherinnen und Besuchern den Zugang zu den Räumlichkeiten des CAG gewähren zu können.",
           "purpose": "Öffentlichkeitsarbeit"
         }
       ],
@@ -208,14 +208,14 @@ bmjv = `{
       "recipients": [
         {
           "representative": {},
-          "category": "Diese Daten werden für die Zugangskontrolle an die zuständige Bundespolizei weitergegeben."
+          "category": "Diese Daten werden für die Zugangskontrolle an die zuständige agespolizei weitergegeben."
         }
       ],
       "storage": [
         {
           "temporal": [
             {
-              "description": "Die uns von Ihnen zur Verfügung gestellten Daten (Vor- und Zuname, Geburtsdatum, Geburtsort) werden ebenso wie die von Ihnen ggf. freiwillig übermittelten personenbezogenen Daten eine Woche nach Ihrem Besuch im BMJV vollständig gelöscht.",
+              "description": "Die uns von Ihnen zur Verfügung gestellten Daten (Vor- und Zuname, Geburtsdatum, Geburtsort) werden ebenso wie die von Ihnen ggf. freiwillig übermittelten personenbezogenen Daten eine Woche nach Ihrem Besuch im CAG vollständig gelöscht.",
               "ttl": "P1W"
             }
           ],
@@ -238,7 +238,7 @@ bmjv = `{
       "purposes": [
         {
           "purpose": "Presse- und Öffentlichkeitsarbeit",
-          "description": "Bei einigen Veranstaltungen werden Foto- und Filmaufnahmen im Rahmen der Presse- und Öffentlichkeitsarbeit des BMJV angefertigt. Auf diese wird in der Regel beim Betreten des Veranstaltungsgeländes hingewiesen. Die Aufnahmen können auf unserer Internetseite, Social-Media-Kanälen, Printmedien und weiteren Medien veröffentlicht werden."
+          "description": "Bei einigen Veranstaltungen werden Foto- und Filmaufnahmen im Rahmen der Presse- und Öffentlichkeitsarbeit des CAG angefertigt. Auf diese wird in der Regel beim Betreten des Veranstaltungsgeländes hingewiesen. Die Aufnahmen können auf unserer Internetseite, Social-Media-Kanälen, Printmedien und weiteren Medien veröffentlicht werden."
         }
       ],
       "legalBases": [
@@ -281,45 +281,45 @@ bmjv = `{
       "text/plain"
     ],
     "description": "Mit dem Recht auf Auskunft erhält der Betroffene eine umfassende Einsicht in die ihn angehenden Daten und einige andere wichtige Kriterien wie beispielsweise die Verarbeitungszwecke oder die Dauer der Speicherung. Es gelten die in § 34 BDSG geregelten Ausnahmen von diesem Recht.",
-    "url": "https://www.bmjv.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
-    "email": "datenschutz@bmjv.bund.de"
+    "url": "https://www.CAG.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
+    "email": "datenschutz@cookie.ag.de"
   },
   "rightToInformation": {
     "available": true,
     "description": "Recht auf Auskunft deiner Daten ist gegeben.",
-    "url": "https://www.bmjv.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
-    "email": "datenschutz@bmjv.bund.de"
+    "url": "https://www.cookie.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
+    "email": "datenschutz@cookie.ag.de"
   },
   "rightToRectificationOrDeletion": {
     "available": true,
-    "url": "https://www.bmjv.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
-    "email": "datenschutz@bmjv.bund.de",
+    "url": "https://www.cookie.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
+    "email": "datenschutz@cookie.ag.de",
     "description": "Es gibt die Möglichkeit, Daten beim Verantwortlichen löschen zu lassen. Dies ist allerdings nur dann möglich, wenn die  personenbezogenen Daten nicht mehr notwendig sind, rechtswidrig verarbeitet werden oder eine diesbezügliche Einwilligung widerrufen wurde. Es gelten die in § 35 BDSG geregelten Ausnahmen von diesem Recht."
   },
   "rightToDataPortability": {
     "available": true,
-    "url": "https://www.bmjv.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
-    "email": "datenschutz@bmjv.bund.de",
-    "description": "Es gibt die Möglichkeit der Datenübertragbarkeit. Dieses Recht steht aber dann nicht zur Verfügung, wenn die Datenverarbeitung der Wahrnehmung öffentlicher Aufgaben dient. Dies ist beim BMJV nur dann nicht der Fall, wenn die Verarbeitung personenbezogener Daten zu fiskalischen Zwecken erfolgt."
+    "url": "https://www.cookie.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
+    "email": "datenschutz@cookie.ag.de",
+    "description": "Es gibt die Möglichkeit der Datenübertragbarkeit. Dieses Recht steht aber dann nicht zur Verfügung, wenn die Datenverarbeitung der Wahrnehmung öffentlicher Aufgaben dient. Dies ist beim CAG nur dann nicht der Fall, wenn die Verarbeitung personenbezogener Daten zu fiskalischen Zwecken erfolgt."
   },
   "rightToWithdrawConsent": {
     "available": true,
-    "url": "https://www.bmjv.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
-    "email": "datenschutz@bmjv.bund.de",
+    "url": "https://www.cookie.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
+    "email": "datenschutz@cookie.ag.de",
     "description": "Soweit die Verarbeitung von personenbezogenen Daten auf Grundlage Ihrer Einwilligung (Artikel 6 Abs. 1 Buchstabe a DSGVO) erfolgt, können Sie diese jederzeit für den entsprechenden Zweck widerrufen."
   },
   "rightToComplain": {
     "available": true,
     "supervisoryAuthority": {
-      "name": "Ulrich Kelber (Der Bundesbeauftragte für den Datenschutz und die Informationsfreiheit)",
+      "name": "Ulrich Kelber (Der agesbeauftragte für den Datenschutz und die Informationsfreiheit)",
       "address": "Graurheindorfer Str. 153, 53117 Bonn",
       "country": "DE",
       "email": "poststelle@bfdi.bund.de",
       "phone": "+492289977990"
     },
-    "url": "https://www.bmjv.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
-    "email": "datenschutz@bmjv.bund.de",
-    "description": "Es gibt die Möglichkeit, sich mit einer Beschwerde gegen die Datenverarbeitung des BMJV an den Bundesbeauftragten für den Datenschutz und die Informationsfreiheit zu wenden, der die datenschutzrechtliche Aufsicht über die Bundesbehörden hat."
+    "url": "https://www.cookie.de/DE/Service/Datenschutz/Datenschutzerklaerung/Datenschutzerklaerung_node.html",
+    "email": "datenschutz@cookie.ag.de",
+    "description": "Es gibt die Möglichkeit, sich mit einer Beschwerde gegen die Datenverarbeitung des CAG an den agesbeauftragten für den Datenschutz und die Informationsfreiheit zu wenden, der die datenschutzrechtliche Aufsicht über die agesbehörden hat."
   },
   "automatedDecisionMaking": {
     "inUse": false

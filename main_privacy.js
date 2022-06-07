@@ -702,6 +702,7 @@ function load_cytoscape() {
                 node.toggleClass("hidden");
             }
         });
+
     });
 
     function makePopper(ele) {
@@ -723,9 +724,9 @@ function load_cytoscape() {
             }
             
             content.innerHTML = `<div class=\"node-label\" style=\"height:100%; width:100%\"> 
-                                    <div>${ele.data("id")} ${getFlagEmoji(ele.data("country"))} ${eu_flag}
-                                    </div> 
-                                    <div id = purpose_${ele.data("purpose")}> ${purpose_icon(ele.data("purpose"))} </div> 
+                                    <div><b>${ele.data("id")} </b> </div> 
+                                    <div style="text-align: left">Country of Origin: ${getFlagEmoji(ele.data("country"))} ${eu_flag}</div>
+                                    <div id = purpose_${ele.data("purpose")} style="text-align: left"> Purpose of Transfer:\n ${purpose_icon(ele.data("purpose"))} </div> 
                                     </div>    
                                 ` ;
     
@@ -784,25 +785,25 @@ function load_tilt(tilt) {
 //get svg for puposes in tilt
 function purpose_icon(purpose){
 
-    var purpose_div = document.createElement('div');
-    purpose_div.classList = 'card-group';
+    var purpose_div = document.createElement('ul');
+    //purpose_div.classList = 'card-group';
     // got these icons from https://www.svgrepo.com/vectors/service/outlined/1 //
-    var purpose_dict = {'service': 'Service: <iframe src="Icons/service.svg" width="12px" height="12px"> </iframe>', 
-                        'improve the website':'Improving the website: <iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe>'}
+    var purpose_dict = {'service': '<iframe src="Icons/service.svg" width="12px" height="12px"> </iframe> Service', 
+                        'improve the website':'<iframe src="Icons/improve.svg" width="12px" height="12px"> </iframe> Improving the website'}
 
     //let unique_purposes = purpose.filter((v, i, a) => a.indexOf(v) === i);
     for (var pur of purpose){
         
-        var card = document.createElement('div');
-        card.classList = 'card-body';
+        var item = document.createElement('li');
+        //card.classList = 'card-body';
 
         var icon_content = purpose_dict[pur] ;
-        card.innerHTML = icon_content;
+        item.innerHTML = icon_content;
 
 
-        purpose_div.appendChild(card);
+        purpose_div.appendChild(item);
     }
-
+    console.log(purpose_div.outerHTML)
     return purpose_div.outerHTML
 }
 
@@ -813,7 +814,6 @@ function switchColors(id) {
     }
 
 }
-
 
 function isEU(code){
     const EU = [
