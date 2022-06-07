@@ -669,7 +669,7 @@ function load_cytoscape() {
 
         layout: {
             name: 'breadthfirst',
-            rows: 2
+            rows: 3
         }
 
         
