@@ -4,10 +4,10 @@ cag = `{
     "language": "de",
     "status": "active",
     "_id": "3fbbd729-3ae2-48d2-b2d5-5201d956c638",
-    "name": "Keks AG",
+    "name": "Gingerbread AG",
     "created": "2021-05-10T12:00:00+0000",
     "modified": "2021-05-10T12:00:00+0000",
-    "url": "https://www.kekse.de",
+    "url": "https://www.gingerbread.de",
     "_hash": "7200cd9b4b1e78f41b53ea6dd07f6fbbdc8a2e6d6fe61e60ea5538602d3a60b7"
   },
   "controller": {
@@ -17,7 +17,7 @@ cag = `{
       "email": "bl@keks.de",
       "phone": ""
     },
-    "name": "Keks AG",
+    "name": "Gingerbread AG",
     "address": "Keksstr 4, 10115 Berlin"
   },
   "dataProtectionOfficer": {
