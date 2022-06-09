@@ -511,7 +511,7 @@ async function load_components(obj) {
     ];
     for (var i = 0; i < recipients.length; i++) {
         myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2], europe: isEU(recipients[i][1]) } });
-        myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' } });
+        myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' , lty:'solid'} });
 
         var secondary = await secondary_nodes(recipients[i][0]);
 
@@ -608,7 +608,7 @@ async function secondary_nodes(thirdPartyName) {
         thirdPartyNodes = [];
         for (var k = 0; k < recipients.length; k++) {
             thirdPartyNodes.push({ data: { id: recipients[k][0], group: 'nodes', country: recipients[k][1], purpose: recipients[k][2], europe: isEU(recipients[k][1]) } });
-            thirdPartyNodes.push({ data: { id: thirdPartyName+k, source: thirdPartyName, target: recipients[k][0], group: 'edges' } })
+            thirdPartyNodes.push({ data: { id: thirdPartyName+k, source: thirdPartyName, target: recipients[k][0], group: 'edges', lty:'dashed' } })
         }
 
         return thirdPartyNodes 
@@ -656,7 +656,8 @@ function load_cytoscape() {
                     'line-color': '#ccc',
                     'target-arrow-color': '#ccc',
                     'target-arrow-shape': 'triangle',
-                    'curve-style': 'bezier'
+                    'curve-style': 'bezier',
+                    'line-style': function(ele){return ele.data('lty')},
                 },
             },
             {
