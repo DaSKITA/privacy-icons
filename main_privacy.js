@@ -678,7 +678,7 @@ function load_cytoscape() {
     cy.nodes().forEach(function( ele ){
             console.log( ele.id() );
         var myButton = document.createElement("div");
-        myButton.innerHTML = `<div class=\"col-12 p-1 border\"">\n
+        myButton.innerHTML = `<div class=\"col-12 p-1\"">\n
         <div id="switch${ele.id()}" class="form-check form-switch\">\n
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
         <label class="form-check-label" for="flexSwitchCheckChecked">${ele.id()}</label> \n
