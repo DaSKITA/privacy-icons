@@ -737,9 +737,39 @@ function load_cytoscape() {
         });
       }
     
+    function makeEdgePopper(ele) {
+        let ref = ele.popperRef(); // used only for positioning
+        let dummyDom = document.createElement('div')
+    
+        ele.tippy = tippy(dummyDom, { // tippy options:
+          //getReferenceClientRect: ref,
+          followCursor: true,
+          allowHTML: true,
+          content: () => {
+            let content = document.createElement('div');
+
+            content.innerHTML = `<div class=\"node-label\" style=\"height:100%; width:100%\"> 
+                                    <div> Dashed lines lead to orgs. only known through other TILT.</div> 
+                                    <div> There is no certainty which data is transferred.</div> 
+                                    </div>    
+                                ` ;
+    
+            return content;
+          },
+          trigger: 'manual' // probably want manual mode
+        });
+      }
       cy.ready(function() {
         cy.nodes().forEach(function(ele) {
           makePopper(ele);
+        });
+      });
+
+      cy.ready(function() {
+        cy.edges().forEach(function(ele) {
+            if(ele.data("lty")=='dashed'){
+                makeEdgePopper(ele);  
+            };
         });
       });
     
