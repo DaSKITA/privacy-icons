@@ -4,7 +4,7 @@ Designed according to _[Effective regulation through design](https://www.researc
 
 For more information, see also: 
 - Privacy Icons Forum: https://www.privacy-icons.info/
-- Tilt: https://github.com/Transparency-Information-Language/meta
+- TILT: https://github.com/Transparency-Information-Language/meta
 - YaPPL: https://github.com/yappl
 
 _Disclaimer: This is a very prototypical implementation and not yet recommended for production use cases._
@@ -57,8 +57,7 @@ For an example check out the `index_get_started.html`.
 <script src='https://cdn.jsdelivr.net/gh/DaSKITA/privacy-icons@master/privacy-banner.js'></script>
 ```
 
-## Authors & Acknowledgement
+## Development
 - [Elias Grünewald](https://www.ise.tu-berlin.de/eg) \[Corresponding Author]
-- [Johannes Halkenhäußer](halkenhaeusser@tu-berlin.de)
-
-We thank Flora Muscinelli for initial development. 
+- [Johannes Halkenhäußer](mailto:halkenhaeusser@tu-berlin.de)
+- [Flora Muscinelli](https://github.com/floramarleen)
