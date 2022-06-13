@@ -57,8 +57,8 @@ For an example check out the `index_get_started.html`.
 <script src='https://cdn.jsdelivr.net/gh/DaSKITA/privacy-icons@master/privacy-banner.js'></script>
 ```
 
-## Contact
-For more information, please contact [Elias Grünewald](https://www.ise.tu-berlin.de/eg).
+## Authors & Acknowledgement
+- [Elias Grünewald](https://www.ise.tu-berlin.de/eg) \[Corresponding Author]
+- [Johannes Halkenhäußer](halkenhaeusser@tu-berlin.de)
 
-## Acknowledgements
-Initial development: Flora Muscinelli
+We thank Flora Muscinelli for initial development. 
