@@ -268,7 +268,26 @@ cag = `{
       "storage": []
     }
   ],
-  "thirdCountryTransfers": [],
+  "thirdCountryTransfers": [
+		{
+			"country": "NZ",
+			"adequacyDecision": {
+				"available": false
+			},
+			"appropriateGuarantees": {
+				"available": true,
+				"description": "...Sofern für das Empfängerland kein Angemessenheitsbeschluss der EU Kommission besteht, ist die Übertragung Ihrer Daten in einen Drittstaat dadurch geschützt, dass mit dem Empfänger EU-Standardvertragsklauseln [...] abgeschlossen wurden oder verbindliche interne Datenschutzrichtlinien vorliegen. Andernfalls erfolgt eine Übermittlung nur, wenn eine Ausnahme nach Art. 49 DSGVO erfüllt ist."
+			},
+			"presenceOfEnforcableRightsAndEffectiveRemedies": {
+				"available": false,
+				"description": "Beachten Sie bitte, dass in anderen Staaten verarbeitete Daten ggf. ausländischen Gesetzen unterliegen und den dortigen Regierungen, Gerichten sowie Strafverfolgungs- und Aufsichtsbehörden zugänglich sind."
+			},
+			"standardDataProtectionClause": {
+				"available": true,
+				"description": "Sofern für das Empfängerland kein Angemessenheitsbeschluss der EU Kommission besteht, ist die Übertragung Ihrer Daten in einen Drittstaat dadurch geschützt, dass mit dem Empfänger EU-Standardvertragsklauseln (https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en) abgeschlossen wurden..."
+			}
+		}
+	],
   "sources": [],
   "changesOfPurpose": [],
   "accessAndDataPortability": {
