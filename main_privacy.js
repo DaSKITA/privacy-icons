@@ -10,12 +10,12 @@ var improveTheWebsiteStrings = ["IP address", "browser", "pages you visited", "t
 let yappl;
 
 
-function load_purposes(cur_tgl, rel_toggles) {
+function load_purposes(cur_tgl, rel_toggles) { // gets called by load yappl
     var purposes = [];
-    if (rel_toggles == "entry2") {
-        ids = ["tglAnnoyed1", "tglAnnoyed2"];
+    if (rel_toggles == "entry2") { // if rel_toggles is entry2 
+        ids = ["tglAnnoyed1", "tglAnnoyed2"]; //iterate over these ids
         for (var i = 0; i < ids.length; i++) {
-            id = ids[i];
+            id = ids[i];  // the style.display == "block" is just a signal that the element is visible. 
             if ((id == cur_tgl && !document.getElementById(id).checked) || (id != cur_tgl && document.getElementById(id).checked)) {
                 if (id == "tglAnnoyed1" && (document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
                     var purpose = "Personalise your ads";
@@ -56,7 +56,8 @@ function update_yappl(cur_tgl, rel_toggles) {
     var cur_time = date + ' ' + time;
     var purpose_list = ["Personalise your ads", "Improve the website"];
     var purpose_permitted = load_purposes(cur_tgl, rel_toggles);
-    var purpose_excluded = []
+    var purpose_excluded = [];
+    var utilizer_excluded = []
     for (i = 0; i < purpose_list.length; i++) {
         if (purpose_permitted.includes(purpose_list[i]) == false) {
             if (purpose_list[i] == "Personalise your ads" && (document.getElementById("personaliseAds2").style.display == "block" || document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
@@ -70,12 +71,13 @@ function update_yappl(cur_tgl, rel_toggles) {
     for (var i = 0; i < yappl["preference"].length; i++) {
         rule = yappl["preference"][i]["rule"];
         rule["valid_from"] = cur_time;
-        rule["purpose"]["permitted"] = purpose_permitted;
+        rule["purpose"]["permitted"] = purpose_permitted; 
         rule["purpose"]["excluded"] = purpose_excluded;
     }
-    console.log(yappl);
+    
     document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
 }
+
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -165,33 +167,34 @@ function add_rule(yappl, category, recipients_list, cur_time) {
 }
 
 
-function load_yappl(obj) {
-    if (obj.meta == undefined) {
-        var _id = "01";
-        yappl = {
+function load_yappl(obj) { // obj is the parsed tilt
+    if (obj.meta == undefined) { // if it does not have any content
+        var _id = "01"; // then the id in the cookie is 01
+        yappl = { // we fill the yappl with this info 
             "_id": _id,
-            "preference": []
+            "preference": [] // there are not preferences 
         }
-        add_rule(yappl, "", [], "");
+        add_rule(yappl, "", [], ""); // we add an empty rule to the yappl
         load_purposes("", "entry2");
     }
-    else {
+    else { // when we have a tilt
         var _id = obj.meta._id.replace(/[^\d.-]/g, '');
-        yappl = {
+        yappl = { // we construct a YaPPL
             "_id": _id,
             "preference": []
         }
-        var dataDisclosedLength = obj.dataDisclosed.length;
-        for (var i = 0; i < dataDisclosedLength; i++) {
+        var dataDisclosedLength = obj.dataDisclosed.length; // iterate over the disclosed data
+        for (var i = 0; i < dataDisclosedLength; i++) { 
             var category = obj.dataDisclosed[i].category; //get category
             var recipientsLength = obj.dataDisclosed[i].recipients;
-            recipients_list = []; //get recipients
-            for (j = 0; j < recipientsLength; j++) {
-                var recipient_name = obj.dataDisclosed[i].recipients[j].name;
+            var recipients_list = []; //get recipients
+            for (var j = 0; j < recipientsLength.length; j++) {
+                var recipient_name = recipientsLength[j].name;
                 recipients_list.push(recipient_name);
             }
             add_rule(yappl, category, recipients_list, "");
         }
+        console.log("here", yappl)
         load_purposes("", "entry2");
     }
 }
@@ -341,7 +344,7 @@ function getFlagEmoji(countryCode) {
       .map(char =>  127397 + char.charCodeAt());
     
     return String.fromCodePoint(...codePoints);
-  }
+}
 
 //load relevant components
 async function load_components(obj) {
@@ -450,7 +453,7 @@ async function load_components(obj) {
     if (thirdCountries.length > 0) {
         for (var i = 0; i < thirdCountries.length; i++) {
             var transfer = thirdCountries[i];
-            console.log(`third country ${i}`)
+            //console.log(`third country ${i}`)
             //var flag = document.createElement('img');
             //flag.id = transfer.country.toLowerCase();
             //flag.src = 'https://www.countryflags.io/' + transfer.country.toLowerCase() + '/shiny/24.png';
@@ -513,7 +516,7 @@ async function load_components(obj) {
 
     for (var i = 0; i < recipients.length; i++) {
 
-        //avoid infinite loop
+        //avoid infinite loop -> no infinite loop as only second degree nodes are being requested. 
 
         myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2], europe: isEU(recipients[i][1]) } });
         myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' , lty:'solid'} });
@@ -557,7 +560,7 @@ async function secondary_nodes(thirdPartyName) {
         try {
            const response = await fetch("http://ec2-3-64-237-95.eu-central-1.compute.amazonaws.com:8080/tilt/tilt?filter={'meta.name' :'"+name+"'}&keys={'dataDisclosed' : 1}&keys={'dataProtectionOfficer' : 1}", requestOptions);
            let result = await processFetch(name, await response.json());
-           //console.log('result', result);
+
            return await result
         }
         catch(error) {
@@ -693,6 +696,7 @@ function load_cytoscape() {
             ele.toggleClass("hidden");
             //console.log(ele.id())
             ele.successors().toggleClass("hidden")
+            update_yappl_utilizer(ele.id())
         });
         
         }); 
@@ -782,6 +786,47 @@ function load_cytoscape() {
       cy.elements().unbind('mouseout');
       cy.elements().bind('mouseout', (event) => event.target.tippy.hide());
     
+}
+
+//update yappl for utilizer function 
+function update_yappl_utilizer(org_name){
+
+    // redo the date
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var cur_time = date + ' ' + time;
+    // update the utilizer
+    var numRules = yappl['preference'].length; //get length of yappl rules
+    for (var r = 0; r < numRules; r++ ){ // iterate over the rules
+        console.log(yappl['preference'][r]['rule']['utilizer']['permitted'])
+        if (yappl['preference'][r]['rule']['utilizer']['permitted'].includes(org_name)){ // 
+            for(var i = 0; i < yappl['preference'][r]['rule']['utilizer']['permitted'].length; i++){ 
+    
+                if ( yappl['preference'][r]['rule']['utilizer']['permitted'][i] === org_name) { 
+            
+                    yappl['preference'][r]['rule']['utilizer']['permitted'].splice(i, 1);
+                    yappl['preference'][r]['rule']['utilizer']['excluded'].push(org_name);
+                    yappl['preference'][r]['rule']['valid_from'] = cur_time 
+                    continue
+                }
+            }
+        }
+        else if (yappl['preference'][r]['rule']['utilizer']['excluded'].includes(org_name)){ // 
+            for(var i = 0; i < yappl['preference'][r]['rule']['utilizer']['excluded'].length; i++){ 
+    
+                if ( yappl['preference'][r]['rule']['utilizer']['excluded'][i] === org_name) { 
+            
+                    yappl['preference'][r]['rule']['utilizer']['excluded'].splice(i, 1);
+                    yappl['preference'][r]['rule']['utilizer']['permitted'].push(org_name);
+                    yappl['preference'][r]['rule']['valid_from'] = cur_time 
+                    continue
+                }
+            }
+        }
+    }
+    console.log(yappl)
+
 }
 
 
