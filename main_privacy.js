@@ -18,11 +18,11 @@ function load_purposes(cur_tgl, rel_toggles) { // gets called by load yappl
             id = ids[i];  // the style.display == "block" is just a signal that the element is visible. 
             if ((id == cur_tgl && !document.getElementById(id).checked) || (id != cur_tgl && document.getElementById(id).checked)) {
                 if (id == "tglAnnoyed1" && (document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
-                    var purpose = "Personalise your ads";
+                    var purpose = "personalise your ads";
                     purposes.push(purpose);
                 }
                 else if (id == "tglAnnoyed2" && (document.getElementById("annoyed2").style.display == "block" || document.getElementById("improveWebsite").style.display == "block")) {
-                    var purpose = "Improve the website";
+                    var purpose = "improve the website";
                     purposes.push(purpose);
                 }
 
@@ -35,11 +35,11 @@ function load_purposes(cur_tgl, rel_toggles) { // gets called by load yappl
             id = ids[i];
             if ((id == cur_tgl && !document.getElementById(id).checked) || (id != cur_tgl && document.getElementById(id).checked)) {
                 if (id == "tglPersAdsModal" && document.getElementById("personaliseAds2").style.display == "block") {
-                    var purpose = "Personalise your ads";
+                    var purpose = "personalise your ads";
                     purposes.push(purpose);
                 }
                 else if (id == "tglWebsiteModal" && document.getElementById("improveWebsite2").style.display == "block") {
-                    var purpose = "Improve the website";
+                    var purpose = "improve the website";
                     purposes.push(purpose);
                 }
             }
@@ -54,24 +54,24 @@ function update_yappl(cur_tgl, rel_toggles) {
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var cur_time = date + ' ' + time;
-    var purpose_list = ["Personalise your ads", "Improve the website"];
+    var purpose_list = ["personalise your ads", "improve the website"];
     var purpose_permitted = load_purposes(cur_tgl, rel_toggles);
     var purpose_excluded = [];
     for (i = 0; i < purpose_list.length; i++) {
         if (purpose_permitted.includes(purpose_list[i]) == false) {
-            if (purpose_list[i] == "Personalise your ads" && (document.getElementById("personaliseAds2").style.display == "block" || document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
+            if (purpose_list[i] == "personalise your ads" && (document.getElementById("personaliseAds2").style.display == "block" || document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
                 purpose_excluded.push(purpose_list[i]);
             }
-            else if (purpose_list[i] == "Improve the website" && (document.getElementById("improveWebsite2").style.display == "block" || document.getElementById("annoyed2").style.display == "block" || document.getElementById("improveWebsite").style.display == "block")) {
+            else if (purpose_list[i] == "improve the website" && (document.getElementById("improveWebsite2").style.display == "block" || document.getElementById("annoyed2").style.display == "block" || document.getElementById("improveWebsite").style.display == "block")) {
                 purpose_excluded.push(purpose_list[i]);
             }
         }
     }
     // which toggle invokes an update in the purpose. fixes issue: when we update the yappl; we go through all rules and remove the purposes to all rules
-    if (cur_tgl == 'tglPersAds' || cur_tgl == 'annoyed1' || cur_tgl == 'tglAnnoyed1' || purpose_excluded.includes('Personalise your ads')){
+    if (cur_tgl == 'tglPersAds' || cur_tgl == 'annoyed1' || cur_tgl == 'tglAnnoyed1' || purpose_excluded.includes('personalise your ads')){
         var change_pur = "personalise your ads";
     }
-    else if (cur_tgl == 'tglWebsite' || cur_tgl == 'annoyed2' || cur_tgl == 'tglWebsiteModal' || purpose_excluded.includes('Improve the website')){
+    else if (cur_tgl == 'tglWebsite' || cur_tgl == 'annoyed2' || cur_tgl == 'tglWebsiteModal' || purpose_excluded.includes('improve the website')){
         var change_pur = "improve the website";
     }
     else {
@@ -87,8 +87,8 @@ function update_yappl(cur_tgl, rel_toggles) {
             rule["purpose"]["excluded"] = purpose_excluded;
         }
     }
-    
-    document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
+    window.localStorage.setItem('YaPPL', JSON.stringify(yappl))
+    //document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
 }
 
 function getCookie(name) {
@@ -97,58 +97,61 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+// invoked in main HTML before dashboard is built
 var cookie_content;
 function load_YaPPL_cookie() {
-    cookie_content = getCookie("YaPPL");
-    if (typeof (cookie_content) != 'undefined') {
-        cookie_content = JSON.parse(cookie_content);
-        update_toggles(cookie_content);
-    }
+    cookie_content = JSON.parse(window.localStorage.getItem('YaPPL'));
+    update_toggles(cookie_content);
+    //if (typeof (cookie_content) != 'undefined') {
+    //    cookie_content = getCookie("YaPPL");
+    //}
 }
 
 //update toggle state
 function update_toggles(cookie_content) {
-    permitted = cookie_content["preference"][0]["rule"]["purpose"]["permitted"]
-    excluded = cookie_content["preference"][0]["rule"]["purpose"]["excluded"]
-    if (permitted.length != 0) {
-        for (i = 0; i < permitted.length; i++) {
-            if (permitted[i] === "Improve the website") {
-                tgl_list = ['tglWebsite', 'tglAnnoyed2', 'tglWebsiteModal'];
-                for (j = 0; j < tgl_list.length; j++) {
-                    id = tgl_list[j];
-                    if (document.getElementById(id).checked == false) {
-                        $('#' + id).bootstrapToggle('on');
+    for (var ru = 0; ru < cookie_content['preference'].length; ru++){
+        var permitted = cookie_content["preference"][ru]["rule"]["purpose"]["permitted"];
+        var excluded = cookie_content["preference"][ru]["rule"]["purpose"]["excluded"];
+        if (permitted.length != 0) {
+            for (i = 0; i < permitted.length; i++) {
+                if (permitted[i] === "improve the website") {
+                    tgl_list = ['tglWebsite', 'tglAnnoyed2', 'tglWebsiteModal'];
+                    for (j = 0; j < tgl_list.length; j++) {
+                        id = tgl_list[j];
+                        if (document.getElementById(id).checked == false) {
+                            $('#' + id).bootstrapToggle('on');
+                        }
                     }
                 }
-            }
-            else {
-                tgl_list = ['tglPersAds', 'tglAnnoyed1', 'tglPersAdsModal'];
-                for (j = 0; j < tgl_list.length; j++) {
-                    id = tgl_list[j];
-                    if (document.getElementById(id).checked == false) {
-                        $('#' + id).bootstrapToggle('on');
+                else if (permitted[i] === "personalise your ads"){
+                    tgl_list = ['tglPersAds', 'tglAnnoyed1', 'tglPersAdsModal'];
+                    for (j = 0; j < tgl_list.length; j++) {
+                        id = tgl_list[j];
+                        if (document.getElementById(id).checked == false) {
+                            $('#' + id).bootstrapToggle('on');
+                        }
                     }
                 }
             }
         }
-    }
-    if (excluded.length != 0) {
-        for (i = 0; i < excluded.length; i++) {
-            if (excluded[i] === "Improve the website") {
-                tgl_list = ['tglWebsite', 'tglAnnoyed2', 'tglWebsiteModal'];
-                for (j = 0; j < tgl_list.length; j++) {
-                    id = tgl_list[j];
-                    if (document.getElementById(id).checked == true) {
-                        $('#' + id).bootstrapToggle('off');
+        if (excluded.length != 0) {
+            for (i = 0; i < excluded.length; i++) {
+                if (excluded[i] === "improve the website") {
+                    tgl_list = ['tglWebsite', 'tglAnnoyed2', 'tglWebsiteModal'];
+                    for (j = 0; j < tgl_list.length; j++) {
+                        id = tgl_list[j];
+                        if (document.getElementById(id).checked == true) {
+                            $('#' + id).bootstrapToggle('off');
+                        }
                     }
                 }
-            }
-            else {
-                tgl_list = ['tglPersAds', 'tglAnnoyed1', 'tglPersAdsModal'];
-                for (j = 0; j < tgl_list.length; j++) {
-                    id = tgl_list[j];
-                    if (document.getElementById(id).checked == true) {
-                        $('#' + id).bootstrapToggle('off');
+                else {
+                    tgl_list = ['tglPersAds', 'tglAnnoyed1', 'tglPersAdsModal'];
+                    for (j = 0; j < tgl_list.length; j++) {
+                        id = tgl_list[j];
+                        if (document.getElementById(id).checked == true) {
+                            $('#' + id).bootstrapToggle('off');
+                        }
                     }
                 }
             }
@@ -185,7 +188,7 @@ function load_yappl(obj) { // obj is the parsed tilt
         var _id = "01"; // then the id in the cookie is 01
         yappl = { // we fill the yappl with this info 
             "_id": _id,
-            "preference": [] // there are not preferences 
+            "preference": [] // there are no preferences 
         }
         add_rule(yappl, "", [], ""); // we add an empty rule to the yappl
         load_purposes("", "entry2");
@@ -209,7 +212,6 @@ function load_yappl(obj) { // obj is the parsed tilt
             add_rule(yappl, category, recipients_list, "", [obj.dataDisclosed[i].purposes[0].purpose]);
         }
         //load_purposes("", "entry2");
-        console.log(yappl)
     }
 }
 
@@ -705,12 +707,15 @@ function load_cytoscape() {
 
     cy.nodes().forEach(function( ele ){
 
+        var check_status = 'checked'
+
         // add toggle button to third party nodes. 
         if (ele.data("level") == 1) {
             var myButton = document.createElement("div");
+
             myButton.innerHTML = `<div class=\"col-12 p-1\"">\n
             <div id="switch${ele.id()}" class="form-check form-switch\">\n
-            <input id="switch_input${ele.id()}" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
+            <input id="switch_input${ele.id()}" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" ${check_status}>\n
             <label class="form-check-label" for="flexSwitchCheckChecked">${ele.id()}</label> \n
             </div> \n</div>`; 
             document.getElementById('comp_switches').appendChild(myButton);
@@ -737,17 +742,36 @@ function load_cytoscape() {
         }); 
     
         // toggle EU states
-    document.getElementById("europe").addEventListener('change', function () {
-        cy.nodes('[!europe]').toggleClass("hidden");
-        cy.nodes('[!europe]').forEach(function (node){
-            const non_eu_button = document.getElementById(`switch_input${node.id()}`);
-            non_eu_button.toggleAttribute('checked'); // the toggle somehow gets disconnected if I toggle manually on the page. 
-        })
+        document.getElementById("europe").addEventListener('change', function () {
+            cy.nodes('[!europe]').toggleClass("hidden");
+            cy.nodes('[!europe]').forEach(function (node){
+                const non_eu_button = document.getElementById(`switch_input${node.id()}`);
+                non_eu_button.toggleAttribute('checked'); // the toggle somehow gets disconnected if I toggle manually on the page. 
+            })
         cy.nodes('[?europe]').each(function (node) {
             if (node.connectedEdges().hidden()) {
                 node.toggleClass("hidden");
             }
         });
+
+        if (cookie_content != undefined){
+            for (var c =0; c < cookie_content['preference'].length; c++){
+                if (cookie_content['preference'][c]['rule']['utilizer']['excluded'].includes(ele.id())){
+                    const touched_button = document.getElementById(`switch_input${node.id()}`);
+                    touched_button.toggleAttribute('checked');
+                }
+            }
+        }
+
+        if (ele.data('purpose') == "personalise your ads" && (document.getElementById("personaliseAds2").style.display == "block" || document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
+            const touched_button = document.getElementById(`switch_input${node.id()}`);
+            touched_button.toggleAttribute('checked');
+        }
+
+        else if (ele.data('purpose') == "improve the website" && (document.getElementById("improveWebsite2").style.display == "block" || document.getElementById("annoyed2").style.display == "block" || document.getElementById("improveWebsite").style.display == "block")) {
+            const touched_button = document.getElementById(`switch_input${node.id()}`);
+            touched_button.toggleAttribute('checked');
+        }
 
     });
 
@@ -880,7 +904,8 @@ function update_yappl_utilizer(org_name, purpose){
     }
     console.log(yappl)
     //update the cookie
-    document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
+    window.localStorage.setItem('YaPPL', JSON.stringify(yappl));
+    //document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
 
 }
 
