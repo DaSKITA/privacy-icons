@@ -57,7 +57,6 @@ function update_yappl(cur_tgl, rel_toggles) {
     var purpose_list = ["Personalise your ads", "Improve the website"];
     var purpose_permitted = load_purposes(cur_tgl, rel_toggles);
     var purpose_excluded = [];
-    var utilizer_excluded = []
     for (i = 0; i < purpose_list.length; i++) {
         if (purpose_permitted.includes(purpose_list[i]) == false) {
             if (purpose_list[i] == "Personalise your ads" && (document.getElementById("personaliseAds2").style.display == "block" || document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
@@ -68,11 +67,25 @@ function update_yappl(cur_tgl, rel_toggles) {
             }
         }
     }
+    // which toggle invokes an update in the purpose. fixes issue: when we update the yappl; we go through all rules and remove the purposes to all rules
+    if (cur_tgl == 'tglPersAds' || cur_tgl == 'annoyed1' || cur_tgl == 'tglAnnoyed1' || purpose_excluded.includes('Personalise your ads')){
+        var change_pur = "personalise your ads";
+    }
+    else if (cur_tgl == 'tglWebsite' || cur_tgl == 'annoyed2' || cur_tgl == 'tglWebsiteModal' || purpose_excluded.includes('Improve the website')){
+        var change_pur = "improve the website";
+    }
+    else {
+        var change_pur = '';
+    }
+
     for (var i = 0; i < yappl["preference"].length; i++) {
         rule = yappl["preference"][i]["rule"];
-        rule["valid_from"] = cur_time;
-        rule["purpose"]["permitted"] = purpose_permitted; 
-        rule["purpose"]["excluded"] = purpose_excluded;
+        // if the toggle has touched that purpose, we change the yapple 
+        if (rule["purpose"]["permitted"].includes(change_pur) || rule["purpose"]["excluded"].includes(change_pur)) {
+            rule["valid_from"] = cur_time;
+            rule["purpose"]["permitted"] = purpose_permitted;  
+            rule["purpose"]["excluded"] = purpose_excluded;
+        }
     }
     
     document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
@@ -143,7 +156,7 @@ function update_toggles(cookie_content) {
     }
 }
 
-function add_rule(yappl, category, recipients_list, cur_time) {
+function add_rule(yappl, category, recipients_list, cur_time, purpose = []) {
     var rule = {
         "rule": {
             "valid_from": cur_time,
@@ -152,7 +165,7 @@ function add_rule(yappl, category, recipients_list, cur_time) {
                 "excluded": []
             },
             "purpose": {
-                "permitted": [],
+                "permitted": purpose,
                 "excluded": []
             },
             "transformation": [
@@ -190,12 +203,13 @@ function load_yappl(obj) { // obj is the parsed tilt
             var recipients_list = []; //get recipients
             for (var j = 0; j < recipientsLength.length; j++) {
                 var recipient_name = recipientsLength[j].name;
+                console.log(recipient_name, category)
                 recipients_list.push(recipient_name);
             }
-            add_rule(yappl, category, recipients_list, "");
+            add_rule(yappl, category, recipients_list, "", [obj.dataDisclosed[i].purposes[0].purpose]);
         }
-        console.log("here", yappl)
-        load_purposes("", "entry2");
+        //load_purposes("", "entry2");
+        console.log(yappl)
     }
 }
 
@@ -510,7 +524,7 @@ async function load_components(obj) {
         myData['links'].push({ source: cur_service, target: recipients[i][0] })
     }*/
     myCyt = [
-        { data: { id: cur_service, group: 'nodes', country: obj.controller.country, purpose: cur_purpose, europe: isEU(obj.controller.country) } }
+        { data: { id: cur_service, group: 'nodes', country: obj.controller.country, purpose: cur_purpose, europe: isEU(obj.controller.country), level:0 } }
     ];
 
 
@@ -518,7 +532,7 @@ async function load_components(obj) {
 
         //avoid infinite loop -> no infinite loop as only second degree nodes are being requested. 
 
-        myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2], europe: isEU(recipients[i][1]) } });
+        myCyt.push({ data: { id: recipients[i][0], group: 'nodes', country: recipients[i][1], purpose: recipients[i][2], europe: isEU(recipients[i][1]), level:1} });
         myCyt.push({ data: { id: i, source: cur_service, target: recipients[i][0], group: 'edges' , lty:'solid'} });
 
         var secondary = await secondary_nodes(recipients[i][0]);
@@ -613,7 +627,7 @@ async function secondary_nodes(thirdPartyName) {
 
         thirdPartyNodes = [];
         for (var k = 0; k < recipients.length; k++) {
-            thirdPartyNodes.push({ data: { id: recipients[k][0], group: 'nodes', country: recipients[k][1], purpose: recipients[k][2], europe: isEU(recipients[k][1]) } });
+            thirdPartyNodes.push({ data: { id: recipients[k][0], group: 'nodes', country: recipients[k][1], purpose: recipients[k][2], europe: isEU(recipients[k][1]), level:2} });
             thirdPartyNodes.push({ data: { id: thirdPartyName+k, source: thirdPartyName, target: recipients[k][0], group: 'edges', lty:'dashed' } })
         }
 
@@ -630,6 +644,8 @@ function load_cytoscape() {
 
         elements: myCyt,
 
+
+
         style: [ // the stylesheet for the graph
             {
                 selector: 'node', // fix color and fix width
@@ -638,7 +654,12 @@ function load_cytoscape() {
                     'height': '75%',
                     'shape':'ellipse',
                     'color': 'black',
-                    'background-color': '#3650fe',
+                    'background-color': function (node) {
+                        return `${node_color(node.data('level'))}`
+                    }, 
+                    'background-opacity': function (node) {
+                        return `${1/(node.data("level")+1)}`
+                    }, 
                     //'content': `${node.data("id")}`,
                     // all this refers to the label only. it overlays the actual node. 
                     'label': function (node) {
@@ -683,28 +704,45 @@ function load_cytoscape() {
     });
 
     cy.nodes().forEach(function( ele ){
-            
-        var myButton = document.createElement("div");
-        myButton.innerHTML = `<div class=\"col-12 p-1\"">\n
-        <div id="switch${ele.id()}" class="form-check form-switch\">\n
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
-        <label class="form-check-label" for="flexSwitchCheckChecked">${ele.id()}</label> \n
-      </div> \n</div>`; //currently names are too long so get pushed into random part of page so placeholder is used.
-        document.getElementById('comp_switches').appendChild(myButton); 
-        
-        document.getElementById(`switch${ele.id()}`).addEventListener('change', function () {
-            ele.toggleClass("hidden");
-            //console.log(ele.id())
-            ele.successors().toggleClass("hidden")
-            update_yappl_utilizer(ele.id())
-        });
-        
+
+        // add toggle button to third party nodes. 
+        if (ele.data("level") == 1) {
+            var myButton = document.createElement("div");
+            myButton.innerHTML = `<div class=\"col-12 p-1\"">\n
+            <div id="switch${ele.id()}" class="form-check form-switch\">\n
+            <input id="switch_input${ele.id()}" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
+            <label class="form-check-label" for="flexSwitchCheckChecked">${ele.id()}</label> \n
+            </div> \n</div>`; 
+            document.getElementById('comp_switches').appendChild(myButton);
+
+            document.getElementById(`switch_input${ele.id()}`).addEventListener('change', function () {
+                ele.toggleClass("hidden");
+                //console.log(ele.id())
+                ele.successors().toggleClass("hidden");
+                update_yappl_utilizer(ele.id(), ele.data("purpose"))
+            });
+        }
+
+        // disable toggle for tertiary level of nodes.
+        // not sure if it is possible to disagree with a third party passing my data to someone else afterwards. 
+        else if (ele.data("level") == 2) {
+            var myButton = document.createElement("div");
+            myButton.innerHTML = `<div class=\"col-12 p-1\"">\n
+            <div id="switch${ele.id()}" class="form-check form-switch\">\n
+            <input id="switch_input${ele.id()}" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled>\n
+            <label class="form-check-label" for="flexSwitchCheckChecked">${ele.id()}</label> \n
+            </div> \n</div>`; 
+            document.getElementById('comp_switches').appendChild(myButton);
+        }
         }); 
     
         // toggle EU states
     document.getElementById("europe").addEventListener('change', function () {
         cy.nodes('[!europe]').toggleClass("hidden");
-        // console.log(cy.nodes('[country="NZ"]'))
+        cy.nodes('[!europe]').forEach(function (node){
+            const non_eu_button = document.getElementById(`switch_input${node.id()}`);
+            non_eu_button.toggleAttribute('checked'); // the toggle somehow gets disconnected if I toggle manually on the page. 
+        })
         cy.nodes('[?europe]').each(function (node) {
             if (node.connectedEdges().hidden()) {
                 node.toggleClass("hidden");
@@ -789,17 +827,18 @@ function load_cytoscape() {
 }
 
 //update yappl for utilizer function 
-function update_yappl_utilizer(org_name){
+function update_yappl_utilizer(org_name, purpose){
 
     // redo the date
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var cur_time = date + ' ' + time;
+    var included = 0
     // update the utilizer
     var numRules = yappl['preference'].length; //get length of yappl rules
     for (var r = 0; r < numRules; r++ ){ // iterate over the rules
-        console.log(yappl['preference'][r]['rule']['utilizer']['permitted'])
+        // in case the org is permitted in one of the rules, remove it and add to excluded
         if (yappl['preference'][r]['rule']['utilizer']['permitted'].includes(org_name)){ // 
             for(var i = 0; i < yappl['preference'][r]['rule']['utilizer']['permitted'].length; i++){ 
     
@@ -808,24 +847,40 @@ function update_yappl_utilizer(org_name){
                     yappl['preference'][r]['rule']['utilizer']['permitted'].splice(i, 1);
                     yappl['preference'][r]['rule']['utilizer']['excluded'].push(org_name);
                     yappl['preference'][r]['rule']['valid_from'] = cur_time 
+                    included = 1
                     continue
+                    //continue // continue to skip the next step
                 }
             }
         }
+        // if the company is on the excluded list, change then switch again 
         else if (yappl['preference'][r]['rule']['utilizer']['excluded'].includes(org_name)){ // 
             for(var i = 0; i < yappl['preference'][r]['rule']['utilizer']['excluded'].length; i++){ 
     
                 if ( yappl['preference'][r]['rule']['utilizer']['excluded'][i] === org_name) { 
-            
                     yappl['preference'][r]['rule']['utilizer']['excluded'].splice(i, 1);
                     yappl['preference'][r]['rule']['utilizer']['permitted'].push(org_name);
                     yappl['preference'][r]['rule']['valid_from'] = cur_time 
+                    included = 1
                     continue
                 }
             }
-        }
+        }   
+    }
+
+    //add new rule if there is no YaPPL rule yet
+    // this is intentionally so, as we default to consent to service / contact cookies
+    if (included == 0){
+            // initialise the rule
+            add_rule(yappl, '', [], cur_time);
+            var loc_lastRule = [yappl['preference'].length - 1] 
+            // add the company after because the function is written to allow permitted comps to be added
+            yappl['preference'][loc_lastRule]['rule']['purpose']['permitted'] = purpose
+            yappl['preference'][loc_lastRule]['rule']['utilizer']['excluded'].push(org_name)
     }
     console.log(yappl)
+    //update the cookie
+    document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
 
 }
 
@@ -949,4 +1004,18 @@ function isEU(code){
       ]
       var inEU = EU.includes(code);
       return inEU
+}
+
+function node_color(degree){
+    
+    if (degree == 0){
+        return '#3650fe'
+    }
+    else if (degree == 1){
+        return '#3650fe'
+    }
+    else if (degree == 2){
+        return '#888'
+    }
+
 }
