@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--<script src="https://d3js.org/d3.v7.min.js"></script>-->
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+  <!--<script type="module">
+  import {forceSimulation} from "https://cdn.skypack.dev/d3-force@3";
+  </script>-->
+  <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-popper@2.0.0/cytoscape-popper.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 
   <!--add tilt as string-->
-  <script type="text/javascript" src="tilts/privacy-icons.en.json"></script>
+  <!--Changed tilt to cag for debugging purposes-->
+  <script type="text/javascript" src="tilts/fake_cookie.de.json"></script>
 </head>
 
 <!--add tilt as string-->
-<body onload="load_YaPPL_cookie(); load_tilt(priv_icons);">
+<body onload="load_YaPPL_cookie(); load_tilt(cag);"> <!--Changed to cag for debugging purposes-->
 	<div id="privacy_info"></div>
-  <iframe src="https://privacyiconsforum.eu" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:-1;">
+  <iframe src="https://daskita.github.io/" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:-1;">
     Your browser doesn't support iframes
 </iframe>
 
