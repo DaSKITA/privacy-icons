@@ -10,27 +10,28 @@ For more information, see also:
 _Disclaimer: This is a very prototypical implementation and not yet recommended for production use cases._
 
 ## Structure and Functionality
-- The framework is built using Bootstrap and jQuery
+- The framework is built using Bootstrap, jQuery, and Cytoscape.js
 - Relevant privacy information is loaded from tilt documents
 - Depending on the purposes and data categories specified in the tilt document, the corresponding privacy banner is rendered
 - Users can then specify their privacy settings by changing the toggle buttons
-- These privacy preferences are output as a YaPPL preference, e.g, in a (functional) cookie
+- These privacy preferences are output as a YaPPL preference. Here they saved in local storage with the key "YaPPL".
+- The information stored in the YaPPL is used when re-loading the page.
 - tilts/ folder contains exemplary privacy policies in tilt-format
 - Icons/ folder contains preliminary privacy icons
 - Img/ folder contains background images
-- For adding other purposes change `main_privacy.js` function `load_components` in line 335
+- For adding other purposes change `main_privacy.js` function `load_components` in line 368.
 
 ## Usage
 - Clone repository with `git clone`
 
 ### Demo
-- Open file `index_demo.html`
+- Open file `index_pif.html`
 - Click on the buttons or enter a custom tilt to show the transparency information for the different services
-![tempsnip](https://user-images.githubusercontent.com/33124461/141969386-fa4cfcae-c330-4dcb-b423-d515c378ad81.png)
+![tempsnip](Img/entry_3_data_receiver.png)
 
 
 ### Embed it to your own page
-For an example check out the `index_get_started.html`.
+For an example check out the `index_pif.html`.
 
  - Save your tilt file as a String named `tilt`:
  ```
@@ -41,9 +42,9 @@ For an example check out the `index_get_started.html`.
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script type="text/javascript" src=path_to_tilt></script>
  ```
- - Add the function call `load_tilt(tilt)` to your `<body>` tag and start your body with a div for the privacy banner:
+ - Add the function calls `load_YaPPL_cookie()` and `load_tilt(tilt)` to your `<body>` tag and start your body with a div for the privacy banner:
  ```
- <body onload="load_tilt(tilt);">
+<body onload="load_YaPPL_cookie(); load_tilt(tilt);">
 	<div id="privacy_info"></div>
  ```
  - At the end of your body add the following scripts to load the privacy banner

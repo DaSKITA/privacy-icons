@@ -208,7 +208,7 @@ function load_yappl(obj) { // obj is the parsed tilt
             var recipients_list = []; //get recipients
             for (var j = 0; j < recipientsLength.length; j++) {
                 var recipient_name = recipientsLength[j].name;
-                console.log(recipient_name, category)
+                
                 recipients_list.push(recipient_name);
             }
             add_rule(yappl, category, recipients_list, "", [obj.dataDisclosed[i].purposes[0].purpose]);
@@ -640,7 +640,6 @@ async function secondary_nodes(thirdPartyName) {
 }
 
 function load_cytoscape() {
-    //console.log(myCyt);
     var cy = cytoscape({
 
 
@@ -722,7 +721,6 @@ function load_cytoscape() {
 
             document.getElementById(`switch_input${ele.id()}`).addEventListener('change', function () {
                 ele.toggleClass("hidden");
-                //console.log(ele.id())
                 ele.successors().toggleClass("hidden");
                 update_yappl_utilizer(ele.id(), ele.data("purpose"))
             });
@@ -746,8 +744,6 @@ function load_cytoscape() {
             var touched = 0
             //check if utilizer is explicitely excluded
             if (cookie_content != null){
-                console.log('cookie defined');
-                console.log(ele.id())
                 for (var c =0; c < cookie_content['preference'].length; c++){
                     if (cookie_content['preference'][c]['rule']['utilizer']['excluded'].includes(ele.id())){
                         const touched_button = document.getElementById(`switch_input${ele.id()}`);
@@ -777,7 +773,7 @@ function load_cytoscape() {
                 ele.successors().toggleClass("hidden");
                 update_yappl_utilizer(ele.id(), ele.data("purpose"))
             }
-            console.log(document.getElementById("improveWebsite"));
+        
             // end yappl section
         }
 
@@ -927,7 +923,7 @@ function update_yappl_utilizer(org_name, purpose){
             yappl['preference'][loc_lastRule]['rule']['purpose']['permitted'] = purpose
             yappl['preference'][loc_lastRule]['rule']['utilizer']['excluded'].push(org_name)
     }
-    console.log(yappl)
+    //console.log(yappl)
     //update the cookie
     window.localStorage.setItem('YaPPL', JSON.stringify(yappl));
     //document.cookie = "YaPPL=" + JSON.stringify(yappl) + ";";
