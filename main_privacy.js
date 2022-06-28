@@ -1,3 +1,5 @@
+//const { isNullableType } = require("graphql");
+
 // contained data for different purposes
 var serviceStrings = ["time and date", "operating system", "pages you visited"];
 var securityStrings = ["IP address", "port", "browser", "operating system", "pages you visited", "respests", "responses", "HTTP Status Codes", "time and date"];
@@ -98,13 +100,13 @@ function getCookie(name) {
 }
 
 // invoked in main HTML before dashboard is built
+// variable is not kept 
 var cookie_content;
 function load_YaPPL_cookie() {
     cookie_content = JSON.parse(window.localStorage.getItem('YaPPL'));
-    update_toggles(cookie_content);
-    //if (typeof (cookie_content) != 'undefined') {
-    //    cookie_content = getCookie("YaPPL");
-    //}
+    if (cookie_content != null) {
+        update_toggles(cookie_content);
+    }
 }
 
 //update toggle state
@@ -707,15 +709,13 @@ function load_cytoscape() {
 
     cy.nodes().forEach(function( ele ){
 
-        var check_status = 'checked'
-
         // add toggle button to third party nodes. 
         if (ele.data("level") == 1) {
             var myButton = document.createElement("div");
 
             myButton.innerHTML = `<div class=\"col-12 p-1\"">\n
             <div id="switch${ele.id()}" class="form-check form-switch\">\n
-            <input id="switch_input${ele.id()}" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" ${check_status}>\n
+            <input id="switch_input${ele.id()}" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>\n
             <label class="form-check-label" for="flexSwitchCheckChecked">${ele.id()}</label> \n
             </div> \n</div>`; 
             document.getElementById('comp_switches').appendChild(myButton);
@@ -739,7 +739,49 @@ function load_cytoscape() {
             </div> \n</div>`; 
             document.getElementById('comp_switches').appendChild(myButton);
         }
-        }); 
+
+        //begin yappl
+        // check that node has a switch
+        if (ele.data('level') ==1){
+            var touched = 0
+            //check if utilizer is explicitely excluded
+            if (cookie_content != null){
+                console.log('cookie defined');
+                console.log(ele.id())
+                for (var c =0; c < cookie_content['preference'].length; c++){
+                    if (cookie_content['preference'][c]['rule']['utilizer']['excluded'].includes(ele.id())){
+                        const touched_button = document.getElementById(`switch_input${ele.id()}`);
+                        touched_button.toggleAttribute('checked');
+                        ele.toggleClass("hidden");
+                        ele.successors().toggleClass("hidden");
+                        update_yappl_utilizer(ele.id(), ele.data("purpose"))
+                        touched = 1
+                    }
+                }
+            }
+
+            // check if their purpose is excluded on the primary toggles
+            // also check if already switched off from yappl
+            if (touched == 0 && ele.data('purpose') == "personalise your ads" && (document.getElementById("tglPersAds").checked == false || document.getElementById("tglAnnoyed1").checked == false || document.getElementById("tglPersAdsModal").checked == false)) {
+                const touched_button = document.getElementById(`switch_input${ele.id()}`);
+                touched_button.toggleAttribute('checked');
+                ele.toggleClass("hidden");
+                ele.successors().toggleClass("hidden");
+                update_yappl_utilizer(ele.id(), ele.data("purpose"))
+            }
+            
+            else if (touched == 0 && ele.data('purpose') == "improve the website" && (document.getElementById("tglWebsite").checked == false || document.getElementById("tglAnnoyed2").checked == false || document.getElementById("tglWebsiteModal").checked == false)) {
+                const touched_button = document.getElementById(`switch_input${ele.id()}`);
+                touched_button.toggleAttribute('checked');
+                ele.toggleClass("hidden");
+                ele.successors().toggleClass("hidden");
+                update_yappl_utilizer(ele.id(), ele.data("purpose"))
+            }
+            console.log(document.getElementById("improveWebsite"));
+            // end yappl section
+        }
+
+    }); 
     
         // toggle EU states
         document.getElementById("europe").addEventListener('change', function () {
@@ -752,26 +794,9 @@ function load_cytoscape() {
             if (node.connectedEdges().hidden()) {
                 node.toggleClass("hidden");
             }
+
         });
-
-        if (cookie_content != undefined){
-            for (var c =0; c < cookie_content['preference'].length; c++){
-                if (cookie_content['preference'][c]['rule']['utilizer']['excluded'].includes(ele.id())){
-                    const touched_button = document.getElementById(`switch_input${node.id()}`);
-                    touched_button.toggleAttribute('checked');
-                }
-            }
-        }
-
-        if (ele.data('purpose') == "personalise your ads" && (document.getElementById("personaliseAds2").style.display == "block" || document.getElementById("annoyed1").style.display == "block" || document.getElementById("personaliseAds").style.display == "block")) {
-            const touched_button = document.getElementById(`switch_input${node.id()}`);
-            touched_button.toggleAttribute('checked');
-        }
-
-        else if (ele.data('purpose') == "improve the website" && (document.getElementById("improveWebsite2").style.display == "block" || document.getElementById("annoyed2").style.display == "block" || document.getElementById("improveWebsite").style.display == "block")) {
-            const touched_button = document.getElementById(`switch_input${node.id()}`);
-            touched_button.toggleAttribute('checked');
-        }
+        
 
     });
 
